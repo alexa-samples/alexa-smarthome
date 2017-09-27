@@ -31,6 +31,7 @@ def validate_message(request, response):
 
     # update below with path to your validation schema
     # this path works if you copy the latest validation schema into the same directory as this file
+    # validation schema: https://github.com/alexa/alexa-smarthome/wiki/Validation-Schema
     path_to_validation_schema = "alexa_smart_home_message_schema.json"
 
     with open(path_to_validation_schema) as json_file:
