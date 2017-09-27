@@ -2662,6 +2662,7 @@
                                                         "CAMERA",
                                                         "DOOR",
                                                         "THERMOSTAT",
+                                                        "TEMPERATURE_SENSOR",
                                                         "SMARTLOCK",
                                                         "SCENE_TRIGGER",
                                                         "ACTIVITY_TRIGGER",
