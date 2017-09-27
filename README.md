@@ -1,6 +1,6 @@
 # Welcome to the Alexa Smart Home GitHub
 
-This repository will house sample code and resources for Alexa Smart Home developers. 
+This repository contains sample code and resources for Alexa Smart Home developers. 
 
 To get started, https://github.com/alexa/alexa-smarthome/wiki.
 
