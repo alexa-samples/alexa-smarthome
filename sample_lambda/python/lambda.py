@@ -668,7 +668,7 @@ def get_capabilities_from_v2_appliance(appliance):
             }
         ]
     else:
-        # in this example, just turn simple on/off capability
+        # in this example, just return simple on/off capability
         capabilities = [
             {
                 "type": "AlexaInterface",
@@ -684,6 +684,7 @@ def get_capabilities_from_v2_appliance(appliance):
             }
         ]
 
+    # additional capabilities that are required for each endpoint
     endpoint_health_capability = {
         "type": "AlexaInterface",
         "interface": "Alexa.EndpointHealth",
@@ -696,6 +697,11 @@ def get_capabilities_from_v2_appliance(appliance):
             "retrievable": True
         }
     }
-
+    alexa_interface_capability = {
+        "type": "AlexaInterface",
+        "interface": "Alexa",
+        "version": "3"
+    }
     capabilities.append(endpoint_health_capability)
+    capabilities.append(alexa_interface_capability)
     return capabilities
