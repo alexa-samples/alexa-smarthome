@@ -1,0 +1,69 @@
+{
+    "context": {
+        "properties": [
+            {
+                "namespace": "Alexa.ThermostatController",
+                "name": "lowerSetpoint",
+                "value": {
+                    "value": 68.0,
+                    "scale": "FAHRENHEIT"
+                },
+                "timeOfSample": "2017-09-27T18:30:30.45Z",
+                "uncertaintyInMilliseconds": 200
+            },
+            {
+                "namespace": "Alexa.ThermostatController",
+                "name": "targetSetpoint",
+                "value": {
+                    "value": 72.0,
+                    "scale": "FAHRENHEIT"
+                },
+                "timeOfSample": "2017-09-27T18:30:30.45Z",
+                "uncertaintyInMilliseconds": 200
+            },
+            {
+                "namespace": "Alexa.ThermostatController",
+                "name": "upperSetpoint",
+                "value": {
+                    "value": 76.0,
+                    "scale": "FAHRENHEIT"
+                },
+                "timeOfSample": "2017-09-27T18:30:30.45Z",
+                "uncertaintyInMilliseconds": 200
+            },
+            {
+                "namespace": "Alexa.ThermostatController",
+                "name": "thermostatMode",
+                "value": "AUTO",
+                "timeOfSample": "2017-09-27T18:30:30.45Z",
+                "uncertaintyInMilliseconds": 200
+            },
+            {
+                "namespace": "Alexa.EndpointHealth",
+                "name": "connectivity",
+                "value": {
+                    "value": "OK"
+                },
+                "timeOfSample": "2017-09-27T18:30:30.45Z",
+                "uncertaintyInMilliseconds": 200
+            }
+        ]
+    },
+    "event": {
+        "header": {
+            "namespace": "Alexa",
+            "name": "Response",
+            "payloadVersion": "3",
+            "messageId": "5f8a426e-01e4-4cc9-8b79-65f8bd0fd8a4",
+            "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg=="
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "access-token-from-Amazon"
+            },
+            "endpointId": "endpoint-001"
+        },
+        "payload": {}
+    }
+}

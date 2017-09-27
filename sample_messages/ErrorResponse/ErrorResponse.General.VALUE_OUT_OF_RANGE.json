@@ -1,0 +1,26 @@
+{
+    "event": {
+        "header": {
+            "namespace": "Alexa",
+            "name": "ErrorResponse",
+            "payloadVersion": "3",
+            "messageId": "5f8a426e-01e4-4cc9-8b79-65f8bd0fd8a4",
+            "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg=="
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "access-token-from-Amazon"
+            },
+            "endpointId": "endpoint-001"
+        },
+        "payload": {
+            "type": "VALUE_OUT_OF_RANGE",
+            "message": "The color temperature cannot be set to 500",
+            "validRange": {
+                "minimumValue": 1000,
+                "maximumValue": 10000
+            }
+        }
+    }
+}

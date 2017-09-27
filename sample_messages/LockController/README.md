@@ -1,0 +1,1 @@
+LockController provides some flexibilty for both fast and slow lock hardware. The directives are the same, but the responses can be different.

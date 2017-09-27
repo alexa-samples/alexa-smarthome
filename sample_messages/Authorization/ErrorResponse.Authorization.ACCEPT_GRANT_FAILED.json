@@ -1,0 +1,15 @@
+{
+    "event": {
+        "header": {
+            "namespace": "Alexa.Authorization",
+            "name": "ErrorResponse",
+            "payloadVersion": "3",
+            "messageId": "5f8a426e-01e4-4cc9-8b79-65f8bd0fd8a4",
+            "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg=="
+        },
+        "payload": {
+            "type": "ACCEPT_GRANT_FAILED",
+            "message": "Failed to handle the AcceptGrant directive because request to Login with Amazon failed"
+        }
+    }
+}

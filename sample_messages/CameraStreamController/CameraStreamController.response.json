@@ -1,0 +1,62 @@
+{
+    "context": {
+        "properties": [
+            {
+                "namespace": "Alexa.EndpointHealth",
+                "name": "connectivity",
+                "value": {
+                    "value": "OK"
+                },
+                "timeOfSample": "2017-09-27T18:30:30.45Z",
+                "uncertaintyInMilliseconds": 200
+            }
+        ]
+    },
+    "event": {
+        "header": {
+            "namespace": "Alexa.CameraStreamController",
+            "name": "Response",
+            "payloadVersion": "3",
+            "messageId": "5f8a426e-01e4-4cc9-8b79-65f8bd0fd8a4",
+            "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg=="
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "access-token-from-Amazon"
+            },
+            "endpointId": "endpoint-001"
+        },
+        "payload": {
+            "cameraStreams": [
+                {
+                    "uri": "rtsp://username:password@link.to.video:443/feed1.mp4",
+                    "expirationTime": "2017-09-27T20:30:30.45Z",
+                    "idleTimeoutSeconds": 30,
+                    "protocol": "RTSP",
+                    "resolution": {
+                        "width": 1920,
+                        "height": 1080
+                    },
+                    "authorizationType": "BASIC",
+                    "videoCodec": "H264",
+                    "audioCodec": "AAC"
+                },
+                {
+                    "uri": "rtsp://username:password@link.to.video:443/feed2.mp4",
+                    "expirationTime": "2017-09-27T20:30:30.45Z",
+                    "idleTimeoutSeconds": 60,
+                    "protocol": "RTSP",
+                    "resolution": {
+                        "width": 1280,
+                        "height": 720
+                    },
+                    "authorizationType": "DIGEST",
+                    "videoCodec": "MPEG2",
+                    "audioCodec": "G711"
+                }
+            ],
+            "imageUri": "https://username:password@link.to.image/image.jpg"
+        }
+    }
+}

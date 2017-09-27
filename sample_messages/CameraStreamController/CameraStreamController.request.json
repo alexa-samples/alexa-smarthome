@@ -1,0 +1,43 @@
+{
+    "directive": {
+        "header": {
+            "namespace": "Alexa.CameraStreamController",
+            "name": "InitializeCameraStreams",
+            "payloadVersion": "3",
+            "messageId": "1bd5d003-31b9-476f-ad03-71d471922820",
+            "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg=="
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "access-token-from-skill"
+            },
+            "endpointId": "endpoint-001",
+            "cookie": {}
+        },
+        "payload": {
+            "cameraStreams": [
+                {
+                    "protocol": "RTSP",
+                    "resolution": {
+                        "width": 1920,
+                        "height": 1080
+                    },
+                    "authorizationType": "BEARER",
+                    "videoCodec": "H264",
+                    "audioCodec": "AAC"
+                },
+                {
+                    "protocol": "RTSP",
+                    "resolution": {
+                        "width": 1280,
+                        "height": 720
+                    },
+                    "authorizationType": "BEARER",
+                    "videoCodec": "MPEG2",
+                    "audioCodec": "G711"
+                }
+            ]
+        }
+    }
+}

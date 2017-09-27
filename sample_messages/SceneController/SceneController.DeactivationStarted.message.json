@@ -1,0 +1,37 @@
+{
+    "context": {
+        "properties": [
+            {
+                "namespace": "Alexa.EndpointHealth",
+                "name": "connectivity",
+                "value": {
+                    "value": "OK"
+                },
+                "timeOfSample": "2017-09-27T18:30:30.45Z",
+                "uncertaintyInMilliseconds": 200
+            }
+        ]
+    },
+    "event": {
+        "header": {
+            "namespace": "Alexa.SceneController",
+            "name": "DeactivationStarted",
+            "payloadVersion": "3",
+            "messageId": "5f8a426e-01e4-4cc9-8b79-65f8bd0fd8a4",
+            "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg=="
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "access-token-from-Amazon"
+            },
+            "endpointId": "endpoint-001"
+        },
+        "payload": {
+            "cause": {
+                "type": "APP_INTERACTION"
+            },
+            "timestamp": "2017-09-27T18:30:30.45Z"
+        }
+    }
+}

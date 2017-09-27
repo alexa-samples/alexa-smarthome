@@ -1,0 +1,26 @@
+{
+    "event": {
+        "header": {
+            "namespace": "Alexa.ThermostatController",
+            "name": "ErrorResponse",
+            "payloadVersion": "3",
+            "messageId": "5f8a426e-01e4-4cc9-8b79-65f8bd0fd8a4",
+            "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg=="
+        },
+        "endpoint": {
+            "scope": {
+                "type": "BearerToken",
+                "token": "access-token-from-Amazon"
+            },
+            "endpointId": "endpoint-001"
+        },
+        "payload": {
+            "type": "REQUESTED_SETPOINTS_TOO_CLOSE",
+            "message": "The requested temperature results in setpoints too close",
+            "minimumTemperatureDelta": {
+                "value": 2.0,
+                "scale": "CELSIUS"
+            }
+        }
+    }
+}
