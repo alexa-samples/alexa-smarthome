@@ -2019,6 +2019,28 @@
                     }
                 }
             },
+            "payload.general.ENDPOINT_LOW_POWER": {
+                "type": "object",
+                "required": [
+                    "type"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "type": {
+                        "enum": [
+                            "ENDPOINT_LOW_POWER"
+                        ]
+                    },
+                    "message": {
+                        "$ref": "#/definitions/common.properties/message"
+                    },
+                    "percentageState": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 100
+                    }
+                }
+            },
             "payload.general.TEMPERATURE_VALUE_OUT_OF_RANGE": {
                 "type": "object",
                 "required": [
@@ -2308,6 +2330,20 @@
                                 },
                                 "payload": {
                                     "$ref": "#/definitions/ErrorResponse.properties/payload.general.NOT_SUPPORTED_IN_CURRENT_MODE"
+                                }
+                            }
+                        },
+                        {
+                            "additionalProperties": false,
+                            "properties": {
+                                "header": {
+                                    "$ref": "#/definitions/ErrorResponse.properties/header.general"
+                                },
+                                "endpoint": {
+                                    "$ref": "#/definitions/common.properties/endpoint"
+                                },
+                                "payload": {
+                                    "$ref": "#/definitions/ErrorResponse.properties/payload.general.ENDPOINT_LOW_POWER"
                                 }
                             }
                         },
