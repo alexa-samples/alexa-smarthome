@@ -232,6 +232,32 @@
                 }
             },
             "interfaces": {
+                "Alexa": {
+                    "capabilities": {
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "interface",
+                            "version"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "AlexaInterface"
+                                ]
+                            },
+                            "interface": {
+                                "enum": [
+                                    "Alexa"
+                                ]
+                            },
+                            "version": {
+                                "$ref": "#/definitions/common.properties/version"
+                            }
+                        }
+                    }
+                },
                 "EndpointHealth": {
                     "connectivity": {
                         "property": {
@@ -2683,6 +2709,9 @@
                                                 "additionalItems": false,
                                                 "items": {
                                                     "anyOf": [
+                                                        {
+                                                            "$ref": "#/definitions/common.properties/interfaces/Alexa/capabilities"
+                                                        },
                                                         {
                                                             "$ref": "#/definitions/common.properties/interfaces/EndpointHealth/capabilities"
                                                         },

@@ -23,6 +23,11 @@
                     "capabilities": [
                         {
                             "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "type": "AlexaInterface",
                             "interface": "Alexa.PowerController",
                             "version": "3",
                             "properties": {
@@ -61,6 +66,11 @@
                     ],
                     "cookie": {},
                     "capabilities": [
+                        {
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
                         {
                             "type": "AlexaInterface",
                             "interface": "Alexa.PowerController",
@@ -173,6 +183,11 @@
                     "capabilities": [
                         {
                             "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "type": "AlexaInterface",
                             "interface": "Alexa.PowerController",
                             "version": "3",
                             "properties": {
@@ -269,6 +284,11 @@
                     "capabilities": [
                         {
                             "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "type": "AlexaInterface",
                             "interface": "Alexa.ThermostatController",
                             "version": "3",
                             "properties": {
@@ -324,6 +344,11 @@
                     ],
                     "cookie": {},
                     "capabilities": [
+                        {
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
                         {
                             "type": "AlexaInterface",
                             "interface": "Alexa.ThermostatController",
@@ -386,6 +411,11 @@
                     "capabilities": [
                         {
                             "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "type": "AlexaInterface",
                             "interface": "Alexa.LockController",
                             "version": "3",
                             "properties": {
@@ -426,6 +456,11 @@
                     "capabilities": [
                         {
                             "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "type": "AlexaInterface",
                             "interface": "Alexa.SceneController",
                             "version": "3",
                             "supportsDeactivation": false,
@@ -459,6 +494,11 @@
                     "capabilities": [
                         {
                             "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "type": "AlexaInterface",
                             "interface": "Alexa.SceneController",
                             "version": "3",
                             "supportsDeactivation": true,
@@ -490,6 +530,11 @@
                     ],
                     "cookie": {},
                     "capabilities": [
+                        {
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
                         {
                             "type": "AlexaInterface",
                             "interface": "Alexa.CameraStreamController",
@@ -543,6 +588,11 @@
                     ],
                     "cookie": {},
                     "capabilities": [
+                        {
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
                         {
                             "type": "AlexaInterface",
                             "interface": "Alexa.ChannelController",
