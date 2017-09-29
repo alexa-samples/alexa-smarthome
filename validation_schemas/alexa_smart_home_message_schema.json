@@ -195,6 +195,11 @@
                     "3"
                 ]
             },
+            "versionAV": {
+                "enum": [
+                    "1.0"
+                ]
+            },
             "endpointId": {
                 "type": "string",
                 "pattern": "^[a-zA-Z0-9_\\-=#;:?@&]*$",
@@ -1441,7 +1446,7 @@
                                 ]
                             },
                             "version": {
-                                "$ref": "#/definitions/common.properties/version"
+                                "$ref": "#/definitions/common.properties/versionAV"
                             },
                             "properties": {
                                 "type": "object",
@@ -1536,7 +1541,7 @@
                                 ]
                             },
                             "version": {
-                                "$ref": "#/definitions/common.properties/version"
+                                "$ref": "#/definitions/common.properties/versionAV"
                             },
                             "properties": {
                                 "type": "object",
@@ -1665,7 +1670,7 @@
                                 ]
                             },
                             "version": {
-                                "$ref": "#/definitions/common.properties/version"
+                                "$ref": "#/definitions/common.properties/versionAV"
                             },
                             "properties": {
                                 "type": "object",
