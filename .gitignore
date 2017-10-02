@@ -1,2 +1,5 @@
 
 sample_lambda/python/python.zip
+*.txt
+sample_lambda/python/alexa_smart_home_message_schema.json
+sample_lambda/python/lambda1.py
