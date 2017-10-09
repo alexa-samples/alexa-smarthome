@@ -2424,20 +2424,6 @@
                             "additionalProperties": false,
                             "properties": {
                                 "header": {
-                                    "$ref": "#/definitions/ErrorResponse.properties/header.ThermostatController"
-                                },
-                                "endpoint": {
-                                    "$ref": "#/definitions/common.properties/endpoint"
-                                },
-                                "payload": {
-                                    "$ref": "#/definitions/ErrorResponse.properties/payload.general.TEMPERATURE_VALUE_OUT_OF_RANGE"
-                                }
-                            }
-                        },
-                        {
-                            "additionalProperties": false,
-                            "properties": {
-                                "header": {
                                     "$ref": "#/definitions/ErrorResponse.properties/header.Authorization"
                                 },
                                 "payload": {
