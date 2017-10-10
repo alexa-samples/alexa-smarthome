@@ -169,25 +169,17 @@ def main():
         alexa_params = {
             "context": {
                 "properties": [{
-                    "namespace": "Alexa.BrightnessController",
-                    "name": "brightness",
-                    "value": 99,
-                    "timeOfSample": time_of_sample,
-                    "uncertaintyInMilliseconds": 500
-                }, {
-                    "namespace": "Alexa.ColorController",
-                    "name": "color",
+                    "namespace": "Alexa.EndpointHealth",
+                    "name": "connectivity",
                     "value": {
-                        "hue": 350.5,
-                        "saturation": 0.7138,
-                        "brightness": 0.6524
+                        "value": "OK"
                     },
                     "timeOfSample": time_of_sample,
                     "uncertaintyInMilliseconds": 500
                 }, {
-                    "namespace": "Alexa.ColorTemperatureController",
-                    "name": "colorTemperatureInKelvin",
-                    "value": 7500,
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 99,
                     "timeOfSample": time_of_sample,
                     "uncertaintyInMilliseconds": 500
                 }]
@@ -204,21 +196,21 @@ def main():
                         "type": "BearerToken",
                         "token": token
                     },
-                    "endpointId": "appliance-002"
+                    "endpointId": "endpoint-002"
                 },
                 "payload": {
                     "change": {
                         "cause": {
-                            "type": "ALEXA_INTERACTION"
-                        }
-                    },
-                    "properties": [{
-                        "namespace": "Alexa.PowerController",
-                        "name": "powerState",
-                        "value": "ON",
-                        "timeOfSample": time_of_sample,
-                        "uncertaintyInMilliseconds": 500
-                    }]
+                            "type": "PHYSICAL_INTERACTION"
+                        },
+                        "properties": [{
+                            "namespace": "Alexa.PowerController",
+                            "name": "powerState",
+                            "value": "ON",
+                            "timeOfSample": time_of_sample,
+                            "uncertaintyInMilliseconds": 500
+                        }]
+                    }
                 }
             }
         }
