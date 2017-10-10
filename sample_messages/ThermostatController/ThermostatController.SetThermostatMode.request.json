@@ -16,7 +16,9 @@
             "cookie": {}
         },
         "payload": {
-            "thermostatMode": "COOL"
+            "thermostatMode": {
+                "value": "COOL"
+            }
         }
     }
 }
