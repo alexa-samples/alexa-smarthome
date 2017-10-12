@@ -1802,9 +1802,6 @@
             },
             "context": {
                 "type": "object",
-                "required": [
-                    "properties"
-                ],
                 "additionalProperties": false,
                 "properties": {
                     "properties": {
