@@ -2061,11 +2061,6 @@
                     },
                     "message": {
                         "$ref": "#/definitions/common.properties/message"
-                    },
-                    "percentageState": {
-                        "type": "integer",
-                        "minimum": 0,
-                        "maximum": 100
                     }
                 }
             },
