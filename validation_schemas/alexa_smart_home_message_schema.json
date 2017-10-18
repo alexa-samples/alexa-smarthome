@@ -204,7 +204,6 @@
             "endpoint": {
                 "type": "object",
                 "required": [
-                    "scope",
                     "endpointId"
                 ],
                 "properties": {
