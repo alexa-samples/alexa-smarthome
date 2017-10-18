@@ -596,7 +596,7 @@
                         {
                             "type": "AlexaInterface",
                             "interface": "Alexa.ChannelController",
-                            "version": "1.0",
+                            "version": "3",
                             "properties": {
                                 "supported": [
                                     {
@@ -610,7 +610,7 @@
                         {
                             "type": "AlexaInterface",
                             "interface": "Alexa.InputController",
-                            "version": "1.0",
+                            "version": "3",
                             "properties": {
                                 "supported": [
                                     {
@@ -624,7 +624,7 @@
                         {
                             "type": "AlexaInterface",
                             "interface": "Alexa.Speaker",
-                            "version": "1.0",
+                            "version": "3",
                             "properties": {
                                 "supported": [
                                     {
