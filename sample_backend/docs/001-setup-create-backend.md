@@ -33,5 +33,6 @@ These instructions create the backend services needed by the Smart Home Skill us
 
 	
 <br>
+
 ____
 Go to [Step 2: Set Up Login with Amazon](002-setup-lwa.md).

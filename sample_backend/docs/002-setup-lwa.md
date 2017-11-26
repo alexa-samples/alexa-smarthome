@@ -58,5 +58,6 @@ https://alexa.amazon.co.jp/api/skill/link/M1PXZ4CXNJ6TU4
 
 
 <br>
+
 ____
 Go to [Step 3: Create the Alexa Smart Home Skill](003-setup-create-skill-smarthome.md).

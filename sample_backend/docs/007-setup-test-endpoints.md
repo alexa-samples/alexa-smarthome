@@ -26,5 +26,6 @@ Now that the environment is in place and a test device has been created, test ou
 
 
 <br>
+
 ____
 Go to [Step 8: Send an Event](008-setup-send-an-event.md).
