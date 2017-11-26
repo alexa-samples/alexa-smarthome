@@ -1,2 +1,5 @@
-
+.idea/
+endpoint-package.zip
+skill-package.zip
 sample_lambda/python/python.zip
+__pycache__
