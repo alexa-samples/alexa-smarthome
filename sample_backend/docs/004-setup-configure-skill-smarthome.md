@@ -89,5 +89,6 @@ Alexa, turn on White Switch
 
 
 <br>
+
 ____
 Go to [Step 5: Link the Alexa Smart Home Skill](005-setup-link-skill-smarthome.md).

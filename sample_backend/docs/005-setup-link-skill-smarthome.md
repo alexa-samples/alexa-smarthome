@@ -45,5 +45,6 @@ With a completed Alexa Smart Home Skill configuration, the Alexa Skill Client ID
 > No new devices from the Sample Smart Home Skill will be returned. This is expected.
 
 <br>
+
 ____
 Go to [Step 6: Create the Endpoints](006-setup-create-endpoints.md).

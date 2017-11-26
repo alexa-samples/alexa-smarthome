@@ -59,5 +59,6 @@ amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 > ```
 
 <br>
+
 ____
 Go to [Step 4: Configure the Alexa Smart Home Skill](004-setup-configure-skill-smarthome.md).

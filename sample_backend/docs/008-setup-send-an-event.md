@@ -38,5 +38,6 @@ Send an external event into Alexa from the Endpoint Device backend. This simulat
 <span style="color:#ccc">8.1.2</span> Return to the [AWS IoT Things console](https://console.aws.amazon.com/iotv2/home?region=us-east-1#/thinghub) and note the _state_ value of the _black_switch_. The state should reflect the _"state"_ value passed in the body. For instance, if set to _"OFF"_, the _black_switch_ attribute _state_ will be set to _OFF_.
 
 <br>
+
 ____
 Go to [Step 9: Clean Up](009-setup-cleanup.md).

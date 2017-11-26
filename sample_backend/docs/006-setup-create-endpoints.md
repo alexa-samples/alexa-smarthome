@@ -67,5 +67,6 @@ amzn1.account.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 
 <br>
+
 ____
 Go to [Step 7: Test the Endpoints](007-setup-test-endpoints.md).
