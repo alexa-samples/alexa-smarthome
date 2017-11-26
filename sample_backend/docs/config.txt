@@ -1,0 +1,28 @@
+Set in Step 1 - A unique API ID and name for the Alexa Smart Home Skill Lambda function
+[EndpointApiId]
+XXXXXXXXXX
+
+[SkillLambdaArn]
+arn:aws:lambda:us-east-1:XXXXXXXXXXXX:function:SampleSkillAdapter
+
+Set in Step 2 - The Client ID and Secret from the LWA Security Profile 
+[Login with Amazon Client ID]
+amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+[Login with Amazon Client Secret]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Set in Step 3 - A unique ID for the Alexa Smart Home Skill
+[Alexa Skill Application Id]
+amzn1.ask.skill.XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
+
+Set in Step 4 - The Messaging Client and Secret from the Alexa Smart Home Skill 
+[Alexa Skill Messaging Client Id]
+amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+[Alexa Skill Messaging Client Secret]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+Set in Step 6 - The profile user_id of the User
+[user_id]
+amzn1.account.XXXXXXXXXXXXXXXXXXXXXXXXXXXX

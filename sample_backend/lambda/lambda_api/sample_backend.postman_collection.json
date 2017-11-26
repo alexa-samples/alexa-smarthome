@@ -1,0 +1,234 @@
+{
+	"info": {
+		"name": "Alexa Smart Home (sample_backend)",
+		"_postman_id": "f7c2bd05-9253-142c-4457-94b01f4103ca",
+		"description": "REST calls for the sample_backend content available on https://github.com/alexa/alexa-smarthome",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/endpoints",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/endpoints",
+					"protocol": "https",
+					"host": [
+						"{{endpoint_api_id}}",
+						"execute-api",
+						"{{aws_region}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"endpoints"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/endpoints",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"event\": {\n    \"endpoint\": {\n    \t\"userId\" : \"0\",\n    \t\"id\": \"black_switch\",\n    \t\"state\": \"OFF\",\n    \t\"type\": \"SWITCH\"\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com//prod/endpoints",
+					"protocol": "https",
+					"host": [
+						"{{endpoint_api_id}}",
+						"execute-api",
+						"{{aws_region}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"",
+						"prod",
+						"endpoints"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/events",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"event\": {\n    \"endpoint\": {\n    \t\"userId\" : \"0\",\n    \t\"id\": \"black_switch\",\n    \t\"state\": \"OFF\",\n    \t\"type\": \"SWITCH\"\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/events",
+					"protocol": "https",
+					"host": [
+						"{{endpoint_api_id}}",
+						"execute-api",
+						"{{aws_region}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"events"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/directives (AcceptGrant)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.Authorization\",\r\n            \"name\": \"AcceptGrant\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"payload\": {\r\n            \"grant\": {\r\n                \"type\": \"OAuth2.AuthorizationCode\",\r\n                \"code\": \"ANUbUKCJqlBOpMhwYWxU\"\r\n            },\r\n            \"grantee\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            }\r\n        }\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
+					"protocol": "https",
+					"host": [
+						"{{endpoint_api_id}}",
+						"execute-api",
+						"{{aws_region}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"directives"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/directives (Discover)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"directive\": {\n        \"header\": {\n            \"namespace\": \"Alexa.Discovery\",\n            \"name\": \"Discover\",\n            \"payloadVersion\": \"3\",\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\"\n        },\n        \"payload\": {\n            \"scope\": {\n                \"type\": \"BearerToken\",\n                \"token\": \"access-token-from-skill\"\n            }\n        }\n    }\n}"
+				},
+				"url": {
+					"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
+					"protocol": "https",
+					"host": [
+						"{{endpoint_api_id}}",
+						"execute-api",
+						"{{aws_region}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"directives"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/directives (TurnOff)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.PowerController\",\r\n            \"name\": \"TurnOff\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"endpoint\": {\r\n            \"scope\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            },\r\n            \"endpointId\": \"black_switch\",\r\n            \"cookie\": {}\r\n        },\r\n        \"payload\": {}\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
+					"protocol": "https",
+					"host": [
+						"{{endpoint_api_id}}",
+						"execute-api",
+						"{{aws_region}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"directives"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/directives (TurnOn)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.PowerController\",\r\n            \"name\": \"TurnOn\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"endpoint\": {\r\n            \"scope\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            },\r\n            \"endpointId\": \"black_switch\",\r\n            \"cookie\": {}\r\n        },\r\n        \"payload\": {}\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
+					"protocol": "https",
+					"host": [
+						"{{endpoint_api_id}}",
+						"execute-api",
+						"{{aws_region}}",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"prod",
+						"directives"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
