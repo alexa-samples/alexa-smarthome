@@ -3,3 +3,6 @@ endpoint-package.zip
 skill-package.zip
 sample_lambda/python/python.zip
 __pycache__
+*.txt
+sample_lambda/python/alexa_smart_home_message_schema.json
+sample_lambda/python/lambda1.py

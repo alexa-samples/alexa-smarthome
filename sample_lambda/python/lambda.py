@@ -36,7 +36,7 @@ logger.setLevel(logging.INFO)
 
 # To simplify this sample Lambda, we omit validation of access tokens and retrieval of a specific
 # user's appliances. Instead, this array includes a variety of virtual appliances in v2 API syntax,
-# and will be used to demostrate transformation between v2 appliances and v3 endpoints.
+# and will be used to demonstrate transformation between v2 appliances and v3 endpoints.
 SAMPLE_APPLIANCES = [
     {
         "applianceId": "endpoint-001",
