@@ -53,5 +53,6 @@ These placeholders represent the configuration entities to be collected or creat
 > TIP Keep secrets safe. If a Client Secret is compromised or needs to be reset, you will have to discard the secret and regenerate the Client ID and Secret again or recreate the profile. This will immediately sever the existing access relationships and customers will have to re-authenticate or re-link their account or skill.
 
 <br>
+
 ____
 Go to [Step 1: Set Up the Smart Home Skill Backend](001-setup-create-backend.md).
