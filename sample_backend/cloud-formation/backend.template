@@ -290,7 +290,7 @@
                     ]
                 },
                 "Runtime": "python3.6",
-                "Timeout": "10"
+                "Timeout": "6"
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
@@ -616,7 +616,7 @@
                     ]
                 },
                 "Runtime": "python3.6",
-                "Timeout": "10"
+                "Timeout": "7"
             },
             "Metadata": {
                 "AWS::CloudFormation::Designer": {
