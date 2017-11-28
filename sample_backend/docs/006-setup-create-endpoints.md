@@ -8,7 +8,7 @@ Postman is a tool for managing and executing HTTP requests and is very useful fo
 ##### <span style="color:#aaa">6.1.1</span> Install Postman 
 <span style="color:#ccc">6.1.1</span> Go to [getpostman.com](https://www.getpostman.com) and download and install the correct Postman application for your platform.
 
-<span style="color:#ccc">6.1.2</span> Download the Postman Sample Smart Home Collection from https://raw.githubusercontent.com/alexa/alexa-smarthome/master/sample_backend/lambda/sample_backend.postman_collection.json into the `Alexa-SmartHome-Sample` directory on your Desktop. 
+<span style="color:#ccc">6.1.2</span> Download the Postman Sample Smart Home Collection from https://raw.githubusercontent.com/alexa/alexa-smarthome/master/sample_backend/lambda/lambda_api/sample_backend.postman_collection.json into the `Alexa-SmartHome-Sample` directory on your Desktop. 
 
 ##### <span style="color:#aaa">6.1.2</span> Import the _Alexa Smart Home (sample_backend)_ Postman collection
 
