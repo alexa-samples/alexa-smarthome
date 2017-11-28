@@ -6,7 +6,7 @@ Create endpoints to be discovered during the Alexa Smart Home Skill Discovery.
 Postman is a tool for managing and executing HTTP requests and is very useful for API development and usage.
 
 ##### <span style="color:#aaa">6.1.1</span> Install Postman 
-<span style="color:#ccc">6.1.1</span> Go to [getpostman.com](getpostman.com) and download and install the correct Postman application for your platform.
+<span style="color:#ccc">6.1.1</span> Go to [getpostman.com](https://www.getpostman.com) and download and install the correct Postman application for your platform.
 
 <span style="color:#ccc">6.1.2</span> Download the Postman Sample Smart Home Collection from https://raw.githubusercontent.com/alexa/alexa-smarthome/master/sample_backend/lambda/sample_backend.postman_collection.json into the `Alexa-SmartHome-Sample` directory on your Desktop. 
 
