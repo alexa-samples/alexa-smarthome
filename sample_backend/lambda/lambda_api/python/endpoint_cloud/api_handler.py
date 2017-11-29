@@ -60,24 +60,25 @@ class _Directive:
                     # Get the User ID
                     response_user_id = json.loads(ApiAuth.get_user_id(grantee_token).read().decode('utf-8'))
                     if 'error' in response_user_id:
-                        print('ERROR api.ApiHandler.directive.process.discovery.user_id: ' + response_user_id['error_description'])
+                        print('ERROR api.ApiHandler.directive.process.discovery.user_id:', response_user_id['error_description'])
                     user_id = response_user_id['user_id']
-                    print('user_id', user_id)
+                    print('LOG api.ApiHandler.directive.process.discovery.user_id:', user_id)
 
                     # Get the Access and Refresh Tokens
                     api_auth = ApiAuth()
                     response_token = api_auth.get_access_token(grant_code, client_id, client_secret, redirect_uri)
                     response_token_string = response_token.read().decode('utf-8')
-                    print('response_token_string:', response_token_string)
+                    print('LOG api.ApiHandler.directive.process.discovery.response_token_string:', response_token_string)
                     response_object = json.loads(response_token_string)
 
+                # Store the retrieved from the Authorization Server
                 access_token = response_object['access_token']
                 refresh_token = response_object['refresh_token']
                 token_type = response_object['token_type']
                 expires_in = response_object['expires_in']
 
                 # Calculate expiration
-                expiration_utc = datetime.now() + timedelta(seconds=(int(expires_in) - 5))
+                expiration_utc = datetime.utcnow() + timedelta(seconds=(int(expires_in) - 5))
 
                 # Store the User Information - This is useful for inspection during development
                 # TODO Hash User Information
@@ -98,7 +99,7 @@ class _Directive:
                 )
 
                 if result['ResponseMetadata']['HTTPStatusCode'] == 200:
-                    print('LOG', result)
+                    print('LOG SampleUsers.put_item:', result)
                     response = AlexaAcceptGrantResponse().get_response()
                 else:
                     error_message = 'Error creating User'
@@ -294,8 +295,7 @@ class _Event:
                     print('LOG PSU: Not sent for user_id of 0')
                 else:
                     response_psu = self.send_psu(endpoint_user_id, endpoint_name, endpoint_state)
-                    if response_psu:
-                        print('LOG PSU response:', response_psu.read().decode('utf-8'))
+                    print('LOG PSU response:', response_psu)
 
             except ClientError as e:
                 response = AlexaError(message=e).get_response()
@@ -308,10 +308,12 @@ class _Event:
     def is_token_expired(self, expiration_utc):
         now = datetime.utcnow().replace(tzinfo=None)
         then = datetime.strptime(expiration_utc, "%Y-%m-%dT%H:%M:%S.00Z")
-        seconds = (now - then).seconds
-        is_soon = seconds < 30
         is_expired = now > then
-        return is_soon and is_expired
+        if is_expired:
+            return is_expired
+        seconds = (now - then).seconds
+        is_soon = seconds < 30  # Give a 30 second buffer for expiration
+        return is_soon
 
     def send_psu(self, endpoint_user_id, endpoint_id, endpoint_state):
 
@@ -335,12 +337,14 @@ class _Event:
 
         # Get the Token
         if result['ResponseMetadata']['HTTPStatusCode'] == 200:
-            print('LOG', result)
+            print('LOG api.ApiHandler.event.create.send_psu.SampleUsers.get_item:', str(result))
 
             if 'Item' in result:
                 expiration_utc = result['Item']['ExpirationUTC']
-                if self.is_token_expired(expiration_utc):
-                    # The token has expired, get a new access token
+                token_is_expired = self.is_token_expired(expiration_utc)
+                print('LOG api.ApiHandler.event.create.send_psu.token_is_expired:', token_is_expired)
+                if token_is_expired:
+                    # The token has expired so get a new access token using the refresh token
                     refresh_token = result['Item']['RefreshToken']
                     client_id = result['Item']['ClientId']
                     client_secret = result['Item']['ClientSecret']
@@ -348,22 +352,55 @@ class _Event:
 
                     api_auth = ApiAuth()
                     response_refresh_token = api_auth.refresh_access_token(refresh_token, client_id, client_secret, redirect_uri)
-                    print('response_refresh_token', response_refresh_token)
-                    # TODO Return if the token could not be refreshed
+                    response_refresh_token_string = response_refresh_token.read().decode('utf-8')
+                    response_refresh_token_object = json.loads(response_refresh_token_string)
+
+                    # Store the new values from the refresh
+                    access_token = response_refresh_token_object['access_token']
+                    refresh_token = response_refresh_token_object['refresh_token']
+                    token_type = response_refresh_token_object['token_type']
+                    expires_in = response_refresh_token_object['expires_in']
+
+                    # Calculate expiration
+                    expiration_utc = datetime.utcnow() + timedelta(seconds=(int(expires_in) - 5))
+
+                    print('access_token', access_token)
+                    print('expiration_utc', expiration_utc)
+
+                    result = table.update_item(
+                        Key={
+                            'UserId': endpoint_user_id
+                        },
+                        UpdateExpression="set AccessToken=:a, RefreshToken=:r, TokenType=:t, ExpirationUTC=:e",
+                        ExpressionAttributeValues={
+                            ':a': access_token,
+                            ':r': refresh_token,
+                            ':t': token_type,
+                            ':e': expiration_utc.strftime("%Y-%m-%dT%H:%M:%S.00Z")
+                        },
+                        ReturnValues="UPDATED_NEW"
+                    )
+                    print('LOG api.ApiHandler.event.create.send_psu.SampleUsers.update_item:', str(result))
+
+                    # TODO Return an error here if the token could not be refreshed
+
                 else:
                     # Use the stored access token
                     access_token = result['Item']['AccessToken']
-                    alexa_change_report = AlexaChangeReport(endpoint_id=endpoint_id, token=access_token)
+                    print('LOG Using stored access_token:', access_token)
 
-                    payload = json.dumps(alexa_change_report.get_response())
-                    print('LOG PSU:', payload)
+                alexa_change_report = AlexaChangeReport(endpoint_id=endpoint_id, token=access_token)
+                payload = json.dumps(alexa_change_report.get_response())
+                print('LOG AlexaChangeReport.get_response:', payload)
 
-                    # TODO Map to correct endpoint for Europe: https://api.eu.amazonalexa.com/v3/events and the Far East: https://api.fe.amazonalexa.com/v3/events
-                    alexa_event_gateway_uri = 'api.amazonalexa.com'
-                    connection = http.client.HTTPSConnection(alexa_event_gateway_uri)
-                    headers = {
-                        'content-type': "application/json;charset=UTF-8",
-                        'cache-control': "no-cache"
-                    }
-                    connection.request('POST', '/v3/events', payload, headers)
-                    return connection.getresponse()
+                # TODO Map to correct endpoint for Europe: https://api.eu.amazonalexa.com/v3/events
+                # TODO Map to correct endpoint for Far East: https://api.fe.amazonalexa.com/v3/events
+                alexa_event_gateway_uri = 'api.amazonalexa.com'
+                connection = http.client.HTTPSConnection(alexa_event_gateway_uri)
+                headers = {
+                    'content-type': "application/json;charset=UTF-8",
+                    'cache-control': "no-cache"
+                }
+                connection.request('POST', '/v3/events', payload, headers) # preload_content=False
+                code = connection.getresponse().getcode()
+                return 'LOG PSU HTTP Status code: ' + str(code)
