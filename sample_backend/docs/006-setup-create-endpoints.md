@@ -64,7 +64,20 @@ amzn1.account.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 <span style="color:#ccc">6.2.10</span> On the _Edit black_switch_ attributes page, set the value of the _user_id_ **Attribute key** to the [user_id] stored in the `config.txt` file. This associates the `black_switch` thing with that user profile.
 
+> If you want to create other devices, repeat this section and update the POST body of the /endpoints call to look something like the following and click **Send** to POST it to the endpoint API:
 
+```
+{
+  "event": {
+    "endpoint": {
+    	"userId" : "INSERT_YOUR_USER_ID_FROM_CONFIG.TXT",
+    	"id": "white_switch",
+    	"state": "OFF",
+    	"type": "SWITCH"
+    }
+  }
+}
+```
 
 <br>
 
