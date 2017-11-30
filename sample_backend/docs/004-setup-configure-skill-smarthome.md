@@ -4,6 +4,7 @@ Configure the Alexa Smart Home Skill that will process the Smart Home commands.
 #### <span style="color:#aaa">4.1</span> Configure the Skill Endpoint
 
 <span style="color:#ccc">4.1.1</span> Locate and copy the [SkillLambdaArn] from the `config.txt` file. It will have the following format: 
+
 ```
 arn:aws:lambda:us-east-1:############:function:SampleSkillAdapter
 ```
@@ -17,6 +18,7 @@ arn:aws:lambda:us-east-1:############:function:SampleSkillAdapter
 <span style="color:#ccc">4.2.1</span> Further in the _Sample Smart Home Skill_ Configuration tab in the _Account Linking_ section enter `https://www.amazon.com/ap/oa` into the **Authorization URL** text box. 
 
 <span style="color:#ccc">4.2.2</span> Set the Client Id value to the [Login with Amazon Client ID] from the `config.txt` file. It will have the following format:
+
 ```
 amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -50,9 +52,54 @@ amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 #### <span style="color:#aaa">4.5</span> Collect the Messaging Client ID and Client Secret
 <span style="color:#ccc">4.5.1</span> From _Permissions_ group and in the **Alexa Skill Messaging** section, click the _Show_ link to expose the Client Secret and then copy the **Client ID** and **Client Secret** to the [Alexa Skill Messaging Client Id] and [Alexa Skill Messaging Client Secret] sections `config.txt` file.
 
-<span style="color:#ccc">4.5.2</span> Once the values are saved in `config.txt`, click **Next**.
+<span style="color:#ccc">4.5.2</span> Save the values into the `config.txt` file in the , click [Alexa Skill Messaging Client Id] and [Alexa Skill Messaging Client Secret] sections.
 
-<span style="color:#ccc">4.5.3</span> Click **Next** again when on the _Test_ tab.
+```
+[Alexa Skill Messaging Client Id]
+amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+[Alexa Skill Messaging Client Secret]
+XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+```
+
+#### <span style="color:#aaa">4.6</span> Set the Allowed Return URLs
+Using your account-specific values from the skill configuration section, collect the Redirect URLs and set them in the _Security Profile Web Settings_ **Allowed Return URLs**.
+
+<span style="color:#ccc">4.6.1</span> While on the security configuration page, locate the Returned Urls section. That section should have values that look like the following format:
+
+```
+https://pitangui.amazon.com/api/skill/link/XXXXXXXXXXXXXX
+https://layla.amazon.com/api/skill/link/XXXXXXXXXXXXXX
+https://alexa.amazon.co.jp/api/skill/link/XXXXXXXXXXXXXX
+```
+> These values will be copied into the previously Security Profile, so leave the Alexa skill configuration tab open.
+
+<span style="color:#ccc">4.6.2</span> Open [https://developer.amazon.com/iba-sp/overview.html](https://developer.amazon.com/iba-sp/overview.html) in another browser tab and make sure _APPS & SERVICES_ is selected in the top menu and _Security Profiles_ is selected in the sub menu.
+
+<span style="color:#ccc">4.6.3</span> On the _Security Profile Management_ page, click the **Sample Alexa Smart Home** profile.
+
+<span style="color:#ccc">4.6.4</span> In the details for the _Sample Alexa Smart Home - Security Profile_ click the **Web Settings** top tab menu.
+
+<span style="color:#ccc">4.6.5</span> On the Security Profile Management page for the _Sample Alexa Smart Home_ profile, click the **Edit** button.
+
+<span style="color:#ccc">4.6.6</span> In the _Allowed Return URLs_ section click the **Add Another** link until there are 3 text input fields.
+
+<span style="color:#ccc">4.6.7</span> Copy each of the 3 URLs from the Alexa skill configuration page into each of the text fields.
+
+<span style="color:#ccc">4.6.8</span> When all fields are entered, click **Save**.
+
+<span style="color:#ccc">4.6.9</span> Once saved, the _Allowed Return URLs_ section should look something like the following:
+
+![Allowed Return URLs Example](img/2.1.14-lwa-web-settings.png "Allowed Return URLs Example")
+
+<span style="color:#ccc">4.6.10</span> Close the _Security Profile Management_ tab and return to the Alexa skill configuration.
+
+#### <span style="color:#aaa">4.7</span> Step through the Alexa skill Test section
+Make no changes to the _Test_ tab of the Alexa _Sample Smart Home Skill_.
+
+<span style="color:#ccc">4.7.1</span> From the Alexa skill configuration page and while still on the _Configuration_ tab, click **Next** to move to the _Test_ tab.
+
+<span style="color:#ccc">4.7.2</span> Click **Next** again when on the _Test_ tab.
 
 #### <span style="color:#aaa">4.6</span> Set the Skill Publishing Information
 <span style="color:#ccc">4.6.1</span> On the _Publishing Information_ tab and in the **Testing Instructions** text field enter `This is a sample skill for Alexa Smart Home intended for development use.`.

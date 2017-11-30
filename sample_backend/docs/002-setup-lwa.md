@@ -3,7 +3,7 @@ For the sample environment, a development Login with Amazon (LWA) security profi
 
 #### <span style="color:#aaa">2.1</span> Create a Login with Amazon Security Profile
 
-<span style="color:#ccc">2.1.1</span> In your web browser, go to https://developer.amazon.com/lwa/sp/overview.html and make sure _APPS & SERVICES_ is selected in the top menu and _Login with Amazon_ is selected in the sub menu.
+<span style="color:#ccc">2.1.1</span> In your web browser, go to [https://developer.amazon.com/lwa/sp/overview.html](https://developer.amazon.com/lwa/sp/overview.html) and make sure _APPS & SERVICES_ is selected in the top menu and _Login with Amazon_ is selected in the sub menu.
 
 <span style="color:#ccc">2.1.2</span> On the _Login with Amazon_ page, click the **Create a New Security Profile** button.
 
@@ -35,27 +35,7 @@ amzn1.application-oa2-client.XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 [Login with Amazon Client Secret]
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-
-<span style="color:#ccc">2.1.10</span> On the _Login with Amazon_ page, click the gear icon of the _Sample Alexa Smart Home_ profile and select **Web Settings** from the drop down menu. 
-
-![Web Settings Location Example](img/2.1.10-lwa-web-settings.png "Web Settings Location Example")
-
-
-<span style="color:#ccc">2.1.11</span> On the Security Profile Management page for the _Sample Alexa Smart Home_ profile, click the **Edit** button.
-
-<span style="color:#ccc">2.1.12</span> In the _Allowed Return URLs_ section click the **Add Another** link until there are 3 text input fields and then copy the following 3 URLs into each of the text fields.
-```
-https://pitangui.amazon.com/api/skill/link/M1PXZ4CXNJ6TU4
-https://layla.amazon.com/api/skill/link/M1PXZ4CXNJ6TU4
-https://alexa.amazon.co.jp/api/skill/link/M1PXZ4CXNJ6TU4
-```
-
-<span style="color:#ccc">2.1.13</span> When all fields are entered, click **Save**.
-
-<span style="color:#ccc">2.1.14</span> Once saved, the _Allowed Return URLs_ section should look like the following:
-
-![Allowed Return URLs Example](img/2.1.14-lwa-web-settings.png "Allowed Return URLs Example")
-
+> Further configuration of the Security Profile Allowed Return URLs will be done during configuration of the Alexa Smart Home Skill.
 
 <br>
 
