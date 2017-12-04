@@ -2055,6 +2055,9 @@
                     },
                     "message": {
                         "$ref": "#/definitions/common.properties/message"
+                    },
+                    "percentageState": {
+                        "type": "number"
                     }
                 }
             },
