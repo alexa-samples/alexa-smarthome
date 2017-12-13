@@ -2669,6 +2669,8 @@
                                                         "SMARTLOCK",
                                                         "SCENE_TRIGGER",
                                                         "ACTIVITY_TRIGGER",
+                                                        "SPEAKER",
+                                                        "TV",
                                                         "OTHER"
                                                     ]
                                                 }
