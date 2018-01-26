@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Amazon Software License (the "License"). You may not use this file except in
 # compliance with the License. A copy of the License is located at
@@ -13,7 +13,7 @@
 
 import json
 import os
-from endpoint_cloud import ApiAuth, ApiHandler, ApiResponse, ApiResponseBody
+from endpoint_cloud import ApiHandler, ApiResponse, ApiResponseBody
 
 
 def get_api_url(api_id, aws_region, resource):
@@ -85,6 +85,12 @@ def handler(request, context):
         # GET endpoints : List Endpoints
         if http_method == 'GET' and resource == '/endpoints':
             response = api_handler.endpoint.read(request)
+            api_response.statusCode = 200
+            api_response.body = json.dumps(response)
+
+        # DELETE endpoints : Delete an Endpoint
+        if http_method == 'DELETE' and resource == '/endpoints':
+            response = api_handler.endpoint.delete(request)
             api_response.statusCode = 200
             api_response.body = json.dumps(response)
 
