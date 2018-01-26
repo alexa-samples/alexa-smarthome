@@ -372,6 +372,8 @@
                                     "Effect": "Allow",
                                     "Action": [
                                         "iot:CreateThing",
+                                        "iot:CreateThingType",
+                                        "iot:DeleteThing",
                                         "iot:DescribeThing",
                                         "iot:ListThings",
                                         "iot:UpdateThing"
@@ -495,6 +497,26 @@
                 }
             }
         },
+        "EndpointsMethodDelete": {
+            "Type": "AWS::ApiGateway::Method",
+            "Properties": {
+                "RestApiId": {
+                    "Ref": "EndpointRestApi"
+                },
+                "ResourceId": {
+                    "Ref": "EndpointsResource"
+                },
+                "HttpMethod": "DELETE",
+                "AuthorizationType": "NONE",
+                "Integration": {
+                    "Type": "AWS_PROXY",
+                    "IntegrationHttpMethod": "POST",
+                    "Uri": {
+                        "Fn::Sub": "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${EndpointLambda.Arn}/invocations"
+                    }
+                }
+            }
+        },
         "DirectivesMethodPost": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
@@ -525,13 +547,13 @@
             "Properties": {
                 "AttributeDefinitions": [
                     {
-                        "AttributeName": "DetailsId",
+                        "AttributeName": "EndpointId",
                         "AttributeType": "S"
                     }
                 ],
                 "KeySchema": [
                     {
-                        "AttributeName": "DetailsId",
+                        "AttributeName": "EndpointId",
                         "KeyType": "HASH"
                     }
                 ],

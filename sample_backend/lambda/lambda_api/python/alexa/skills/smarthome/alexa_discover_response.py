@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Copyright 2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# Copyright 2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 #
 # Licensed under the Amazon Software License (the "License"). You may not use this file except in
 # compliance with the License. A copy of the License is located at
@@ -25,20 +25,25 @@ class AlexaDiscoverResponse:
         self.payload_version = request["directive"]["header"]["payloadVersion"]
         self.endpoints = []
 
-    def add_endpoint(self, thing):
-        # Translate the AWS IoT Thing attributes
-        endpoint_id_value = thing['thingName']
-        # HACK Using the thing name as the friendly name!
-        friendly_name_value = thing['thingName'].replace('_', ' ')
-        # NOTE SWITCH is currently hardcoded into the endpoint
-        self.endpoints.append(self.create_endpoint(endpoint_id=endpoint_id_value, friendly_name=friendly_name_value, display_categories=['SWITCH']))
+    def add_endpoint(self, endpoint_details):
+        self.endpoints.append(
+            self.create_endpoint(
+                capabilities=endpoint_details.capabilities,
+                description=endpoint_details.description,
+                display_categories=endpoint_details.display_categories,
+                endpoint_id=endpoint_details.id,
+                friendly_name=endpoint_details.friendly_name,
+                manufacturer_name=endpoint_details.manufacturer_name,
+                sku=endpoint_details.sku,
+                user_id=endpoint_details.user_id
+            ))
 
     def create_capability(self, **kwargs):
         capability = {}
         capability['type'] = kwargs.get('type', 'AlexaInterface')
         capability['interface'] = kwargs.get('interface', 'Alexa')
         capability['version'] = kwargs.get('version', '3')
-        supported = kwargs.get('supported', None)  # [{"name": "powerState"}]
+        supported = kwargs.get('supported', None)
         if supported:
             capability['properties'] = {}
             capability['properties']['supported'] = supported
@@ -48,27 +53,23 @@ class AlexaDiscoverResponse:
         return capability
 
     def create_endpoint(self, **kwargs):
+        # Return the proper structure expected for the endpoint
         endpoint = {}
+        endpoint['capabilities'] = kwargs.get('capabilities', [])
+        endpoint['description'] = kwargs.get('description', 'Endpoint Description')
+        endpoint['displayCategories'] = kwargs.get('display_categories', ['OTHER'])
         endpoint['endpointId'] = kwargs.get('endpoint_id', 'endpoint_' + "%0.6d" % random.randint(0, 999999))
         endpoint['friendlyName'] = kwargs.get('friendly_name', 'Endpoint')
-        endpoint['description'] = kwargs.get('description', 'Endpoint Description')
         endpoint['manufacturerName'] = kwargs.get('manufacturer_name', 'Unknown Manufacturer')
-        endpoint['displayCategories'] = kwargs.get('display_categories', ['OTHER'])
-
-        # NOTE: These capabilities are hardcoded, how might we expose them differently?
-        endpoint['capabilities'] = []
-        endpoint['capabilities'].append(self.create_capability())
-        endpoint['capabilities'].append(self.create_capability(interface='Alexa.PowerController', supported=[{"name": "powerState"}]))
-        endpoint['capabilities'].append(self.create_capability(interface='Alexa.EndpointHealth', supported=[{"name": "connectivity"}]))
         return endpoint
 
     def create_property(self, **kwargs):
         p = {}
-        p['namespace'] = kwargs.get('namespace', 'Alexa')
         p['name'] = 'powerState'
-        p['value'] = 'ON'
+        p['namespace'] = kwargs.get('namespace', 'Alexa')
         p['timeOfSample'] = get_utc_timestamp()
         p['uncertaintyInMilliseconds'] = kwargs.get('uncertainty_in_milliseconds', 0)
+        p['value'] = 'ON'
         return p
 
     def get_response(self):
@@ -85,8 +86,6 @@ class AlexaDiscoverResponse:
         header['name'] = self.name
         header['payloadVersion'] = self.payload_version
         header['messageId'] = self.message_id
-
-        # self.endpoints.append(self.create_endpoint())
 
         payload = {}
         payload['endpoints'] = self.endpoints
