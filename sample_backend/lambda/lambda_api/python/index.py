@@ -13,6 +13,8 @@
 
 import json
 import os
+import sys
+import traceback
 from endpoint_cloud import ApiHandler, ApiResponse, ApiResponseBody
 
 
@@ -104,6 +106,12 @@ def handler(request, context):
     except KeyError as key_error:
         # For a key Error, return an error message and HTTP Status of 400 Bad Request
         message_string = "KeyError: " + str(key_error)
+
+        # Dump a traceback to help in debugging
+        print('TRACEBACK:START')
+        traceback.print_tb(sys.exc_info()[2])
+        print('TRACEBACK:END')
+
         api_response.statusCode = 400
         api_response.body = ApiResponseBody(result="ERR", message=message_string)
 
