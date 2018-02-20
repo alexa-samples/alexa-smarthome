@@ -153,21 +153,21 @@ class ApiHandlerDirective:
                 # Not Working: list_response = iot_aws.list_things(attributeName='user_id', attributeValue=user_id)
                 list_response = iot_aws.list_things()
                 for thing in list_response['things']:
-                    if thing['attributes']['user_id'] == user_id:
-                        endpoint_details = ApiHandlerEndpoint.EndpointDetails()
-                        endpoint_details.id = str(thing['thingName'])  # Add attribute endpoint_id to free thingName?
-                        print('LOG directive.process.discovery: Found:', endpoint_details.id, 'for user:', user_id)
-                        result = dynamodb_aws.get_item(TableName='SampleEndpointDetails',
-                                                       Key={'EndpointId': {'S': endpoint_details.id}})
-                        capabilities_string = self.get_db_value(result['Item']['Capabilities'])
-                        endpoint_details.capabilities = json.loads(capabilities_string)
-                        endpoint_details.description = self.get_db_value(result['Item']['Description'])
-                        endpoint_details.display_categories = json.loads(self.get_db_value(result['Item']['DisplayCategories']))
-                        endpoint_details.friendly_name = self.get_db_value(result['Item']['FriendlyName'])
-                        endpoint_details.manufacturer_name = self.get_db_value(result['Item']['ManufacturerName'])
-                        endpoint_details.sku = self.get_db_value(result['Item']['SKU'])
-                        endpoint_details.user_id = self.get_db_value(result['Item']['UserId'])
-                        alexa_discover_response.add_endpoint(endpoint_details)
+                    if 'user_id' in thing['attributes']:
+                        if thing['attributes']['user_id'] == user_id:
+                            endpoint_details = ApiHandlerEndpoint.EndpointDetails()
+                            endpoint_details.id = str(thing['thingName'])  # Add attribute endpoint_id to free thingName?
+                            print('LOG directive.process.discovery: Found:', endpoint_details.id, 'for user:', user_id)
+                            result = dynamodb_aws.get_item(TableName='SampleEndpointDetails', Key={'EndpointId': {'S': endpoint_details.id}})
+                            capabilities_string = self.get_db_value(result['Item']['Capabilities'])
+                            endpoint_details.capabilities = json.loads(capabilities_string)
+                            endpoint_details.description = self.get_db_value(result['Item']['Description'])
+                            endpoint_details.display_categories = json.loads(self.get_db_value(result['Item']['DisplayCategories']))
+                            endpoint_details.friendly_name = self.get_db_value(result['Item']['FriendlyName'])
+                            endpoint_details.manufacturer_name = self.get_db_value(result['Item']['ManufacturerName'])
+                            endpoint_details.sku = self.get_db_value(result['Item']['SKU'])
+                            endpoint_details.user_id = self.get_db_value(result['Item']['UserId'])
+                            alexa_discover_response.add_endpoint(endpoint_details)
 
                 response = alexa_discover_response.get_response()
 
