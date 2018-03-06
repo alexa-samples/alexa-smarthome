@@ -20,7 +20,7 @@ With a completed Alexa Smart Home Skill configuration, the Alexa Skill Client ID
 
 <span style="color:#ccc">5.2.1</span> Go to https://alexa.amazon.com/ and select **Skills** from the left menu.
 
-> Tip: Replace the skill value at the end of https://alexa.amazon.com/spa/index.html#skills/beta/ALEXA_SKILL_ID to go directly to a skill. 
+> Tip: Replace the skill value at the end of https://alexa.amazon.com/spa/index.html#skills/beta/ALEXA_SKILL_ID to go directly to a skill.
 > For example, https://alexa.amazon.com/spa/index.html#skills/beta/amzn1.ask.skill.203e1508-e33b-4b63-8e0e-70b97e45408d
 
 
@@ -40,9 +40,7 @@ With a completed Alexa Smart Home Skill configuration, the Alexa Skill Client ID
 
 <span style="color:#ccc">5.2.7</span> On success, you should be presented with a window that reads "To continue, close this window to discover devices you can control with Alexa." Close this page and return to the _Sample Smart Home Skill_.
 
-<span style="color:#ccc">5.2.8</span> When redirected back to the Skill page, you will be prompted 'Discover Devices'. Click **Discover Devices** to start the device discovery process. This may take up to 20 seconds to complete.
-
-> No new devices from the Sample Smart Home Skill will be returned. This is expected.
+<span style="color:#ccc">5.2.8</span> When redirected back to the Skill page, you will be prompted 'Discover Devices'. Click **Cancel**  for now as no new devices from the Sample Smart Home Skill will be returned without additional configuration.
 
 <br>
 

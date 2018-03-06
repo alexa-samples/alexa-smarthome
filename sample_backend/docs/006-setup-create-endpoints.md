@@ -2,19 +2,19 @@
 Create endpoints to be discovered during the Alexa Smart Home Skill Discovery.
 
 
-#### <span style="color:#aaa">6.1</span> Set Up Postman 
+#### <span style="color:#aaa">6.1</span> Set Up Postman
 Postman is a tool for managing and executing HTTP requests and is very useful for API development and usage.
 
-##### <span style="color:#aaa">6.1.1</span> Install Postman 
+##### <span style="color:#aaa">6.1.1</span> Install Postman
 <span style="color:#ccc">6.1.1</span> Go to [getpostman.com](https://www.getpostman.com) and download and install the correct Postman application for your platform.
 
-<span style="color:#ccc">6.1.2</span> Download the Postman Sample Smart Home Collection from https://raw.githubusercontent.com/alexa/alexa-smarthome/master/sample_backend/lambda/lambda_api/sample_backend.postman_collection.json into the `Alexa-SmartHome-Sample` directory on your Desktop. 
+<span style="color:#ccc">6.1.2</span> Download the Postman Sample Smart Home Collection from https://raw.githubusercontent.com/alexa/alexa-smarthome/master/sample_backend/lambda/lambda_api/sample_backend.postman_collection.json into the `Alexa-SmartHome-Sample` directory on your Desktop.
 
-##### <span style="color:#aaa">6.1.2</span> Import the _Alexa Smart Home (sample_backend)_ Postman collection
+##### <span style="color:#aaa">6.1.2</span> Import the *Alexa Smart Home (sample\_backend)* Postman collection
 
 <span style="color:#ccc">6.1.2.1</span> Open Postman.
 
-<span style="color:#ccc">6.1.2.2</span> In Postman, click **Import** from the main menu and browse to the `sample_backend.postman_collection.json` file or drag it onto the _Import_ dialog. 
+<span style="color:#ccc">6.1.2.2</span> In Postman, click **Import** from the main menu and browse to the `sample_backend.postman_collection.json` file or drag it onto the _Import_ dialog.
 
 ##### <span style="color:#aaa">6.1.3</span> Create a Postman environment
 To fill out the variable values of the configuration use a Postman environment to store configuration-specific values.
@@ -33,12 +33,12 @@ To fill out the variable values of the configuration use a Postman environment t
 
 <span style="color:#ccc">6.1.3.6</span> Click the **Add** button again to save the environment settings.
 
-<span style="color:#ccc">6.1.3.6</span> Close the _MANAGE ENVIRONMENTS_ dialog and in the top right of Postman select the newly created _Alexa Smart Home (sample_backend)_ environment from the  environment drop down menu.
+<span style="color:#ccc">6.1.3.6</span> Close the _MANAGE ENVIRONMENTS_ dialog and in the top right of Postman select the newly created *Alexa Smart Home (sample\_backend)* environment from the  environment drop down menu.
 
-#### <span style="color:#aaa">6.2</span> Create Endpoints 
+#### <span style="color:#aaa">6.2</span> Create Endpoints
 Use Postman to generate endpoints.
 
-<span style="color:#ccc">6.2.1</span> Browse to the AWS IoT console at https://console.aws.amazon.com/iotv2/home?region=us-east-1#/thinghub and note the existing _Things_, if any.
+<span style="color:#ccc">6.2.1</span> In Postman, from the left menu select the *Alexa Smart Home (sample\_backend)* folder. In the *Endpoints* folder, open the **POST** _/endpoints (Sample Black Switch)_ resource from the left menu.
 
 <span style="color:#ccc">6.2.2</span> In Postman, select the **POST** _/endpoints_ resource from the left menu and then click the **Send** button in the top right.
 
@@ -52,7 +52,7 @@ Use Postman to generate endpoints.
 
 <span style="color:#ccc">6.2.5</span> Go to https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:selected=SampleUsers and select the **Items** tab.
 
-<span style="color:#ccc">6.2.6</span> In the list of _SampleUsers_ select the first entry UserId that looks like the following format: 
+<span style="color:#ccc">6.2.6</span> In the list of _SampleUsers_ select the first entry UserId that looks like the following format:
 ```
 amzn1.account.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
