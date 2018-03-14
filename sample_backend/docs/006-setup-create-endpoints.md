@@ -11,7 +11,7 @@ The JSON template for creating an endpoint defaults the User Id to `0`. This is 
 ```
 amzn1.account.XXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-<span style="color:#ccc">6.2.3</span> Copy the UserId value and save it to the [user_id] section of the `config.txt` file. The User Id is used to identify devices associated with the Amazon account. 
+<span style="color:#ccc">6.2.3</span> Copy the UserId value and save it to the [user_id] section of the `config.txt` file. The User Id is used to identify devices associated with the Amazon account.
 
 #### <span style="color:#aaa">6.2</span> Set Up Postman
 Postman is a tool for managing and executing HTTP requests and is very useful for API development and usage. To use it for the sample code, it must first be installed if not currently available on your system and have a sample environment configured for use.
@@ -28,7 +28,7 @@ Postman is a tool for managing and executing HTTP requests and is very useful fo
 <span style="color:#ccc">6.2.2.2</span> In Postman, click **Import** from the main menu and browse to the `sample_backend.postman_collection.json` file or drag it onto the _Import_ dialog.
 
 ##### <span style="color:#aaa">6.2.3</span> Create a Postman environment
-To fill out the variable values of the configuration use a Postman environment to store configuration-specific values. The keys defined that will be auto-expanded in the URLs for the imported collection.
+To fill out the variable values of the configuration use a Postman environment to store configuration-specific values. The keys defined in double curly braces like `{{endpoint_api_id}}` will be auto-expanded in the URLs for the imported collection.
 
 <span style="color:#ccc">6.2.3.1</span> In the top right of Postman, click the gear icon to open the _Environment options_ drop down menu and select **Manage Environments**.
 
@@ -56,43 +56,23 @@ Use Postman to generate endpoints by selecting and sending stored requests from 
 
 ![Postman - Collections > Endpoints > Body](img\6.3.2-postman-collections-endpoints.png "Postman - Collections > Endpoints > Body")
 
-<span style="color:#ccc">6.3.3</span> In the JSON in the _raw_ section, replace the `userId` value set to `0` with your User Id from the config.txt file.
+<span style="color:#ccc">6.3.3</span> In the JSON in the _raw_ section, replace the `userId` value (with a default of `0`) with your User Id from the config.txt file. This will associate the created thing with an Amazon account for device discovery.
 
+> Note that the user_id defaults to 0 because this is useful for development and identifying a device created programmatically. However, Discovery for the Smart Home Skill would not find this device since it is expecting a user_id in the form of a profile from Login with Amazon.
 
-<span style="color:#ccc">6.3.x</span> Click the **Send** button in the top right to send and create the endpoint.
+<span style="color:#ccc">6.3.4</span> Once you have added your User Id value, click the **Send** button in the top right to send and create the endpoint.
 
+<span style="color:#ccc">6.3.5</span> Return to the [AWS IoT Things console](https://console.aws.amazon.com/iotv2/home?region=us-east-1#/thinghub) and refresh the page. A new thing of the type `SAMPLESWITCH` should be available. It's name will be a generated GUID.
 
+<span style="color:#ccc">6.3.6</span> Click on the thing identified with a thing type of `SAMPLESWITCH` to inspect its attributes. They should look something like the following:
 
+![AWS IoT - SAMPLESWITCH](img/6.3.6-thing-sampleswitch.png "AWS IoT - SAMPLESWITCH")
 
-<span style="color:#ccc">6.3.3</span> Return to the [AWS IoT Things console](https://console.aws.amazon.com/iotv2/home?region=us-east-1#/thinghub) and refresh the page. A new thing of the type `SAMPLESWITCH` should be available. It's name will be a generated GUID.
+The Globally Unique ID (GUID) representing the name of this device will correspond to an entry in the **SampleEndpointDetails** table that holds the details of the device for discovery. You can browse to the [SampleEndpointDetails DynamoDB Table](https://console.aws.amazon.com/dynamodb/home?region=us-east-1#tables:selected=SampleEndpointDetails) and view the items entry to see the details stored in AWS.
 
-<span style="color:#ccc">6.3.4</span> Click on the `black_switch` Thing instance to inspect its attributes. They should look like the following:
+With this Sample Switch Thing defined in the account you are using for Alexa, you should now be able to discover it as a virtual device.
 
-![AWS IoT - Thing Inspection](img/6.3.4-thing-inspection.png "AWS IoT - Thing Inspection")
-
-> Note that the user_id is set to 0. This is a default value useful for development. However, Discovery for the Smart Home Skill would not find this device since it is expecting a user_id in the form of a profile from Login with Amazon.
-
-
-<span style="color:#ccc">6.3.8</span> Return to the [AWS IoT Things console](https://console.aws.amazon.com/iotv2/home?region=us-east-1#/thinghub) and select the `black_switch` Thing to view its attributes.
-
-<span style="color:#ccc">6.3.9</span> In the top right of the `black_switch` attributes click **Edit**.
-
-<span style="color:#ccc">6.3.10</span> On the _Edit black_switch_ attributes page, set the value of the _user_id_ **Attribute key** to the [user_id] stored in the `config.txt` file. This associates the `black_switch` thing with that user profile.
-
-> If you want to create other devices, repeat this section and update the POST body of the /endpoints call to look something like the following and click **Send** to POST it to the endpoint API:
-
-```
-{
-  "event": {
-    "endpoint": {
-    	"userId" : "INSERT_YOUR_USER_ID_FROM_CONFIG.TXT",
-    	"id": "white_switch",
-    	"state": "OFF",
-    	"type": "SWITCH"
-    }
-  }
-}
-```
+> If you want to create other devices, look at the other options in the samples provided in the Postman collection and update the userId value in the POST body of the resource. Click **Send** to POST it to the endpoint API
 
 <br>
 
