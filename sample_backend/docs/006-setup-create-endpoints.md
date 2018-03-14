@@ -54,7 +54,7 @@ Use Postman to generate endpoints by selecting and sending stored requests from 
 
 <span style="color:#ccc">6.3.2</span> In Postman, select the **POST** _/endpoints (Sample Black Switch)_ resource from the left menu and then select the Body tab to show the raw body that would be sent from this request.
 
-![Postman - Collections > Endpoints > Body](img\6.3.2-postman-collections-endpoints.png "Postman - Collections > Endpoints > Body")
+![Postman - Collections > Endpoints > Body](img/6.3.2-postman-collections-endpoints.png "Postman - Collections > Endpoints > Body")
 
 <span style="color:#ccc">6.3.3</span> In the JSON in the _raw_ section, replace the `userId` value (with a default of `0`) with your User Id from the config.txt file. This will associate the created thing with an Amazon account for device discovery.
 
