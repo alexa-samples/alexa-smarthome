@@ -1,7 +1,7 @@
 {
 	"info": {
 		"name": "Alexa Smart Home (sample_backend)",
-		"_postman_id": "9150613f-4299-e292-e0a9-ad60db31598c",
+		"_postman_id": "abe750a5-6a89-466a-b7da-2a97e6e5b480",
 		"description": "REST calls for the sample_backend content available on https://github.com/alexa/alexa-smarthome",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -39,42 +39,7 @@
 					"response": []
 				},
 				{
-					"name": "/endpoints",
-					"request": {
-						"method": "DELETE",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "[\"*\"]"
-						},
-						"url": {
-							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/endpoints?endpoint_id",
-							"protocol": "https",
-							"host": [
-								"{{endpoint_api_id}}",
-								"execute-api",
-								"{{aws_region}}",
-								"amazonaws",
-								"com"
-							],
-							"path": [
-								"prod",
-								"endpoints"
-							],
-							"query": [
-								{
-									"key": "endpoint_id",
-									"value": "",
-									"equals": false
-								}
-							]
-						},
-						"description": "Delete an endpoint. Send an array of endpoints to delete by endpoint ID. Passing * will delete all sample endpoints."
-					},
-					"response": []
-				},
-				{
-					"name": "/endpoints (Sample Black Switch)",
+					"name": "/endpoints (Sample White Microwave)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -85,7 +50,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"event\": {\n\t\t\"endpoint\": {\n\t\t\t\"userId\" : \"0\",\n\t\t\t\"friendlyName\": \"Sample Black Switch\",\n\t\t\t\"capabilities\": [\n\t\t\t\t{\n                    \"type\": \"AlexaInterface\",\n                    \"interface\": \"Alexa\",\n                    \"version\": \"3\"\n\t\t\t\t},\n\t\t\t\t{\n            \t\t\"type\": \"AlexaInterface\",\n            \t\t\"interface\": \"Alexa.PowerController\",\n            \t\t\"version\": \"3\",\n            \t\t\"properties\": {\n            \t\t\t\"supported\": [\n        \t\t\t\t\t{\n                \t\t\t\t\"name\": \"powerState\"\n                \t\t\t}\n            \t\t\t],\n            \t\t\t\"proactivelyReported\": true,\n            \t\t\t\"retrievable\": true\n        \t\t\t}\n            \t}\n        \t],\n\t\t\"sku\": \"SW00\",\n\t\t\"description\": \"A Sample Black Switch\",\n\t\t\"manufacturerName\": \"Sample Manufacturer\",\n\t\t\"displayCategories\": [\"SWITCH\"]\n\t\t}\n\t}\n}"
+							"raw": "{\n  \"event\": {\n    \"endpoint\": {\n      \"userId\" : \"0\",\n      \"friendlyName\": \"Sample White Microwave\",\n      \"capabilities\": [\n    {\n            \"type\": \"AlexaInterface\",\n            \"interface\": \"Alexa\",\n            \"version\": \"3\"\n    },        \n        {\n          \"type\": \"AlexaInterface\",\n            \"interface\": \"Alexa.Cooking\",\n            \"version\": \"3\",\n            \"properties\": {\n              \"supported\": [\n                {\n                    \"name\": \"cookingMode\"\n                }\n        ],\n        \"retrievable\": true\n            },\n            \"configuration\": {\n                \"supportedCookingModes\": [\"TIMECOOK\", \"DEFROST\", \"REHEAT\", \"OFF\"]\n            }\n        }\n        ],\n      \"cookie\": {\n        \"key\": \"value\"\n      },\n      \"sku\": \"MW01\",\n      \"description\": \"A Sample White Microwave\",\n      \"manufacturerName\": \"Sample Manufacturer\",\n      \"displayCategories\": [\"MICROWAVE\"]\n    }\n  }\n}"
 						},
 						"url": {
 							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/endpoints",
@@ -107,7 +72,7 @@
 					"response": []
 				},
 				{
-					"name": "/endpoints (Sample White Switch)",
+					"name": "/endpoints (Sample Black Switch)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -118,7 +83,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"event\": {\n\t\t\"endpoint\": {\n\t\t\t\"userId\" : \"0\",\n\t\t\t\"friendlyName\": \"Sample White Switch\",\n\t\t\t\"capabilities\": [\n\t\t\t\t{\n                    \"type\": \"AlexaInterface\",\n                    \"interface\": \"Alexa\",\n                    \"version\": \"3\"\n\t\t\t\t},\t\t\t\t\n\t\t\t\t{\n            \t\t\"type\": \"AlexaInterface\",\n            \t\t\"interface\": \"Alexa.PowerController\",\n            \t\t\"version\": \"3\",\n            \t\t\"properties\": {\n            \t\t\t\"supported\": [\n        \t\t\t\t\t{\n                \t\t\t\t\"name\": \"powerState\"\n                \t\t\t}\n            \t\t\t],\n            \t\t\t\"proactivelyReported\": true,\n            \t\t\t\"retrievable\": true\n        \t\t\t}\n            \t}\n        \t],\n\t\t\"sku\": \"SW01\",\n\t\t\"description\": \"A Sample White Switch\",\n\t\t\"manufacturerName\": \"Sample Manufacturer\",\n\t\t\"displayCategories\": [\"SWITCH\"]\n\t\t}\n\t}\n}"
+							"raw": "{\n\t\"event\": {\n\t\t\"endpoint\": {\n\t\t\t\"userId\" : \"0\",\n\t\t\t\"friendlyName\": \"Sample Black Switch\",\n\t\t\t\"capabilities\": [\n\t\t\t\t{\n                    \"type\": \"AlexaInterface\",\n                    \"interface\": \"Alexa\",\n                    \"version\": \"3\"\n\t\t\t\t},\n\t\t\t\t{\n            \t\t\"type\": \"AlexaInterface\",\n            \t\t\"interface\": \"Alexa.PowerController\",\n            \t\t\"version\": \"3\",\n            \t\t\"properties\": {\n            \t\t\t\"supported\": [\n        \t\t\t\t\t{\n                \t\t\t\t\"name\": \"powerState\"\n                \t\t\t}\n            \t\t\t],\n            \t\t\t\"proactivelyReported\": true,\n            \t\t\t\"retrievable\": true\n        \t\t\t}\n            \t}\n        \t],\n\t\t\"sku\": \"SW00\",\n\t\t\"description\": \"A Sample Black Switch\",\n\t\t\"manufacturerName\": \"Sample Manufacturer\",\n\t\t\"displayCategories\": [\"SWITCH\"]\n\t\t}\n\t}\n}"
 						},
 						"url": {
 							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/endpoints",
@@ -173,7 +138,7 @@
 					"response": []
 				},
 				{
-					"name": "/endpoints (Sample Black Microwave)",
+					"name": "/endpoints (Sample White Switch)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -184,7 +149,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"event\": {\n    \"endpoint\": {\n      \"userId\" : \"0\",\n      \"friendlyName\": \"Sample Black Microwave\",\n      \"capabilities\": [\n        {\n          \"type\": \"AlexaInterface\",\n            \"interface\": \"Alexa.Cooking\",\n            \"version\": \"3\",\n            \"properties\": {\n              \"supported\": [\n                {\n                    \"name\": \"cookingMode\"\n                },\n                  {\n            \"name\": \"cookCompletionTime\"\n                  },\n                  {\n                    \"name\": \"isCookCompletionTimeEstimated\"\n          },\n                  {\n                    \"name\": \"cookStartTime\"\n          },\n                  {\n                    \"name\": \"foodItem\"\n          }\n          ],\n        \"proactivelyReported\": true,\n        \"retrievable\": true\n            },\n            \"configuration\": {\n              \"supportsRemoteStart\": false,\n                \"supportedCookingModes\": [\"DEFROST\", \"REHEAT\", \"OFF\"]\n            }\n        }\n        ],\n      \"sku\": \"MW00\",\n      \"description\": \"A Sample Kitchen Microwave\",\n      \"manufacturerName\": \"Sample Manufacturer\",\n      \"displayCategories\": [\"MICROWAVE\"]\n    }\n  }\n}"
+							"raw": "{\n\t\"event\": {\n\t\t\"endpoint\": {\n\t\t\t\"userId\" : \"0\",\n\t\t\t\"friendlyName\": \"Sample White Switch\",\n\t\t\t\"capabilities\": [\n\t\t\t\t{\n                    \"type\": \"AlexaInterface\",\n                    \"interface\": \"Alexa\",\n                    \"version\": \"3\"\n\t\t\t\t},\t\t\t\t\n\t\t\t\t{\n            \t\t\"type\": \"AlexaInterface\",\n            \t\t\"interface\": \"Alexa.PowerController\",\n            \t\t\"version\": \"3\",\n            \t\t\"properties\": {\n            \t\t\t\"supported\": [\n        \t\t\t\t\t{\n                \t\t\t\t\"name\": \"powerState\"\n                \t\t\t}\n            \t\t\t],\n            \t\t\t\"proactivelyReported\": true,\n            \t\t\t\"retrievable\": true\n        \t\t\t}\n            \t}\n        \t],\n\t\t\"sku\": \"SW01\",\n\t\t\"description\": \"A Sample White Switch\",\n\t\t\"manufacturerName\": \"Sample Manufacturer\",\n\t\t\"displayCategories\": [\"SWITCH\"]\n\t\t}\n\t}\n}"
 						},
 						"url": {
 							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/endpoints",
@@ -206,7 +171,42 @@
 					"response": []
 				},
 				{
-					"name": "/endpoints (Sample White Microwave)",
+					"name": "/endpoints",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\"*\"]"
+						},
+						"url": {
+							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/endpoints?endpoint_id=",
+							"protocol": "https",
+							"host": [
+								"{{endpoint_api_id}}",
+								"execute-api",
+								"{{aws_region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"prod",
+								"endpoints"
+							],
+							"query": [
+								{
+									"key": "endpoint_id",
+									"value": "",
+									"equals": false
+								}
+							]
+						},
+						"description": "Delete an endpoint. Send an array of endpoints to delete by endpoint ID. Passing * will delete all sample endpoints."
+					},
+					"response": []
+				},
+				{
+					"name": "/endpoints (Sample Black Microwave)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -217,7 +217,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"event\": {\n    \"endpoint\": {\n      \"userId\" : \"0\",\n      \"friendlyName\": \"Sample White Microwave\",\n      \"capabilities\": [\n    {\n            \"type\": \"AlexaInterface\",\n            \"interface\": \"Alexa\",\n            \"version\": \"3\"\n    },        \n        {\n          \"type\": \"AlexaInterface\",\n            \"interface\": \"Alexa.Cooking\",\n            \"version\": \"3\",\n            \"properties\": {\n              \"supported\": [\n                {\n                    \"name\": \"cookingMode\"\n                }\n        ],\n        \"retrievable\": true\n            },\n            \"configuration\": {\n                \"supportedCookingModes\": [\"TIMECOOK\", \"DEFROST\", \"REHEAT\", \"OFF\"]\n            }\n        }\n        ],\n      \"cookie\": {\n        \"key\": \"value\"\n      },\n      \"sku\": \"MW01\",\n      \"description\": \"A Sample White Microwave\",\n      \"manufacturerName\": \"Sample Manufacturer\",\n      \"displayCategories\": [\"MICROWAVE\"]\n    }\n  }\n}"
+							"raw": "{\n  \"event\": {\n    \"endpoint\": {\n      \"userId\" : \"0\",\n      \"friendlyName\": \"Sample Black Microwave\",\n      \"capabilities\": [\n        {\n          \"type\": \"AlexaInterface\",\n            \"interface\": \"Alexa.Cooking\",\n            \"version\": \"3\",\n            \"properties\": {\n              \"supported\": [\n                {\n                    \"name\": \"cookingMode\"\n                },\n                  {\n            \"name\": \"cookCompletionTime\"\n                  },\n                  {\n                    \"name\": \"isCookCompletionTimeEstimated\"\n          },\n                  {\n                    \"name\": \"cookStartTime\"\n          },\n                  {\n                    \"name\": \"foodItem\"\n          }\n          ],\n        \"proactivelyReported\": true,\n        \"retrievable\": true\n            },\n            \"configuration\": {\n              \"supportsRemoteStart\": false,\n                \"supportedCookingModes\": [\"DEFROST\", \"REHEAT\", \"OFF\"]\n            }\n        }\n        ],\n      \"sku\": \"MW00\",\n      \"description\": \"A Sample Kitchen Microwave\",\n      \"manufacturerName\": \"Sample Manufacturer\",\n      \"displayCategories\": [\"MICROWAVE\"]\n    }\n  }\n}"
 						},
 						"url": {
 							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/endpoints",
@@ -278,7 +278,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"event\": {\n    \"endpoint\": {\n      \"userId\" : \"0\",\n      \"id\": \"black_switch\",\n      \"state\": \"OFF\",\n      \"type\": \"SWITCH\"\n    }\n  }\n}"
+							"raw": "{\n  \"event\": {\n    \"endpoint\": {\n      \"userId\" : \"0\",\n      \"id\": \"DEVICE_GUID\",\n      \"state\": \"OFF\",\n      \"type\": \"SWITCH\",\n      \"sku\": \"SW00\"\n    }\n  }\n}"
 						},
 						"url": {
 							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/events",
@@ -328,7 +328,7 @@
 			"description": "Methods for sending sample directives.",
 			"item": [
 				{
-					"name": "/directives (AcceptGrant)",
+					"name": "/directives (TurnOn)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -339,7 +339,40 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.Authorization\",\r\n            \"name\": \"AcceptGrant\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"payload\": {\r\n            \"grant\": {\r\n                \"type\": \"OAuth2.AuthorizationCode\",\r\n                \"code\": \"ANUbUKCJqlBOpMhwYWxU\"\r\n            },\r\n            \"grantee\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            }\r\n        }\r\n    }\r\n}"
+							"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.PowerController\",\r\n            \"name\": \"TurnOn\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"endpoint\": {\r\n            \"scope\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            },\r\n            \"endpointId\": \"black_switch\",\r\n            \"cookie\": {}\r\n        },\r\n        \"payload\": {}\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
+							"protocol": "https",
+							"host": [
+								"{{endpoint_api_id}}",
+								"execute-api",
+								"{{aws_region}}",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"prod",
+								"directives"
+							]
+						},
+						"description": null
+					},
+					"response": []
+				},
+				{
+					"name": "/directives (TurnOff)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.PowerController\",\r\n            \"name\": \"TurnOff\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"endpoint\": {\r\n            \"scope\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            },\r\n            \"endpointId\": \"black_switch\",\r\n            \"cookie\": {}\r\n        },\r\n        \"payload\": {}\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
@@ -427,7 +460,7 @@
 					"response": []
 				},
 				{
-					"name": "/directives (TurnOff)",
+					"name": "/directives (AcceptGrant)",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -438,40 +471,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.PowerController\",\r\n            \"name\": \"TurnOff\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"endpoint\": {\r\n            \"scope\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            },\r\n            \"endpointId\": \"black_switch\",\r\n            \"cookie\": {}\r\n        },\r\n        \"payload\": {}\r\n    }\r\n}"
-						},
-						"url": {
-							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
-							"protocol": "https",
-							"host": [
-								"{{endpoint_api_id}}",
-								"execute-api",
-								"{{aws_region}}",
-								"amazonaws",
-								"com"
-							],
-							"path": [
-								"prod",
-								"directives"
-							]
-						},
-						"description": null
-					},
-					"response": []
-				},
-				{
-					"name": "/directives (TurnOn)",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.PowerController\",\r\n            \"name\": \"TurnOn\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"endpoint\": {\r\n            \"scope\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            },\r\n            \"endpointId\": \"black_switch\",\r\n            \"cookie\": {}\r\n        },\r\n        \"payload\": {}\r\n    }\r\n}"
+							"raw": "{\r\n    \"directive\": {\r\n        \"header\": {\r\n            \"namespace\": \"Alexa.Authorization\",\r\n            \"name\": \"AcceptGrant\",\r\n            \"payloadVersion\": \"3\",\r\n            \"messageId\": \"1bd5d003-31b9-476f-ad03-71d471922820\",\r\n            \"correlationToken\": \"dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==\"\r\n        },\r\n        \"payload\": {\r\n            \"grant\": {\r\n                \"type\": \"OAuth2.AuthorizationCode\",\r\n                \"code\": \"ANUbUKCJqlBOpMhwYWxU\"\r\n            },\r\n            \"grantee\": {\r\n                \"type\": \"BearerToken\",\r\n                \"token\": \"access-token-from-skill\"\r\n            }\r\n        }\r\n    }\r\n}"
 						},
 						"url": {
 							"raw": "https://{{endpoint_api_id}}.execute-api.{{aws_region}}.amazonaws.com/prod/directives",
