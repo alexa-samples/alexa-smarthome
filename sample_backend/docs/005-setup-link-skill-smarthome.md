@@ -26,7 +26,7 @@ With a completed Alexa Smart Home Skill configuration, the Alexa Skill Client ID
 
 <span style="color:#ccc">5.2.2</span> Click **Your Skills** from the top right of the section.
 
-<span style="color:#ccc">5.2.3</span> Locate your Sample Smart Home Skill in the list of skills and click on it.
+<span style="color:#ccc">5.2.3</span> Locate your Sample Smart Home Skill in the list of skills in the _DEV SKILLS_ section and click on it.
 
 ![Smart Home Skill Example](img/5.2.3-smart-home-skill.png "Smart Home Skill Example")
 
