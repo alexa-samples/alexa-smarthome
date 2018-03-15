@@ -209,6 +209,8 @@ class ApiHandlerDirective:
                         name='powerState',
                         value=power_state_value)
 
+                    alexa_power_controller_response.add_property()
+
                     response = alexa_power_controller_response.get()
 
                 except ClientError as e:

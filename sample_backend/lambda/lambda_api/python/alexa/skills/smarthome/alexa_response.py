@@ -54,7 +54,7 @@ class AlexaResponse:
         p = {}
         p['namespace'] = kwargs.get('namespace', 'Alexa.EndpointHealth')
         p['name'] = kwargs.get('name', 'connectivity')
-        p['value'] = kwargs.get('value', {'value': 'OK'})
+        p['value'] = kwargs.get('value', 'OK')
         p['timeOfSample'] = get_utc_timestamp()
         p['uncertaintyInMilliseconds'] = kwargs.get('uncertainty_in_milliseconds', 0)
         return p
