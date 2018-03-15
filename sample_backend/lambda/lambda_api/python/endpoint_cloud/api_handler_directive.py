@@ -200,12 +200,17 @@ class ApiHandlerDirective:
                     )
                     print('LOG directive.process.power_controller.response_update:', response_update)
                     alexa_power_controller_response = AlexaResponse(
-                        namespace='Alexa.PowerController',
-                        name=name,
                         token=token,
                         correlation_token=correlation_token,
                         endpoint_id=endpoint_id)
+
+                    alexa_power_controller_response.add_property(
+                        namespace='Alexa.PowerController',
+                        name='powerState',
+                        value=power_state_value)
+
                     response = alexa_power_controller_response.get()
+
                 except ClientError as e:
                     response = AlexaResponse(name='ErrorResponse', message=e).get()
 
