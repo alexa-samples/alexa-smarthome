@@ -39,7 +39,7 @@ amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 <span style="color:#ccc">3.4.1</span> In a new tab, browse to https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/SampleSkillAdapter?tab=triggers.
 
-<span style="color:#ccc">3.4.2</span> Note the **+ Add trigger** section on the left menu. This part of the designer allows you to add triggers to your Lambda function.
+<span style="color:#ccc">3.4.2</span> Note the **Add triggers** section on the left menu. This part of the designer allows you to add triggers to your Lambda function.
 
 ![Trigger Dialog Example](img/3.4.3-lambda-trigger.png "Trigger Dialog Example")
 
