@@ -39,19 +39,19 @@ amzn1.ask.skill.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 <span style="color:#ccc">3.4.1</span> In a new tab, browse to https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions/SampleSkillAdapter?tab=triggers.
 
-<span style="color:#ccc">3.4.2</span> Click the **+ Add trigger** button.
-
-<span style="color:#ccc">3.4.3</span> In the _Configuration_ section, select **Alexa Smart Home** from the left menu.
+<span style="color:#ccc">3.4.2</span> Note the **+ Add trigger** section on the left menu. This part of the designer allows you to add triggers to your Lambda function.
 
 ![Trigger Dialog Example](img/3.4.3-lambda-trigger.png "Trigger Dialog Example")
+
+<span style="color:#ccc">3.4.3</span> In the _Configuration_ section, select **Alexa Smart Home** from the left menu and it should be added to the _SampleSkillAdapter_ as a trigger. The Alexa Smart Home trigger will report "Configuration required" until the corresponding Alexa Skill Application ID is entered as part of the configuration.
 
 ![Trigger Dialog Example - Smart Home](img/3.4.4-lambda-trigger-smart-home.png "Smart Home Trigger Dialog Example")
 
 <span style="color:#ccc">3.4.4</span> Select the _Alexa Smart Home - Configuration required_ box and locate the _Configure triggers_ section at the bottom of the page. Paste the Alexa Skill Application Id value from the clipboard into the _Application Id_ text box. If you no longer have the value on your clipboard, you can retrieve it from the [Alexa Skill Application Id] section of the `config.txt` file.
 
-<span style="color:#ccc">3.4.5</span> Verify **Enable trigger** is checked and then click **Add**. To finish enabling the trigger, click **Save** for the function at the top right of the page.
+<span style="color:#ccc">3.4.5</span> Verify **Enable trigger** is checked and then click **Add**. To finish enabling the trigger, click **Save** for the function at the top right of the page. Once saved, the Alexa Smart Home trigger should report "Saved".
 
-<span style="color:#ccc">3.4.6</span> Close this tab and return to the _Sample Smart Home Skill_ in the Alexa Skills section of the Amazon Developer Console.
+<span style="color:#ccc">3.4.6</span> Close this tab and return to the _Sample Smart Home Skill_ in the [Alexa Skills](https://developer.amazon.com/alexa/console/ask) section of the Amazon Developer Console.
 
 <span style="color:#ccc">3.4.7</span> Click **Next** to move to the _Sample Smart Home Skill_ Interaction model and then click **Next** again to move to the Configuration section.
 
