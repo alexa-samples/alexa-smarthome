@@ -30,6 +30,9 @@ Basic usage of this file is as follows:
 4. update main() with a change or state report that is appropriate for your user and skill
 5. run this file and see how it works for the first time
 6. change PREEMPTIVE_REFRESH_TTL_IN_SECONDS to a large number to force token refresh as needed
+
+For more information on sending events to the Alexa event gateway, please see our documentation.
+https://developer.amazon.com/docs/smarthome/send-events-to-the-alexa-event-gateway.html
 """
 
 import logging
@@ -48,9 +51,6 @@ LWA_HEADERS = {
     "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"
 }
 ALEXA_URI = "https://api.amazonalexa.com/v3/events" # update to appropriate URI for your region
-ALEXA_HEADERS = {
-    "Content-Type": "application/json;charset=UTF-8"
-}
 
 # setup logger
 logging.basicConfig(stream=sys.stdout)
@@ -160,6 +160,10 @@ def main():
     """Main function that sends a proactive state or change report to Alexa"""
 
     token = get_access_token()
+    alexa_headers = {
+        "Authorization": "Bearer {}".format(token),
+        "Content-Type": "application/json;charset=UTF-8"
+    }
 
     if token:
         message_id = get_uuid()
@@ -215,7 +219,8 @@ def main():
             }
         }
 
-        response = requests.post(ALEXA_URI, headers=ALEXA_HEADERS, data=json.dumps(alexa_params), allow_redirects=True)
+        response = requests.post(ALEXA_URI, headers=alexa_headers, data=json.dumps(alexa_params), allow_redirects=True)
+        LOGGER.debug("Request data: " + json.dumps(alexa_headers))
         LOGGER.debug("Request data: " + json.dumps(alexa_params))
         LOGGER.debug("Alexa response header: " + format(response.headers))
         LOGGER.debug("Alexa response status: " + format(response.status_code))
