@@ -170,7 +170,7 @@ def main():
         time_of_sample = get_utc_timestamp()
 
         # ensure that this change or state report is appropriate for your user and skill
-        alexa_params = {
+        alexa_psu = {
             "context": {
                 "properties": [{
                     "namespace": "Alexa.EndpointHealth",
@@ -218,10 +218,132 @@ def main():
                 }
             }
         }
+        
+        # Proactive Discovery Additions or Updates
+        # https://developer.amazon.com/docs/smarthome/how-to-proactively-manage-endpoints.html
+        alexa_pdu = {
+            "event": {
+                "header": {
+                  "namespace": "Alexa.Discovery",
+                  "name": "AddOrUpdateReport",
+                  "payloadVersion": "3",
+                  "messageId": message_id
+                },
+                "payload": {
+                  "endpoints": [{
+                    "endpointId": "appliance-001",
+                    "friendlyName": "Living Room Light",
+                    "description": "Smart Light by Sample Manufacturer",
+                    "manufacturerName": "Sample Manufacturer",
+                    "displayCategories": [
+                      "LIGHT"
+                    ],
+                    "cookie": {
+                      "extraDetail1": "optionalDetailForSkillToReferenceThisDevice",
+                      "extraDetail2": "There can be multiple entries",
+                      "extraDetail3": "use for reference purposes",
+                      "extraDetail4": "Do not use to maintain device state"
+                    },
+                    "capabilities": [{
+                        "type": "AlexaInterface",
+                        "interface": "Alexa.ColorTemperatureController",
+                        "version": "3",
+                        "properties": {
+                          "supported": [{
+                            "name": "colorTemperatureInKelvin"
+                          }],
+                          "proactivelyReported": "true",
+                          "retrievable": "true"
+                        }
+                      },
+                      {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa.EndpointHealth",
+                        "version": "3",
+                        "properties": {
+                          "supported": [{
+                            "name": "connectivity"
+                          }],
+                          "proactivelyReported": "true",
+                          "retrievable": "true"
+                        }
+                      },
+                      {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa",
+                        "version": "3"
+                      },
+                      {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa.ColorController",
+                        "version": "3",
+                        "properties": {
+                          "supported": [{
+                            "name": "color"
+                          }],
+                          "proactivelyReported": "true",
+                          "retrievable": "true"
+                        }
+                      },
+                      {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa.PowerController",
+                        "version": "3",
+                        "properties": {
+                          "supported": [{
+                            "name": "powerState"
+                          }],
+                          "proactivelyReported": "true",
+                          "retrievable": "true"
+                        }
+                      },
+                      {
+                        "type": "AlexaInterface",
+                        "interface": "Alexa.BrightnessController",
+                        "version": "3",
+                        "properties": {
+                          "supported": [{
+                            "name": "brightness"
+                          }],
+                          "proactivelyReported": "true",
+                          "retrievable": "true"
+                        }
+                      }
+                    ]
+                  }],
+                  "scope": {
+                    "type": "BearerToken",
+                    "token": token
+                  }
+                }
+            }
+        }
 
-        response = requests.post(ALEXA_URI, headers=alexa_headers, data=json.dumps(alexa_params), allow_redirects=True)
+        # Proactive Discovery Deletions
+        alexa_pdu_delete = {
+            "event": {
+                "header": {
+                  "messageId": message_id,
+                  "name": "DeleteReport",
+                  "namespace": "Alexa.Discovery",
+                  "payloadVersion": "3"
+                },
+                "payload": {
+                  "endpoints": [{
+                      "endpointId": "appliance-001"
+                    }
+                  ],
+                  "scope": {
+                    "type": "BearerToken",
+                    "token": token
+                  }
+                }
+            }
+        }
+
+        response = requests.post(ALEXA_URI, headers=alexa_headers, data=json.dumps(alexa_psu), allow_redirects=True)
         LOGGER.debug("Request data: " + json.dumps(alexa_headers))
-        LOGGER.debug("Request data: " + json.dumps(alexa_params))
+        LOGGER.debug("Request data: " + json.dumps(alexa_psu))
         LOGGER.debug("Alexa response header: " + format(response.headers))
         LOGGER.debug("Alexa response status: " + format(response.status_code))
         LOGGER.debug("Alexa response body  : " + format(response.text))
