@@ -23,6 +23,7 @@ from jsonschema import validate, SchemaError, ValidationError
 
 dynamodb_aws = boto3.client('dynamodb')
 iot_aws = boto3.client('iot')
+iot_data_aws = boto3.client('iot-data')
 
 
 class ApiHandlerDirective:
@@ -188,17 +189,22 @@ class ApiHandlerDirective:
                 # Convert to a local stored state
                 power_state_value = 'OFF' if name == "TurnOff" else 'ON'
                 try:
-                    # Send the state to the Thing
-                    response_update = iot_aws.update_thing(
-                        thingName=endpoint_id,
-                        attributePayload={
-                            'attributes': {
-                                'state': power_state_value,
-                                'user_id': user_id
-                            }
+                    # Send the state to the Thing Shadow
+                    msg = {
+                        'state': {
+                            'desired':
+                                {
+                                    'state': 'ON'
+                                }
                         }
-                    )
+                    }
+
+                    msg['state']['desired']['state'] = power_state_value
+                    mqtt_msg = json.dumps(msg)
+
+                    response_update = iot_data_aws.update_thing_shadow(thingName=endpoint_id, payload=mqtt_msg.encode())
                     print('LOG directive.process.power_controller.response_update:', response_update)
+
                     alexa_power_controller_response = AlexaResponse(
                         token=token,
                         correlation_token=correlation_token,
@@ -214,6 +220,7 @@ class ApiHandlerDirective:
                     response = alexa_power_controller_response.get()
 
                 except ClientError as e:
+                    print('ERR directive.process.power_controller Exception:ClientError:', e)
                     response = AlexaResponse(name='ErrorResponse', message=e).get()
 
         else:

@@ -376,7 +376,8 @@
                                         "iot:DeleteThing",
                                         "iot:DescribeThing",
                                         "iot:ListThings",
-                                        "iot:UpdateThing"
+                                        "iot:UpdateThing",
+                                        "iot:UpdateThingShadow"
                                     ],
                                     "Resource": [
                                         "*"
