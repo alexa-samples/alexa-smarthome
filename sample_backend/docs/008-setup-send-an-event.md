@@ -7,6 +7,7 @@ Send an external event into Alexa from the Endpoint Device backend. This simulat
 <span style="color:#ccc">8.1.1</span> In Postman, and within the *Endpoints* sub-folder, open the **POST** _/events_ resource from the left menu.
 
 <span style="color:#ccc">8.1.2</span> Select the _Body_ tab and view the raw JSON. It should look like the following:
+
 ```
 {
   "event": {
@@ -21,6 +22,7 @@ Send an external event into Alexa from the Endpoint Device backend. This simulat
 }
 ```
 <span style="color:#ccc">8.1.3</span> Update the JSON by replacing the `"userId"` "0" value with the [user_id] stored in the `config.txt` file. Additionally, replace the `DEVICE_GUID` value with the Thing name from AWS IoT for the Sample Black Switch created. When edited, it should something like the following:
+
 ```
 {
   "event": {

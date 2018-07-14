@@ -38,7 +38,7 @@ With a completed Alexa Smart Home Skill configuration, the Alexa Skill Client ID
 
 <span style="color:#ccc">5.2.6</span> Click **Allow** to link your Account with the _Sample Alexa Smart Home_ skill.
 
-<span style="color:#ccc">5.2.7</span> On success, you should be presented with a window that reads "To continue, close this window to discover devices you can control with Alexa." Close this page and return to the _Sample Smart Home Skill_.
+<span style="color:#ccc">5.2.7</span> On success, you should be presented with a window that instructing you to close the page and return to the _Sample Smart Home Skill_.
 
 <span style="color:#ccc">5.2.8</span> When redirected back to the Skill page, you will be prompted 'Discover Devices'. Click **Cancel**  for now as no new devices from the Sample Smart Home Skill will be returned without additional configuration.
 
