@@ -1,13 +1,20 @@
-# Welcome to the Alexa Smart Home GitHub
+# Alexa Smart Home Resources
 
-This repository contains sample code and resources for Alexa Smart Home developers. 
+This repository contains resources for Alexa Smart Home developers. 
 
-To get started, https://github.com/alexa/alexa-smarthome/wiki.
+For information on how to get started, developer documentation, and API references, please visit the [Alexa Smart Home developer pages](https://developer.amazon.com/alexa/smart-home).
 
-For full developer documentation including how to get started and API references, please visit the [Alexa Smart Home developer pages](https://developer.amazon.com/alexa/smart-home).
+## Alexa Smart Home Samples
 
-Questions? Comments? Please add to [Issues](https://github.com/alexa/alexa-smarthome/issues), thanks!
+### Skill Sample : Switch
+A basic skill sample implementing a switch exercising the discovery and directive handling process for a virtual device implementing Alexa Smart Home switch capabilities. Available in [Python](https://github.com/alexa/skill-sample-python-smarthome-switch), [Node.js](https://github.com/alexa/skill-sample-nodejs-smarthome-switch), [Java](https://github.com/alexa/skill-sample-java-smarthome-switch), and [C#](https://github.com/alexa/skill-sample-csharp-smarthome-switch).
 
-# AWS re:Invent
+## Additional Content
 
-In 2017, we held a few sessions at AWS re:Invent, and you'll find the companion content to those sessions [here](https://github.com/alexa/alexa-smarthome/wiki/reinvent).
+Please review the [wiki](https://github.com/alexa/alexa-smarthome/wiki/reinvent) for additional content and instructions.
+
+## Support and Feedback
+
+For general support, please visit the [Alexa Smart Home API forums](https://forums.developer.amazon.com/spaces/33/index.html).
+
+If you find an issue with the sample code, please open an issue against the relevant repository issue tracker.
