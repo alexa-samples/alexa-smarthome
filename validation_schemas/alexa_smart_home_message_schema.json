@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-04/schema#",
+    "$schema": "http://json-schema.org/draft-06/schema#",
     "title": "Alexa Smart Home Message Schema",
     "description": "A JSON message sent from a skill to Alexa, either proactively or as a response to a directive",
     "definitions": {
@@ -85,6 +85,10 @@
             "uncertaintyInMilliseconds": {
                 "type": "integer",
                 "minimum": 0
+            },
+            "instance": {
+                "type": "string",
+                "minLength": 1
             },
             "resolution": {
                 "type": "object",
@@ -200,6 +204,108 @@
                 "pattern": "^[a-zA-Z0-9_\\-=#;:?@&]*$",
                 "minLength": 1,
                 "maxLength": 256
+            },
+            "labels": {
+                "textLabel": {
+                    "type": "object",
+                    "required": [
+                        "@type",
+                        "value"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "@type": {
+                            "enum": [
+                                "text"
+                            ]
+                        },
+                        "value": {
+                            "type": "object",
+                            "required": [
+                                "text"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "locale": {
+                                    "enum": [
+                                        "de_DE",
+                                        "en_AU",
+                                        "en_CA",
+                                        "en_GB",
+                                        "en_IN",
+                                        "en_US",
+                                        "es_ES",
+                                        "es_MX",
+                                        "fr_CA",
+                                        "fr_FR",
+                                        "it_IT",
+                                        "ja_JP"
+                                    ]
+                                },
+                                "text": {
+                                    "maxLength": 100,
+                                    "minLength": 1,
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "assetLabel": {
+                    "type": "object",
+                    "required": [
+                        "@type",
+                        "value"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "@type": {
+                            "enum": [
+                                "asset"
+                            ]
+                        },
+                        "value": {
+                            "type": "object",
+                            "required": [
+                                "assetId"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "assetId": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "resourceArray": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "additionalItems": false,
+                "items": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/definitions/common.properties/labels/assetLabel"
+                        },
+                        {
+                            "$ref": "#/definitions/common.properties/labels/textLabel"
+                        }
+                    ]
+                }
+            },
+            "capabilityResources": {
+                "type": "object",
+                "required": [
+                    "friendlyNames"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                    "friendlyNames": {
+                        "$ref": "#/definitions/common.properties/resourceArray"
+                    }
+                }
             },
             "endpoint": {
                 "type": "object",
@@ -551,6 +657,57 @@
                                     },
                                     "retrievable": {
                                         "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "CustomIntent": {
+                    "capabilities": {
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "interface",
+                            "version",
+                            "configuration"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "AlexaInterface"
+                                ]
+                            },
+                            "interface": {
+                                "enum": [
+                                    "Alexa.CustomIntent"
+                                ]
+                            },
+                            "version": {
+                                "$ref": "#/definitions/common.properties/version"
+                            },
+                            "configuration": {
+                                "type": "object",
+                                "required": [
+                                    "supportedIntents"
+                                ],
+                                "properties": {
+                                    "supportedIntents": {
+                                        "type": "array",
+                                        "minItems": 1,
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "name"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             }
@@ -1738,6 +1895,445 @@
                             }
                         }
                     }
+                },
+                "ToggleController": {
+                    "toggleState": {
+                        "property": {
+                            "type": "object",
+                            "required": [
+                                "namespace",
+                                "instance",
+                                "name",
+                                "value",
+                                "timeOfSample",
+                                "uncertaintyInMilliseconds"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "namespace": {
+                                    "enum": [
+                                        "Alexa.ToggleController"
+                                    ]
+                                },
+                                "instance": {
+                                    "$ref": "#/definitions/common.properties/instance"
+                                },
+                                "name": {
+                                    "enum": [
+                                        "toggleState"
+                                    ]
+                                },
+                                "value": {
+                                    "enum": [
+                                        "ON",
+                                        "OFF"
+                                    ]
+                                },
+                                "timeOfSample": {
+                                    "$ref": "#/definitions/common.properties/timestamp"
+                                },
+                                "uncertaintyInMilliseconds": {
+                                    "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                                }
+                            }
+                        }
+                    },
+                    "capabilities": {
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "interface",
+                            "version",
+                            "instance",
+                            "capabilityResources"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "AlexaInterface"
+                                ]
+                            },
+                            "interface": {
+                                "enum": [
+                                    "Alexa.ToggleController"
+                                ]
+                            },
+                            "version": {
+                                "$ref": "#/definitions/common.properties/version"
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "capabilityResources": {
+                                "$ref": "#/definitions/common.properties/capabilityResources"
+                            },
+                            "properties": {
+                                "type": "object",
+                                "required": [
+                                    "supported",
+                                    "proactivelyReported",
+                                    "retrievable"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "supported": {
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "name"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "toggleState"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "proactivelyReported": {
+                                        "type": "boolean"
+                                    },
+                                    "retrievable": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "ModeController": {
+                    "mode": {
+                        "property": {
+                            "type": "object",
+                            "required": [
+                                "namespace",
+                                "instance",
+                                "name",
+                                "value",
+                                "timeOfSample",
+                                "uncertaintyInMilliseconds"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "namespace": {
+                                    "enum": [
+                                        "Alexa.ModeController"
+                                    ]
+                                },
+                                "instance": {
+                                    "$ref": "#/definitions/common.properties/instance"
+                                },
+                                "name": {
+                                    "enum": [
+                                        "mode"
+                                    ]
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "maxLength": 100,
+                                    "minLength": 1
+                                },
+                                "timeOfSample": {
+                                    "$ref": "#/definitions/common.properties/timestamp"
+                                },
+                                "uncertaintyInMilliseconds": {
+                                    "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                                }
+                            }
+                        }
+                    },
+                    "capabilities": {
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "interface",
+                            "version",
+                            "instance",
+                            "capabilityResources",
+                            "configuration"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "AlexaInterface"
+                                ]
+                            },
+                            "interface": {
+                                "enum": [
+                                    "Alexa.ModeController"
+                                ]
+                            },
+                            "version": {
+                                "$ref": "#/definitions/common.properties/version"
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "capabilityResources": {
+                                "$ref": "#/definitions/common.properties/capabilityResources"
+                            },
+                            "properties": {
+                                "type": "object",
+                                "required": [
+                                    "supported",
+                                    "proactivelyReported",
+                                    "retrievable"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "supported": {
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "name"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "mode"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "proactivelyReported": {
+                                        "type": "boolean"
+                                    },
+                                    "retrievable": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "configuration": {
+                                "type": "object",
+                                "required": [
+                                    "ordered",
+                                    "supportedModes"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "ordered": {
+                                        "type": "boolean"
+                                    },
+                                    "supportedModes": {
+                                        "type": "array",
+                                        "minItems": 1,
+                                        "maxItems": 100,
+                                        "uniqueItems": true,
+                                        "additionalProperties": false,
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "value",
+                                                "modeResources"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "value": {
+                                                    "type": "string",
+                                                    "maxLength": 100,
+                                                    "minLength": 1
+                                                },
+                                                "modeResources": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "friendlyNames"
+                                                    ],
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "friendlyNames": {
+                                                            "$ref": "#/definitions/common.properties/resourceArray"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "RangeController": {
+                    "rangeValue": {
+                        "property": {
+                            "type": "object",
+                            "required": [
+                                "namespace",
+                                "name",
+                                "instance",
+                                "value",
+                                "timeOfSample",
+                                "uncertaintyInMilliseconds"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "namespace": {
+                                    "enum": [
+                                        "Alexa.RangeController"
+                                    ]
+                                },
+                                "instance": {
+                                    "$ref": "#/definitions/common.properties/instance"
+                                },
+                                "name": {
+                                    "enum": [
+                                        "rangeValue"
+                                    ]
+                                },
+                                "value": {
+                                    "type": "number"
+                                },
+                                "timeOfSample": {
+                                    "$ref": "#/definitions/common.properties/timestamp"
+                                },
+                                "uncertaintyInMilliseconds": {
+                                    "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                                }
+                            }
+                        }
+                    },
+                    "capabilities": {
+                        "type": "object",
+                        "required": [
+                            "type",
+                            "interface",
+                            "version",
+                            "instance",
+                            "capabilityResources",
+                            "configuration"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "type": {
+                                "enum": [
+                                    "AlexaInterface"
+                                ]
+                            },
+                            "interface": {
+                                "enum": [
+                                    "Alexa.RangeController"
+                                ]
+                            },
+                            "version": {
+                                "$ref": "#/definitions/common.properties/version"
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "capabilityResources": {
+                                "$ref": "#/definitions/common.properties/capabilityResources"
+                            },
+                            "properties": {
+                                "type": "object",
+                                "required": [
+                                    "supported",
+                                    "proactivelyReported",
+                                    "retrievable"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "supported": {
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "name"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "name": {
+                                                    "enum": [
+                                                        "rangeValue"
+                                                    ]
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "proactivelyReported": {
+                                        "type": "boolean"
+                                    },
+                                    "retrievable": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            },
+                            "configuration": {
+                                "type": "object",
+                                "required": [
+                                    "supportedRange"
+                                ],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "supportedRange": {
+                                        "type": "object",
+                                        "required": [
+                                            "minimumValue",
+                                            "maximumValue",
+                                            "precision"
+                                        ],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "minimumValue": {
+                                                "type": "number"
+                                            },
+                                            "maximumValue": {
+                                                "type": "number"
+                                            },
+                                            "precision": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    },
+                                    "unitOfMeasure": {
+                                        "type": "string"
+                                    },
+                                    "presets": {
+                                        "type": "array",
+                                        "minItems": 0,
+                                        "maxItems": 100,
+                                        "uniqueItems": true,
+                                        "additionalProperties": false,
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "rangeValue",
+                                                "presetResources"
+                                            ],
+                                            "additionalProperties": false,
+                                            "properties": {
+                                                "rangeValue": {
+                                                    "type": "number"
+                                                },
+                                                "presetResources": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "friendlyNames"
+                                                    ],
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "friendlyNames": {
+                                                            "$ref": "#/definitions/common.properties/resourceArray"
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "state.properties": {
@@ -1790,6 +2386,15 @@
                         },
                         {
                             "$ref": "#/definitions/common.properties/interfaces/Speaker/muted/property"
+                        },
+                        {
+                            "$ref": "#/definitions/common.properties/interfaces/ToggleController/toggleState/property"
+                        },
+                        {
+                            "$ref": "#/definitions/common.properties/interfaces/RangeController/rangeValue/property"
+                        },
+                        {
+                            "$ref": "#/definitions/common.properties/interfaces/ModeController/mode/property"
                         }
                     ]
                 }
@@ -2284,7 +2889,8 @@
         "Discover.Response.properties": {
             "name": {
                 "enum": [
-                    "Discover.Response"
+                    "Discover.Response",
+                    "AddOrUpdateReport"
                 ]
             }
         }
@@ -2733,6 +3339,18 @@
                                                         },
                                                         {
                                                             "$ref": "#/definitions/common.properties/interfaces/SceneController/capabilities"
+                                                        },
+                                                        {
+                                                            "$ref": "#/definitions/common.properties/interfaces/ToggleController/capabilities"
+                                                        },
+                                                        {
+                                                            "$ref": "#/definitions/common.properties/interfaces/ModeController/capabilities"
+                                                        },
+                                                        {
+                                                            "$ref": "#/definitions/common.properties/interfaces/RangeController/capabilities"
+                                                        },
+                                                        {
+                                                            "$ref": "#/definitions/common.properties/interfaces/CustomIntent/capabilities"
                                                         }
                                                     ]
                                                 }
