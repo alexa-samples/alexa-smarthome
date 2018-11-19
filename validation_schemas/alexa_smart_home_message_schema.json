@@ -116,6 +116,15 @@
                     "NONE"
                 ]
             },
+            "thermostatMode": {
+                "enum": [
+                    "AUTO",
+                    "COOL",
+                    "HEAT",
+                    "ECO",
+                    "OFF"
+                ]
+            },
             "videoCodec": {
                 "enum": [
                     "H264",
@@ -1209,14 +1218,7 @@
                                     ]
                                 },
                                 "value": {
-                                    "enum": [
-                                        "HEAT",
-                                        "COOL",
-                                        "AUTO",
-                                        "ECO",
-                                        "OFF",
-                                        "CUSTOM"
-                                    ]
+                                    "$ref": "#/definitions/common.properties/thermostatMode"
                                 },
                                 "timeOfSample": {
                                     "$ref": "#/definitions/common.properties/timestamp"
@@ -1284,6 +1286,22 @@
                                     },
                                     "retrievable": {
                                         "type": "boolean"
+                                    }
+                                }
+                            },
+                            "configuration": {
+                                "type": "object",
+                                "additionalProperties": false,
+                                "properties": {
+                                    "supportsScheduling": {
+                                        "type": "boolean"
+                                    },
+                                    "supportedModes": {
+                                        "type": "array",
+                                        "uniqueItems": true,
+                                        "items": {
+                                            "$ref": "#/definitions/common.properties/thermostatMode"
+                                        }
                                     }
                                 }
                             }
