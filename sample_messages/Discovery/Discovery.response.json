@@ -463,8 +463,7 @@
                             "type": "AlexaInterface",
                             "interface": "Alexa.SceneController",
                             "version": "3",
-                            "supportsDeactivation": false,
-                            "proactivelyReported": true
+                            "supportsDeactivation": false
                         },
                         {
                             "type": "AlexaInterface",
@@ -501,8 +500,7 @@
                             "type": "AlexaInterface",
                             "interface": "Alexa.SceneController",
                             "version": "3",
-                            "supportsDeactivation": true,
-                            "proactivelyReported": true
+                            "supportsDeactivation": true
                         },
                         {
                             "type": "AlexaInterface",
