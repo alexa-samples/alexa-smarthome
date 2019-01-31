@@ -217,9 +217,9 @@ def lambda_handler(request, context):
         logger.info("Response:")
         logger.info(json.dumps(response, indent=4, sort_keys=True))
 
-        if version == "3":
-            logger.info("Validate v3 response")
-            validate_message(request, response)
+        #if version == "3":
+            #logger.info("Validate v3 response")
+            #validate_message(request, response)
 
         return response
     except ValueError as error:
