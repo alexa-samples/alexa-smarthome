@@ -3171,6 +3171,28 @@
             "$ref": "#/definitions/common.properties/temperature"
           }
         }
+      },
+      "payload.ColorTemperatureController.NOT_SUPPORTED_IN_CURRENT_MODE": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "enum": [
+              "NOT_SUPPORTED_IN_CURRENT_MODE"
+            ]
+          },
+          "message": {
+            "$ref": "#/definitions/common.properties/message"
+          },
+          "currentDeviceMode": {
+            "enum": [
+              "COLOR"
+            ]
+          }
+        }
       }
     },
     "ResponseOrStateReport.properties": {
@@ -3398,6 +3420,20 @@
                 },
                 "payload": {
                   "$ref": "#/definitions/ErrorResponse.properties/payload.general.NOT_SUPPORTED_IN_CURRENT_MODE"
+                }
+              }
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "header": {
+                  "$ref": "#/definitions/ErrorResponse.properties/header.ColorTemperatureController"
+                },
+                "endpoint": {
+                  "$ref": "#/definitions/common.properties/endpoint"
+                },
+                "payload": {
+                  "$ref": "#/definitions/ErrorResponse.properties/payload.ColorTemperatureController.NOT_SUPPORTED_IN_CURRENT_MODE"
                 }
               }
             },
