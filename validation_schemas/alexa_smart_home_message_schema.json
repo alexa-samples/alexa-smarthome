@@ -2687,6 +2687,48 @@
             }
           }
         },
+        "PlaybackController": {
+          "capabilities": {
+            "type": "object",
+            "required": [
+              "type",
+              "interface",
+              "version"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "AlexaInterface"
+                ]
+              },
+              "interface": {
+                "enum": [
+                  "Alexa.PlaybackController"
+                ]
+              },
+              "version": {
+                "$ref": "#/definitions/common.properties/version"
+              },
+              "supportedOperations": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "enum": [
+                    "Play",
+                    "Pause",
+                    "Stop",
+                    "StartOver",
+                    "Previous",
+                    "Next",
+                    "Rewind",
+                    "FastForward"
+                  ]
+                }
+              }
+            }
+          }
+        },
         "MotionSensor": {
           "detectionState": {
             "property": {
@@ -3147,6 +3189,9 @@
                   },
                   {
                     "$ref": "#/definitions/common.properties/interfaces/EqualizerController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/PlaybackController/capabilities"
                   },
                   {
                     "$ref": "#/definitions/common.properties/interfaces/ContactSensor/capabilities"
