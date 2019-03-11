@@ -2484,6 +2484,43 @@
           }
         },
         "MotionSensor": {
+          "detectionState": {
+            "property": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "value",
+                "timeOfSample",
+                "uncertaintyInMilliseconds"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.MotionSensor"
+                  ]
+                },
+                "name": {
+                  "enum": [
+                    "detectionState"
+                  ]
+                },
+                "value": {
+                  "enum": [
+                    "DETECTED",
+                    "NOT_DETECTED"
+                  ]
+                },
+                "timeOfSample": {
+                  "$ref": "#/definitions/common.properties/timestamp"
+                },
+                "uncertaintyInMilliseconds": {
+                  "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                }
+              }
+            }
+          },
           "capabilities": {
             "type": "object",
             "required": [
@@ -2491,7 +2528,7 @@
               "interface",
               "version"
             ],
-            "additionalProperties": true,
+            "additionalProperties": false,
             "properties": {
               "type": {
                 "enum": [
@@ -2505,11 +2542,83 @@
               },
               "version": {
                 "$ref": "#/definitions/common.properties/version"
+              },
+              "properties": {
+                "type": "object",
+                "required": [
+                  "supported",
+                  "proactivelyReported",
+                  "retrievable"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "supported": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "enum": [
+                            "detectionState"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "proactivelyReported": {
+                    "type": "boolean"
+                  },
+                  "retrievable": {
+                    "type": "boolean"
+                  }
+                }
               }
             }
           }
         },
         "ContactSensor": {
+          "detectionState": {
+            "property": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "value",
+                "timeOfSample",
+                "uncertaintyInMilliseconds"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.ContactSensor"
+                  ]
+                },
+                "name": {
+                  "enum": [
+                    "detectionState"
+                  ]
+                },
+                "value": {
+                  "enum": [
+                    "DETECTED",
+                    "NOT_DETECTED"
+                  ]
+                },
+                "timeOfSample": {
+                  "$ref": "#/definitions/common.properties/timestamp"
+                },
+                "uncertaintyInMilliseconds": {
+                  "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                }
+              }
+            }
+          },
           "capabilities": {
             "type": "object",
             "required": [
@@ -2517,7 +2626,7 @@
               "interface",
               "version"
             ],
-            "additionalProperties": true,
+            "additionalProperties": false,
             "properties": {
               "type": {
                 "enum": [
@@ -2531,6 +2640,41 @@
               },
               "version": {
                 "$ref": "#/definitions/common.properties/version"
+              },
+              "properties": {
+                "type": "object",
+                "required": [
+                  "supported",
+                  "proactivelyReported",
+                  "retrievable"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "supported": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "enum": [
+                            "detectionState"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "proactivelyReported": {
+                    "type": "boolean"
+                  },
+                  "retrievable": {
+                    "type": "boolean"
+                  }
+                }
               }
             }
           }
@@ -2595,6 +2739,12 @@
             },
             {
               "$ref": "#/definitions/common.properties/interfaces/ModeController/mode/property"
+            },
+            {
+              "$ref": "#/definitions/common.properties/interfaces/MotionSensor/detectionState/property"
+            },
+            {
+              "$ref": "#/definitions/common.properties/interfaces/ContactSensor/detectionState/property"
             }
           ]
         }
