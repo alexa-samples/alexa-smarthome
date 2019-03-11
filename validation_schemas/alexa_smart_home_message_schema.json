@@ -30,6 +30,14 @@
         "type": "string",
         "minLength": 1
       },
+      "armState": {
+        "enum": [
+          "ARMED_AWAY",
+          "ARMED_STAY",
+          "ARMED_NIGHT",
+          "DISARMED"
+        ]
+      },
       "temperature": {
         "type": "object",
         "required": [
@@ -2988,6 +2996,186 @@
               }
             }
           }
+        },
+        "SecurityPanelController": {
+          "alarmState": {
+            "property": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "value",
+                "timeOfSample",
+                "uncertaintyInMilliseconds"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.SecurityPanelController"
+                  ]
+                },
+                "name": {
+                  "enum": [
+                    "burglaryAlarm",
+                    "fireAlarm",
+                    "carbonMonoxideAlarm",
+                    "waterAlarm"
+                  ]
+                },
+                "value": {
+                  "enum": [
+                    "OK",
+                    "ALARM"
+                  ]
+                },
+                "timeOfSample": {
+                  "$ref": "#/definitions/common.properties/timestamp"
+                },
+                "uncertaintyInMilliseconds": {
+                  "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                }
+              }
+            }
+          },
+          "armState": {
+            "property": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "value",
+                "timeOfSample",
+                "uncertaintyInMilliseconds"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.SecurityPanelController"
+                  ]
+                },
+                "name": {
+                  "enum": [
+                    "armState"
+                  ]
+                },
+                "value": {
+                  "$ref": "#/definitions/common.properties/armState"
+                },
+                "timeOfSample": {
+                  "$ref": "#/definitions/common.properties/timestamp"
+                },
+                "uncertaintyInMilliseconds": {
+                  "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                }
+              }
+            }
+          },
+          "capabilities": {
+            "type": "object",
+            "required": [
+              "type",
+              "interface",
+              "version",
+              "configuration"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "AlexaInterface"
+                ]
+              },
+              "interface": {
+                "enum": [
+                  "Alexa.SecurityPanelController"
+                ]
+              },
+              "version": {
+                "$ref": "#/definitions/common.properties/version"
+              },
+              "properties": {
+                "type": "object",
+                "required": [
+                  "supported",
+                  "proactivelyReported",
+                  "retrievable"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "supported": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "enum": [
+                            "armState",
+                            "burglaryAlarm",
+                            "fireAlarm",
+                            "carbonMonoxideAlarm",
+                            "waterAlarm"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "proactivelyReported": {
+                    "type": "boolean"
+                  },
+                  "retrievable": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "configuration": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "supportedAuthorizationTypes": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "type"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "type": {
+                          "enum": [
+                            "FOUR_DIGIT_PIN"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "supportedArmStates": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "value"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "value": {
+                          "$ref": "#/definitions/common.properties/armState"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       },
       "state.properties": {
@@ -3061,6 +3249,12 @@
             },
             {
               "$ref": "#/definitions/common.properties/interfaces/ContactSensor/detectionState/property"
+            },
+            {
+              "$ref": "#/definitions/common.properties/interfaces/SecurityPanelController/alarmState/property"
+            },
+            {
+              "$ref": "#/definitions/common.properties/interfaces/SecurityPanelController/armState/property"
             }
           ]
         }
@@ -3106,6 +3300,17 @@
             },
             "timestamp": {
               "$ref": "#/definitions/common.properties/timestamp"
+            }
+          }
+        },
+        "securityPanelArm": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "exitDelayInSeconds": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
             }
           }
         }
@@ -3165,6 +3370,7 @@
                   "SMARTLOCK",
                   "SCENE_TRIGGER",
                   "ACTIVITY_TRIGGER",
+                  "SECURITY_PANEL",
                   "OTHER"
                 ]
               }
@@ -3265,6 +3471,9 @@
                   },
                   {
                     "$ref": "#/definitions/common.properties/interfaces/MotionSensor/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/SecurityPanelController/capabilities"
                   }
                 ]
               }
@@ -3401,6 +3610,35 @@
           "namespace": {
             "enum": [
               "Alexa.ThermostatController"
+            ]
+          },
+          "name": {
+            "$ref": "#/definitions/ErrorResponse.properties/name"
+          },
+          "payloadVersion": {
+            "$ref": "#/definitions/common.properties/payloadVersion"
+          },
+          "messageId": {
+            "$ref": "#/definitions/common.properties/messageId"
+          },
+          "correlationToken": {
+            "$ref": "#/definitions/common.properties/correlationToken"
+          }
+        }
+      },
+      "header.SecurityPanelController": {
+        "type": "object",
+        "required": [
+          "namespace",
+          "name",
+          "payloadVersion",
+          "messageId"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "namespace": {
+            "enum": [
+              "Alexa.SecurityPanelController"
             ]
           },
           "name": {
@@ -3644,6 +3882,28 @@
           }
         }
       },
+      "payload.SecurityPanelController.general": {
+        "type": "object",
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "type": {
+            "enum": [
+              "AUTHORIZATION_REQUIRED",
+              "BYPASS_NEEDED",
+              "NOT_READY",
+              "UNAUTHORIZED",
+              "UNCLEARED_ALARM",
+              "UNCLEARED_TROUBLE"
+            ]
+          },
+          "message": {
+            "$ref": "#/definitions/common.properties/message"
+          }
+        }
+      },
       "payload.ColorTemperatureController.NOT_SUPPORTED_IN_CURRENT_MODE": {
         "type": "object",
         "required": [
@@ -3674,7 +3934,8 @@
           "StateReport",
           "ActivationStarted",
           "DeactivationStarted",
-          "AcceptGrant.Response"
+          "AcceptGrant.Response",
+          "Arm.Response"
         ]
       },
       "with.payload": {
@@ -3708,7 +3969,8 @@
                   "namespace": {
                     "enum": [
                       "Alexa.CameraStreamController",
-                      "Alexa.SceneController"
+                      "Alexa.SceneController",
+                      "Alexa.SecurityPanelController"
                     ]
                   },
                   "name": {
@@ -3735,6 +3997,9 @@
                   },
                   {
                     "$ref": "#/definitions/common.properties/payload/sceneActivationDeactivation"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/payload/securityPanelArm"
                   }
                 ],
                 "minProperties": 1
@@ -3774,7 +4039,8 @@
                   "namespace": {
                     "enum": [
                       "Alexa",
-                      "Alexa.Authorization"
+                      "Alexa.Authorization",
+                      "Alexa.SecurityPanelController"
                     ]
                   },
                   "name": {
@@ -3892,6 +4158,20 @@
                 },
                 "payload": {
                   "$ref": "#/definitions/ErrorResponse.properties/payload.general.NOT_SUPPORTED_IN_CURRENT_MODE"
+                }
+              }
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "header": {
+                  "$ref": "#/definitions/ErrorResponse.properties/header.SecurityPanelController"
+                },
+                "endpoint": {
+                  "$ref": "#/definitions/common.properties/endpoint"
+                },
+                "payload": {
+                  "$ref": "#/definitions/ErrorResponse.properties/payload.SecurityPanelController.general"
                 }
               }
             },
