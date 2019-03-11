@@ -1897,6 +1897,32 @@
             }
           }
         },
+        "StepSpeaker": {
+          "capabilities": {
+            "type": "object",
+            "required": [
+              "type",
+              "interface",
+              "version"
+            ],
+            "additionalProperties": true,
+            "properties": {
+              "type": {
+                "enum": [
+                  "AlexaInterface"
+                ]
+              },
+              "interface": {
+                "enum": [
+                  "Alexa.StepSpeaker"
+                ]
+              },
+              "version": {
+                "$ref": "#/definitions/common.properties/version"
+              }
+            }
+          }
+        },
         "SceneController": {
           "capabilities": {
             "type": "object",
@@ -3162,6 +3188,9 @@
                   },
                   {
                     "$ref": "#/definitions/common.properties/interfaces/Speaker/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/StepSpeaker/capabilities"
                   },
                   {
                     "$ref": "#/definitions/common.properties/interfaces/SceneController/capabilities"
