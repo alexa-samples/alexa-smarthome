@@ -66,6 +66,22 @@
         },
         "minProperties": 1
       },
+      "equalizerBands": {
+        "enum": [
+          "BASS",
+          "MIDRANGE",
+          "TREBLE"
+        ]
+      },
+      "equalizerMode": {
+        "enum": [
+          "MOVIE",
+          "MUSIC",
+          "NIGHT",
+          "SPORT",
+          "TV"
+        ]
+      },
       "input": {
         "type": "string",
         "minLength": 1
@@ -2458,14 +2474,100 @@
           }
         },
         "EqualizerController": {
+          "bands": {
+            "property": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "value",
+                "timeOfSample",
+                "uncertaintyInMilliseconds"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.EqualizerController"
+                  ]
+                },
+                "name": {
+                  "enum": [
+                    "bands"
+                  ]
+                },
+                "value": {
+                  "type": "array",
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "name",
+                      "value"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "$ref": "#/definitions/common.properties/equalizerBands"
+                      },
+                      "value": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "timeOfSample": {
+                  "$ref": "#/definitions/common.properties/timestamp"
+                },
+                "uncertaintyInMilliseconds": {
+                  "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                }
+              }
+            }
+          },
+          "mode": {
+            "property": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "value",
+                "timeOfSample",
+                "uncertaintyInMilliseconds"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.EqualizerController"
+                  ]
+                },
+                "name": {
+                  "enum": [
+                    "mode"
+                  ]
+                },
+                "value": {
+                  "$ref": "#/definitions/common.properties/equalizerMode"
+                },
+                "timeOfSample": {
+                  "$ref": "#/definitions/common.properties/timestamp"
+                },
+                "uncertaintyInMilliseconds": {
+                  "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                }
+              }
+            }
+          },
           "capabilities": {
             "type": "object",
             "required": [
               "type",
               "interface",
-              "version"
+              "version",
+              "configurations"
             ],
-            "additionalProperties": true,
+            "additionalProperties": false,
             "properties": {
               "type": {
                 "enum": [
@@ -2479,6 +2581,108 @@
               },
               "version": {
                 "$ref": "#/definitions/common.properties/version"
+              },
+              "configurations": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "bands": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "supported": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "name": {
+                              "$ref": "#/definitions/common.properties/equalizerBands"
+                            }
+                          }
+                        }
+                      },
+                      "range": {
+                        "type": "object",
+                        "required": [
+                          "minimum",
+                          "maximum"
+                        ],
+                        "additionalProperties": false,
+                        "properties": {
+                          "minimum": {
+                            "type": "number"
+                          },
+                          "maximum": {
+                            "type": "number"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "modes": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                      "supported": {
+                        "type": "array",
+                        "uniqueItems": true,
+                        "items": {
+                          "type": "object",
+                          "required": [
+                            "name"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "name": {
+                              "$ref": "#/definitions/common.properties/equalizerMode"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "properties": {
+                "type": "object",
+                "required": [
+                  "supported",
+                  "proactivelyReported",
+                  "retrievable"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "supported": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "enum": [
+                            "bands",
+                            "modes"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "proactivelyReported": {
+                    "type": "boolean"
+                  },
+                  "retrievable": {
+                    "type": "boolean"
+                  }
+                }
               }
             }
           }
@@ -2739,6 +2943,12 @@
             },
             {
               "$ref": "#/definitions/common.properties/interfaces/ModeController/mode/property"
+            },
+            {
+              "$ref": "#/definitions/common.properties/interfaces/EqualizerController/bands/property"
+            },
+            {
+              "$ref": "#/definitions/common.properties/interfaces/EqualizerController/mode/property"
             },
             {
               "$ref": "#/definitions/common.properties/interfaces/MotionSensor/detectionState/property"
