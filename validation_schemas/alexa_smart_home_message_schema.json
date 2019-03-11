@@ -50,6 +50,15 @@
           }
         }
       },
+      "thermostatMode": {
+        "enum": [
+          "AUTO",
+          "COOL",
+          "HEAT",
+          "ECO",
+          "OFF"
+        ]
+      },
       "channel": {
         "type": "object",
         "additionalProperties": false,
@@ -1380,14 +1389,7 @@
                   ]
                 },
                 "value": {
-                  "enum": [
-                    "HEAT",
-                    "COOL",
-                    "AUTO",
-                    "ECO",
-                    "OFF",
-                    "CUSTOM"
-                  ]
+                  "$ref": "#/definitions/common.properties/thermostatMode"
                 },
                 "timeOfSample": {
                   "$ref": "#/definitions/common.properties/timestamp"
@@ -1469,14 +1471,7 @@
                     "type": "array",
                     "uniqueItems": true,
                     "items": {
-                      "type": "string",
-                      "enum": [
-                        "HEAT",
-                        "COOL",
-                        "AUTO",
-                        "ECO",
-                        "OFF"
-                      ]
+                      "$ref": "#/definitions/common.properties/thermostatMode"
                     }
                   }
                 }
