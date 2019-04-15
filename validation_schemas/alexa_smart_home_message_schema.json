@@ -2010,6 +2010,9 @@
                   "retrievable":
                   {
                     "type": "boolean"
+                  },
+                  "readOnly":{
+                    "type": "boolean"
                   }
                 }
               }
@@ -2120,6 +2123,9 @@
                     "type": "boolean"
                   },
                   "retrievable": {
+                    "type": "boolean"
+                  },
+                  "readOnly":{
                     "type": "boolean"
                   }
                 }
@@ -2276,6 +2282,9 @@
                     "type": "boolean"
                   },
                   "retrievable": {
+                    "type": "boolean"
+                  },
+                  "readOnly":{
                     "type": "boolean"
                   }
                 }
@@ -2609,6 +2618,180 @@
             "timestamp": {
               "$ref": "#/definitions/common.properties/timestamp"
             }
+          }
+        }
+      },
+      "discoveredEndpointArray": {
+        "type": "array",
+        "uniqueItems": true,
+        "maxItems": 300,
+        "items": {
+          "type": "object",
+          "required": [
+            "endpointId",
+            "manufacturerName",
+            "friendlyName",
+            "description",
+            "displayCategories",
+            "capabilities"
+          ],
+          "properties": {
+            "endpointId": {
+              "$ref": "#/definitions/common.properties/endpointId"
+            },
+            "manufacturerName": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "friendlyName": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "description": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 128
+            },
+            "displayCategories": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "LIGHT",
+                  "SMARTPLUG",
+                  "SWITCH",
+                  "CAMERA",
+                  "DOOR",
+                  "DOORBELL",
+                  "THERMOSTAT",
+                  "TEMPERATURE_SENSOR",
+                  "CONTACT_SENSOR",
+                  "MICROWAVE",
+                  "MOTION_SENSOR",
+                  "SPEAKER",
+                  "TV",
+                  "SMARTLOCK",
+                  "SCENE_TRIGGER",
+                  "ACTIVITY_TRIGGER",
+                  "OTHER"
+                ]
+              }
+            },
+            "cookie": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            },
+            "capabilities": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "additionalItems": false,
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/Alexa/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/EndpointHealth/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/PowerController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/PowerLevelController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/PercentageController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/BrightnessController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/CameraStreamController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/ColorController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/ColorTemperatureController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/LockController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/ThermostatController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/TemperatureSensor/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/ChannelController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/InputController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/Speaker/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/SceneController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/ToggleController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/ModeController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/RangeController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/CustomIntent/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/DoorbellEventSource/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/RTCSessionController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/MediaMetadata/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/EqualizerController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/ContactSensor/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/MotionSensor/capabilities"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "scope": {
+        "type": "object",
+        "required": [
+          "type",
+          "token"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "BearerToken"
+            ]
+          },
+          "token": {
+            "type": "string",
+            "minLength": 1
           }
         }
       }
@@ -3060,7 +3243,13 @@
     "Discover.Response.properties": {
       "name": {
         "enum": [
-          "Discover.Response",
+          "Discover.Response"
+        ]
+      }
+    },
+    "AddOrUpdateReport.properties": {
+      "name": {
+        "enum": [
           "AddOrUpdateReport"
         ]
       }
@@ -3398,160 +3587,69 @@
               "additionalProperties": false,
               "properties": {
                 "endpoints": {
-                  "type": "array",
-                  "uniqueItems": true,
-                  "maxItems": 300,
-                  "items": {
-                    "type": "object",
-                    "required": [
-                      "endpointId",
-                      "manufacturerName",
-                      "friendlyName",
-                      "description",
-                      "displayCategories",
-                      "capabilities"
-                    ],
-                    "properties": {
-                      "endpointId": {
-                        "$ref": "#/definitions/common.properties/endpointId"
-                      },
-                      "manufacturerName": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 128
-                      },
-                      "friendlyName": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 128
-                      },
-                      "description": {
-                        "type": "string",
-                        "minLength": 1,
-                        "maxLength": 128
-                      },
-                      "displayCategories": {
-                        "type": "array",
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "items": {
-                          "enum": [
-                            "LIGHT",
-                            "SMARTPLUG",
-                            "SWITCH",
-                            "CAMERA",
-                            "DOOR",
-                            "DOORBELL",
-                            "THERMOSTAT",
-                            "TEMPERATURE_SENSOR",
-                            "CONTACT_SENSOR",
-                            "MICROWAVE",
-                            "MOTION_SENSOR",
-                            "SPEAKER",
-                            "TV",
-                            "SMARTLOCK",
-                            "SCENE_TRIGGER",
-                            "ACTIVITY_TRIGGER",
-                            "OTHER"
-                          ]
-                        }
-                      },
-                      "cookie": {
-                        "type": "object",
-                        "additionalProperties": {
-                          "type": "string"
-                        }
-                      },
-                      "capabilities": {
-                        "type": "array",
-                        "minItems": 1,
-                        "uniqueItems": true,
-                        "additionalItems": false,
-                        "items": {
-                          "anyOf": [
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/Alexa/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/EndpointHealth/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/PowerController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/PowerLevelController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/PercentageController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/BrightnessController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/CameraStreamController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/ColorController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/ColorTemperatureController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/LockController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/ThermostatController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/TemperatureSensor/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/ChannelController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/InputController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/Speaker/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/SceneController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/ToggleController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/ModeController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/RangeController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/CustomIntent/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/DoorbellEventSource/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/RTCSessionController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/MediaMetadata/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/EqualizerController/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/ContactSensor/capabilities"
-                            },
-                            {
-                              "$ref": "#/definitions/common.properties/interfaces/MotionSensor/capabilities"
-                            }
-                          ]
-                        }
-                      }
-                    }
-                  }
+                  "$ref": "#/definitions/common.properties/discoveredEndpointArray"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "description": "An AddOrUpdateReport message",
+      "type": "object",
+      "required": [
+        "event"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "event": {
+          "type": "object",
+          "required": [
+            "header",
+            "payload"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "header": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "payloadVersion",
+                "messageId"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.Discovery"
+                  ]
+                },
+                "name": {
+                  "$ref": "#/definitions/AddOrUpdateReport.properties/name"
+                },
+                "payloadVersion": {
+                  "$ref": "#/definitions/common.properties/payloadVersion"
+                },
+                "messageId": {
+                  "$ref": "#/definitions/common.properties/messageId"
+                }
+              }
+            },
+            "payload": {
+              "type": "object",
+              "required": [
+                "endpoints",
+                "scope"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "endpoints": {
+                  "$ref": "#/definitions/common.properties/discoveredEndpointArray"
+                },
+                "scope": {
+                  "$ref": "#/definitions/common.properties/scope"
                 }
               }
             }
