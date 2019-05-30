@@ -1441,6 +1441,29 @@
                     "type": "boolean"
                   }
                 }
+              },
+              "configuration": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "supportsScheduling": {
+                    "type": "boolean"
+                  },
+                  "supportedModes": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "enum": [
+                        "HEAT",
+                        "COOL",
+                        "AUTO",
+                        "ECO",
+                        "OFF"
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
