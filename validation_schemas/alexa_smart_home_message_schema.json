@@ -2801,6 +2801,114 @@
             }
           }
         },
+        "PlaybackStateReporter": {
+          "playbackState": {
+            "property": {
+              "type": "object",
+              "required": [
+                "namespace",
+                "name",
+                "value",
+                "timeOfSample",
+                "uncertaintyInMilliseconds"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "namespace": {
+                  "enum": [
+                    "Alexa.PlaybackStateReporter"
+                  ]
+                },
+                "name": {
+                  "enum": [
+                    "playbackState"
+                  ]
+                },
+                "value": {
+                  "type": "object",
+                  "required": [
+                    "state"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "state": {
+                      "enum": [
+                        "PLAYING",
+                        "PAUSED",
+                        "STOPPED"
+                      ]
+                    }
+                  }
+                },
+                "timeOfSample": {
+                  "$ref": "#/definitions/common.properties/timestamp"
+                },
+                "uncertaintyInMilliseconds": {
+                  "$ref": "#/definitions/common.properties/uncertaintyInMilliseconds"
+                }
+              }
+            }
+          },
+          "capabilities": {
+            "type": "object",
+            "required": [
+              "type",
+              "interface",
+              "version"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "enum": [
+                  "AlexaInterface"
+                ]
+              },
+              "interface": {
+                "enum": [
+                  "Alexa.PlaybackStateReporter"
+                ]
+              },
+              "version": {
+                "$ref": "#/definitions/common.properties/version"
+              },
+              "properties": {
+                "type": "object",
+                "required": [
+                  "supported",
+                  "proactivelyReported",
+                  "retrievable"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "supported": {
+                    "type": "array",
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "name"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "name": {
+                          "enum": [
+                            "playbackState"
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "proactivelyReported": {
+                    "type": "boolean"
+                  },
+                  "retrievable": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
         "MotionSensor": {
           "detectionState": {
             "property": {
@@ -3245,6 +3353,9 @@
               "$ref": "#/definitions/common.properties/interfaces/EqualizerController/mode/property"
             },
             {
+              "$ref": "#/definitions/common.properties/interfaces/PlaybackStateReporter/playbackState/property"
+            },
+            {
               "$ref": "#/definitions/common.properties/interfaces/MotionSensor/detectionState/property"
             },
             {
@@ -3465,6 +3576,9 @@
                   },
                   {
                     "$ref": "#/definitions/common.properties/interfaces/PlaybackController/capabilities"
+                  },
+                  {
+                    "$ref": "#/definitions/common.properties/interfaces/PlaybackStateReporter/capabilities"
                   },
                   {
                     "$ref": "#/definitions/common.properties/interfaces/ContactSensor/capabilities"
