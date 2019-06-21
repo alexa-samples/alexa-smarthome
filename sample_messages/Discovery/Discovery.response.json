@@ -16,6 +16,33 @@
                     "displayCategories": [
                         "SWITCH"
                     ],
+                    "additionalAttributes":  {
+                        "manufacturer" : "Sample Manufacturer",
+                        "model" : "Sample Model",
+                        "serialNumber": "<the serial number of the device>",
+                        "firmwareVersion" : "<the firmware version of the device>",
+                        "softwareVersion": "<the software version of the device>",
+                        "customIdentifier": "<your custom identifier for the device>"
+                    },
+                    "connections": [
+                        {
+                          "type": "TCP_IP",
+                          "macAddress": "00:11:22:AA:BB:33:44:55"
+                        },
+                        {
+                          "type": "ZIGBEE",
+                          "macAddress": "00:11:22:33:44:55"
+                        },
+                        {
+                          "type": "ZWAVE",
+                          "homeId": "<0x00000000>",
+                          "nodeId": "<0x00>"
+                        },
+                        {
+                          "type": "UNKNOWN",
+                          "value": "00:11:22:33:44:55"
+                        }
+                    ],
                     "cookie": {
                         "detail1": "For simplicity, this is the only appliance",
                         "detail2": "that has some values in the additionalApplianceDetails"
