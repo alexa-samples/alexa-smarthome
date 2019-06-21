@@ -2796,6 +2796,68 @@
                   }
                 ]
               }
+            },
+            "connections": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["type"],
+                "properties": {
+                  "type": {
+                    "minItems": 1,
+                    "maxItems": 1,
+                    "enum": [
+                      "TCP_IP",
+                      "ZIGBEE",
+                      "ZWAVE",
+                      "UNKNOWN"
+                    ]
+                  },
+                  "macAddress":{
+                    "type:": "string"
+                  },
+                  "homeId":{
+                    "type:": "string"
+                  },
+                  "nodeId":{
+                    "type:": "string"
+                  },
+                  "value":{
+                    "type:": "string"
+                  }
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalAttributes": {
+              "type": "object",
+              "properties": {
+                "manufacturer": {
+                  "type": "string",
+                  "maxLength": 256
+                },
+                "model":{
+                  "type:": "string",
+                  "maxLength": 256
+                },
+                "serialNumber":{
+                  "type:": "string",
+                  "maxLength": 256
+                },
+                "firmwareVersion":{
+                  "type:": "string",
+                  "maxLength": 256
+                },
+                "softwareVersion":{
+                  "type:": "string",
+                  "maxLength": 256
+                },
+                "customIdentifier":{
+                  "type:": "string",
+                  "maxLength": 256
+                }
+              },
+              "additionalProperties": false
             }
           }
         }
