@@ -2122,6 +2122,9 @@
                   {
                     "type": "boolean"
                   },
+                  "nonControllable": {
+                    "type": "boolean"
+                  },
                   "readOnly":{
                     "type": "boolean"
                   }
@@ -2234,6 +2237,9 @@
                     "type": "boolean"
                   },
                   "retrievable": {
+                    "type": "boolean"
+                  },
+                  "nonControllable": {
                     "type": "boolean"
                   },
                   "readOnly":{
@@ -2393,6 +2399,9 @@
                     "type": "boolean"
                   },
                   "retrievable": {
+                    "type": "boolean"
+                  },
+                  "nonControllable": {
                     "type": "boolean"
                   },
                   "readOnly":{
