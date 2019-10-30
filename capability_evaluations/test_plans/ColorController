@@ -1,0 +1,925 @@
+{
+    "name": "ColorController",
+    "testCases": [
+        {
+            "name": "Clr_1.0.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.0.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.0.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 240.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 240.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.0.3",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 277.0,
+                        "saturation": 0.8619,
+                        "brightness": 0.9373
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 277.0,
+                        "saturation": 0.8619,
+                        "brightness": 0.9373
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.0.4",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 60.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 60.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.0.5",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 39.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 39.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.1.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.1.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Clr_1.1.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorController",
+                    "name": "SetColor"
+                },
+                "payload": {
+                    "color": {
+                        "hue": 240.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 240.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 0.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 0.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOn"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 0.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 0.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": -25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 25
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 0.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 0.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": 25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 75
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.3",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 0.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 0.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "SetBrightness"
+                },
+                "payload": {
+                    "brightness": 50
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 0.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        }
+    ]
+}

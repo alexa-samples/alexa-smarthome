@@ -1,0 +1,242 @@
+{
+    "name": "ThermostatCool_FAHRENHEIT",
+    "testCases": [
+        {
+            "name": "FahCool_1.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "thermostatMode",
+                        "value": "COOL"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetThermostatMode"
+                        },
+                        "payload": {
+                            "thermostatMode": {
+                                "value": "COOL"
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "targetSetpoint",
+                        "value": {
+                            "value": 90,
+                            "scale": "FAHRENHEIT"
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetTargetTemperature"
+                        },
+                        "payload": {
+                            "targetSetpoint": {
+                                "value": 90,
+                                "scale": "FAHRENHEIT"
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "SetTargetTemperature"
+                },
+                "payload": {
+                    "targetSetpoint": {
+                        "value": 64,
+                        "scale": "FAHRENHEIT"
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "value": {
+                        "value": 64,
+                        "scale": "FAHRENHEIT"
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "percentThreshold": 2
+                },
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "thermostatMode",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "FahCool_1.3",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "thermostatMode",
+                        "value": "COOL"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetThermostatMode"
+                        },
+                        "payload": {
+                            "thermostatMode": {
+                                "value": "COOL"
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "targetSetpoint",
+                        "value": {
+                            "value": 90,
+                            "scale": "FAHRENHEIT"
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetTargetTemperature"
+                        },
+                        "payload": {
+                            "targetSetpoint": {
+                                "value": 90,
+                                "scale": "FAHRENHEIT"
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "AdjustTargetTemperature"
+                },
+                "payload": {
+                    "targetSetpointDelta": {
+                        "value": -6.0,
+                        "scale": "FAHRENHEIT"
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "value": {
+                        "value": 84,
+                        "scale": "FAHRENHEIT"
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "percentThreshold": 2
+                },
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "thermostatMode",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "FahCool_1.4",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "thermostatMode",
+                        "value": "COOL"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetThermostatMode"
+                        },
+                        "payload": {
+                            "thermostatMode": {
+                                "value": "COOL"
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "targetSetpoint",
+                        "value": {
+                            "value": 74,
+                            "scale": "FAHRENHEIT"
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetTargetTemperature"
+                        },
+                        "payload": {
+                            "targetSetpoint": {
+                                "value": 74,
+                                "scale": "FAHRENHEIT"
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "AdjustTargetTemperature"
+                },
+                "payload": {
+                    "targetSetpointDelta": {
+                        "value": 6.0,
+                        "scale": "FAHRENHEIT"
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "value": {
+                        "value": 80,
+                        "scale": "FAHRENHEIT"
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "percentThreshold": 2
+                },
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "thermostatMode",
+                    "percentThreshold": 0
+                }
+            ]
+        }
+    ]
+}

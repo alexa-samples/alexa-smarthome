@@ -1,0 +1,1494 @@
+{
+    "name": "ColorTemperatureController",
+    "testCases": [
+        {
+            "name": "ClrRlt_1.0.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 2200,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 2200
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "IncreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 2200,
+                    "compare": "GREATER_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.0.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 4000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 4000
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "IncreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 4000,
+                    "compare": "GREATER_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.0.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 7000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 7000
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "IncreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 7000,
+                    "compare": "GREATER_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.1.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 2200,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 2200
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 7000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 7000
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "DecreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 7000,
+                    "compare": "LESS_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.1.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 4000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 4000
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "DecreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 4000,
+                    "compare": "LESS_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.1.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 7000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 7000
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 2200,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 2200
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "DecreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 2200,
+                    "compare": "LESS_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.2.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 2200,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 2200
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "IncreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 2200,
+                    "compare": "GREATER_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.2.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 4000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 4000
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "IncreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 4000,
+                    "compare": "GREATER_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.2.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 7000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 7000
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "IncreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 7000,
+                    "compare": "GREATER_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.3.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 7000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 7000
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "DecreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 7000,
+                    "compare": "LESS_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.3.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 4000,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 4000
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "DecreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 4000,
+                    "compare": "LESS_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "ClrRlt_1.3.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorTemperatureController",
+                        "name": "colorTemperatureInKelvin",
+                        "value": 2200,
+                        "compare": "EQUAL_TO"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorTemperatureController",
+                            "name": "SetColorTemperature"
+                        },
+                        "payload": {
+                            "colorTemperatureInKelvin": 2200
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "DecreaseColorTemperature"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 2200,
+                    "compare": "LESS_THAN"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.0.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 2200
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 2200,
+                    "compare": "EQUAL_TO"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.0.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 2700
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 2700,
+                    "compare": "EQUAL_TO"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.0.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 4000
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 4000,
+                    "compare": "EQUAL_TO"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.0.3",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 5500
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 5500,
+                    "compare": "EQUAL_TO"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.0.4",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 7000
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 7000,
+                    "compare": "EQUAL_TO"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 7000
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 7000,
+                    "compare": "EQUAL_TO"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.2.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 2200
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 2200,
+                    "compare": "EQUAL_TO"
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.2.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 4000
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 4000,
+                    "compare": "EQUAL_TO"
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "TunWht_1.2.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "SetColorTemperature"
+                },
+                "payload": {
+                    "colorTemperatureInKelvin": 7000
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "value": 7000,
+                    "compare": "EQUAL_TO"
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ColorTemperatureController",
+                    "name": "colorTemperatureInKelvin",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        }
+    ]
+}

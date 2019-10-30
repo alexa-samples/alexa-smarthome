@@ -1,0 +1,1332 @@
+{
+    "name": "BrightnessController",
+    "testCases": [
+        {
+            "name": "DevRe_1.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOn"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_1.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOff"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "OFF"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_1.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": -25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 25
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_1.3",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 25
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 25
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": 25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_3.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "SetBrightness"
+                },
+                "payload": {
+                    "brightness": 25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 25
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_4.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 100
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 100
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": 10
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 100
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_5.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": 25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 25
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_5.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 25
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 25
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": 25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_6.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 100
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 100
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": -25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "OFF"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "DevRe_7.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 0
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 0
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": -25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 0
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "DevRe_8.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 100
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 100
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": -25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 75
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "DevRe_9.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 100
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 100
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "SetBrightness"
+                },
+                "payload": {
+                    "brightness": 0
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "OFF"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "DevRe_9.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 100
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 100
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 0
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 0
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOn"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 100
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_10.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 25
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 25
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": -25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "OFF"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "DevRe_11.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOff"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "OFF"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "Bulb_1.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOn"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 120.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 120.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOn"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 120.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 120.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 100
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 100
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": -25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 75
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 120.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 120.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.BrightnessController",
+                        "name": "brightness",
+                        "value": 50
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.BrightnessController",
+                            "name": "SetBrightness"
+                        },
+                        "payload": {
+                            "brightness": 50
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "AdjustBrightness"
+                },
+                "payload": {
+                    "brightnessDelta": 25
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 75
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        },
+        {
+            "name": "Bulb_2.3",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ColorController",
+                        "name": "color",
+                        "value": {
+                            "hue": 120.0,
+                            "saturation": 1.0,
+                            "brightness": 1.0
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ColorController",
+                            "name": "SetColor"
+                        },
+                        "payload": {
+                            "color": {
+                                "hue": 120.0,
+                                "saturation": 1.0,
+                                "brightness": 1.0
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "SetBrightness"
+                },
+                "payload": {
+                    "brightness": 50
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "value": {
+                        "hue": 120.0,
+                        "saturation": 1.0,
+                        "brightness": 1.0
+                    }
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "value": 50
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                },
+                {
+                    "namespace": "Alexa.BrightnessController",
+                    "name": "brightness",
+                    "percentThreshold": 5
+                },
+                {
+                    "namespace": "Alexa.ColorController",
+                    "name": "color",
+                    "percentThreshold": 5
+                }
+            ]
+        }
+    ]
+}
