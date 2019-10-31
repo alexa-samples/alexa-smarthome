@@ -1,0 +1,85 @@
+{
+    "name": "PowerController",
+    "testCases": [
+        {
+            "name": "DevRe_1.0",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "OFF"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOff"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOn"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "ON"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "DevRe_1.1",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.PowerController",
+                        "name": "powerState",
+                        "value": "ON"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.PowerController",
+                            "name": "TurnOn"
+                        },
+                        "payload": null
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.PowerController",
+                    "name": "TurnOff"
+                },
+                "payload": null
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "value": "OFF"
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.PowerController",
+                    "name": "powerState",
+                    "percentThreshold": 0
+                }
+            ]
+        }
+    ]
+}

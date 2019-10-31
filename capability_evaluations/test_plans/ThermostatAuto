@@ -1,0 +1,167 @@
+{
+  "name": "ThermostatAuto",
+  "testCases": [
+    {
+      "name": "Auto_1.0",
+      "initialSetups": [
+        {
+          "capabilityState": {
+            "namespace": "Alexa.ThermostatController",
+            "name": "thermostatMode",
+            "value": "COOL"
+          },
+          "directive": {
+            "header": {
+              "namespace": "Alexa.ThermostatController",
+              "name": "SetThermostatMode"
+            },
+            "payload": {
+              "thermostatMode": {
+                "value": "COOL"
+              }
+            }
+          }
+        }
+      ],
+      "directive": {
+        "header": {
+          "namespace": "Alexa.ThermostatController",
+          "name": "SetThermostatMode"
+        },
+        "payload": {
+          "thermostatMode": {
+            "value": "AUTO"
+          }
+        }
+      },
+      "expectedCapabilityStates": [
+        {
+          "namespace": "Alexa.ThermostatController",
+          "name": "thermostatMode",
+          "value": "AUTO"
+        }
+      ],
+      "capabilityTolerances": [
+        {
+          "namespace": "Alexa.ThermostatController",
+          "name": "thermostatMode",
+          "percentThreshold": 2
+        }
+      ]
+    },
+    {
+      "name": "Auto_1.1",
+      "initialSetups": [
+        {
+          "capabilityState": {
+            "namespace": "Alexa.ThermostatController",
+            "name": "thermostatMode",
+            "value": "HEAT"
+          },
+          "directive": {
+            "header": {
+              "namespace": "Alexa.ThermostatController",
+              "name": "SetThermostatMode"
+            },
+            "payload": {
+              "thermostatMode": {
+                "value": "HEAT"
+              }
+            }
+          }
+        }
+      ],
+      "directive": {
+        "header": {
+          "namespace": "Alexa.ThermostatController",
+          "name": "SetThermostatMode"
+        },
+        "payload": {
+          "thermostatMode": {
+            "value": "AUTO"
+          }
+        }
+      },
+      "expectedCapabilityStates": [
+        {
+          "namespace": "Alexa.ThermostatController",
+          "name": "thermostatMode",
+          "value": "AUTO"
+        }
+      ],
+      "capabilityTolerances": [
+        {
+          "namespace": "Alexa.ThermostatController",
+          "name": "thermostatMode",
+          "percentThreshold": 2
+        }
+      ]
+    },
+    {
+      "name": "Auto_1.2",
+      "initialSetups": [
+        {
+          "capabilityState": {
+            "namespace": "Alexa.ThermostatController",
+            "name": "thermostatMode",
+            "value": "COOL"
+          },
+          "directive": {
+            "header": {
+              "namespace": "Alexa.ThermostatController",
+              "name": "SetThermostatMode"
+            },
+            "payload": {
+              "thermostatMode": {
+                "value": "COOL"
+              }
+            }
+          }
+        },
+        {
+          "capabilityState": {
+            "namespace": "Alexa.ThermostatController",
+            "name": "thermostatMode",
+            "value": "HEAT"
+          },
+          "directive": {
+            "header": {
+              "namespace": "Alexa.ThermostatController",
+              "name": "SetThermostatMode"
+            },
+            "payload": {
+              "thermostatMode": {
+                "value": "HEAT"
+              }
+            }
+          }
+        }
+      ],
+      "directive": {
+        "header": {
+          "namespace": "Alexa.ThermostatController",
+          "name": "SetThermostatMode"
+        },
+        "payload": {
+          "thermostatMode": {
+            "value": "AUTO"
+          }
+        }
+      },
+      "expectedCapabilityStates": [
+        {
+          "namespace": "Alexa.ThermostatController",
+          "name": "thermostatMode",
+          "value": "AUTO"
+        }
+      ],
+      "capabilityTolerances": [
+        {
+          "namespace": "Alexa.ThermostatController",
+          "name": "thermostatMode",
+          "percentThreshold": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+    "name": "ThermostatHeat_CELSIUS",
+    "testCases": [
+        {
+            "name": "CelHeat_1.2",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "thermostatMode",
+                        "value": "HEAT"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetThermostatMode"
+                        },
+                        "payload": {
+                            "thermostatMode": {
+                                "value": "HEAT"
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "SetTargetTemperature"
+                },
+                "payload": {
+                    "targetSetpoint": {
+                        "value": 17,
+                        "scale": "CELSIUS"
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "value": {
+                        "value": 17.0,
+                        "scale": "CELSIUS"
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "percentThreshold": 2
+                },
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "thermostatMode",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "CelHeat_1.3",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "thermostatMode",
+                        "value": "HEAT"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetThermostatMode"
+                        },
+                        "payload": {
+                            "thermostatMode": {
+                                "value": "HEAT"
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "targetSetpoint",
+                        "value": {
+                            "value": 10.0,
+                            "scale": "CELSIUS"
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetTargetTemperature"
+                        },
+                        "payload": {
+                            "targetSetpoint": {
+                                "value": 10.0,
+                                "scale": "CELSIUS"
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "AdjustTargetTemperature"
+                },
+                "payload": {
+                    "targetSetpointDelta": {
+                        "value": 6.0,
+                        "scale": "CELSIUS"
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "value": {
+                        "value": 16.0,
+                        "scale": "CELSIUS"
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "percentThreshold": 2
+                },
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "thermostatMode",
+                    "percentThreshold": 0
+                }
+            ]
+        },
+        {
+            "name": "CelHeat_1.4",
+            "initialSetups": [
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "thermostatMode",
+                        "value": "HEAT"
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetThermostatMode"
+                        },
+                        "payload": {
+                            "thermostatMode": {
+                                "value": "HEAT"
+                            }
+                        }
+                    }
+                },
+                {
+                    "capabilityState": {
+                        "namespace": "Alexa.ThermostatController",
+                        "name": "targetSetpoint",
+                        "value": {
+                            "value": 26.0,
+                            "scale": "CELSIUS"
+                        }
+                    },
+                    "directive": {
+                        "header": {
+                            "namespace": "Alexa.ThermostatController",
+                            "name": "SetTargetTemperature"
+                        },
+                        "payload": {
+                            "targetSetpoint": {
+                                "value": 26.0,
+                                "scale": "CELSIUS"
+                            }
+                        }
+                    }
+                }
+            ],
+            "directive": {
+                "header": {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "AdjustTargetTemperature"
+                },
+                "payload": {
+                    "targetSetpointDelta": {
+                        "value": -6.0,
+                        "scale": "CELSIUS"
+                    }
+                }
+            },
+            "expectedCapabilityStates": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "value": {
+                        "value": 20.0,
+                        "scale": "CELSIUS"
+                    }
+                }
+            ],
+            "capabilityTolerances": [
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "targetSetpoint",
+                    "percentThreshold": 2
+                },
+                {
+                    "namespace": "Alexa.ThermostatController",
+                    "name": "thermostatMode",
+                    "percentThreshold": 0
+                }
+            ]
+        }
+    ]
+}
