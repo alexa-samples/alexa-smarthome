@@ -430,6 +430,22 @@
           }
         }
       },
+      "semantics": {
+        "actions": {
+          "enum": [
+            "Alexa.Actions.Close",
+            "Alexa.Actions.Open",
+            "Alexa.Actions.Lower",
+            "Alexa.Actions.Raise"
+          ]
+        },
+        "states": {
+          "enum": [
+            "Alexa.States.Closed",
+            "Alexa.States.Open"
+          ]
+        }
+      },
       "interfaces": {
         "Alexa": {
           "capabilities": {
@@ -2131,6 +2147,89 @@
                     "type": "boolean"
                   }
                 }
+              },
+              "semantics": {
+                "type": "object",
+                "anyOf": [
+                  {
+                    "required": [
+                      "actionMappings"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "stateMappings"
+                    ]
+                  }
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "actionMappings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "@type",
+                        "actions",
+                        "directive"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@type": {
+                          "enum": [
+                            "ActionsToDirective"
+                          ]
+                        },
+                        "actions": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "items": {
+                            "$ref": "#/definitions/common.properties/semantics/actions"
+                          }
+                        },
+                        "directive": {
+                          "$ref": "#/definitions/common.properties/directives/toggleState"
+                        }
+                      }
+                    }
+                  },
+                  "stateMappings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "@type",
+                        "states",
+                        "value"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@type": {
+                          "enum": [
+                            "StatesToValue"
+                          ]
+                        },
+                        "states": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "items": {
+                            "$ref": "#/definitions/common.properties/semantics/states"
+                          }
+                        },
+                        "value": {
+                          "enum": [
+                            "ON",
+                            "OFF"
+                          ]
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -2290,6 +2389,86 @@
                               "$ref": "#/definitions/common.properties/resourceArray"
                             }
                           }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "semantics": {
+                "type": "object",
+                "anyOf": [
+                  {
+                    "required": [
+                      "actionMappings"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "stateMappings"
+                    ]
+                  }
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "actionMappings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "@type",
+                        "actions",
+                        "directive"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@type": {
+                          "enum": [
+                            "ActionsToDirective"
+                          ]
+                        },
+                        "actions": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "items": {
+                            "$ref": "#/definitions/common.properties/semantics/actions"
+                          }
+                        },
+                        "directive": {
+                          "$ref": "#/definitions/common.properties/directives/mode"
+                        }
+                      }
+                    }
+                  },
+                  "stateMappings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "@type",
+                        "states",
+                        "value"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@type": {
+                          "enum": [
+                            "StatesToValue"
+                          ]
+                        },
+                        "states": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "items": {
+                            "$ref": "#/definitions/common.properties/semantics/states"
+                          }
+                        },
+                        "value": {
+                          "type": "string"
                         }
                       }
                     }
@@ -2471,6 +2650,128 @@
                           }
                         }
                       }
+                    }
+                  }
+                }
+              },
+              "semantics": {
+                "type": "object",
+                "anyOf": [
+                  {
+                    "required": [
+                      "actionMappings"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "stateMappings"
+                    ]
+                  }
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "actionMappings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "@type",
+                        "actions",
+                        "directive"
+                      ],
+                      "additionalProperties": false,
+                      "properties": {
+                        "@type": {
+                          "enum": [
+                            "ActionsToDirective"
+                          ]
+                        },
+                        "actions": {
+                          "type": "array",
+                          "uniqueItems": true,
+                          "items": {
+                            "$ref": "#/definitions/common.properties/semantics/actions"
+                          }
+                        },
+                        "directive": {
+                          "$ref": "#/definitions/common.properties/directives/rangeValue"
+                        }
+                      }
+                    }
+                  },
+                  "stateMappings": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "object",
+                      "oneOf": [
+                        {
+                          "required": [
+                            "@type",
+                            "states",
+                            "range"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "enum": [
+                                "StatesToRange"
+                              ]
+                            },
+                            "states": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "items": {
+                                "$ref": "#/definitions/common.properties/semantics/states"
+                              }
+                            },
+                            "range": {
+                              "type": "object",
+                              "required": [
+                                "minimumValue",
+                                "maximumValue"
+                              ],
+                              "additionalProperties": false,
+                              "properties": {
+                                "minimumValue": {
+                                  "type": "number"
+                                },
+                                "maximumValue": {
+                                  "type": "number"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        {
+                          "required": [
+                            "@type",
+                            "states",
+                            "value"
+                          ],
+                          "additionalProperties": false,
+                          "properties": {
+                            "@type": {
+                              "enum": [
+                                "StatesToValue"
+                              ]
+                            },
+                            "states": {
+                              "type": "array",
+                              "uniqueItems": true,
+                              "items": {
+                                "$ref": "#/definitions/common.properties/semantics/states"
+                              }
+                            },
+                            "value": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      ]
                     }
                   }
                 }
@@ -3390,6 +3691,82 @@
           }
         }
       },
+      "directives": {
+        "mode": {
+          "type": "object",
+          "required": [
+            "name",
+            "payload"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "enum": [
+                "SetMode",
+                "AdjustMode"
+              ]
+            },
+            "payload": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/common.properties/payload/mode"
+                },
+                {
+                  "$ref": "#/definitions/common.properties/payload/modeDelta"
+                }
+              ]
+            }
+          }
+        },
+        "rangeValue": {
+          "type": "object",
+          "required": [
+            "name",
+            "payload"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "enum": [
+                "SetRangeValue",
+                "AdjustRangeValue"
+              ]
+            },
+            "payload": {
+              "oneOf": [
+                {
+                  "$ref": "#/definitions/common.properties/payload/rangeValue"
+                },
+                {
+                  "$ref": "#/definitions/common.properties/payload/rangeValueDelta"
+                }
+              ]
+            }
+          }
+        },
+        "toggleState": {
+          "type": "object",
+          "required": [
+            "name",
+            "payload"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "enum": [
+                "TurnOn",
+                "TurnOff"
+              ]
+            },
+            "payload": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {},
+              "maxProperties": 0
+            }
+          }
+        }
+      },
       "payload": {
         "cameraStreams": {
           "type": "object",
@@ -3406,6 +3783,58 @@
             "imageUri": {
               "type": "string",
               "format": "uri"
+            }
+          }
+        },
+        "mode": {
+          "type": "object",
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "mode": {
+              "type": "string"
+            }
+          }
+        },
+        "modeDelta": {
+          "type": "object",
+          "required": [
+            "modeDelta"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "modeDelta": {
+              "type": "integer"
+            }
+          }
+        },
+        "rangeValue": {
+          "type": "object",
+          "required": [
+            "rangeValue"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rangeValue": {
+              "type": "number"
+            }
+          }
+        },
+        "rangeValueDelta": {
+          "type": "object",
+          "required": [
+            "rangeValueDelta",
+            "rangeValueDeltaDefault"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "rangeValueDelta": {
+              "type": "number"
+            },
+            "rangeValueDeltaDefault": {
+              "type": "boolean"
             }
           }
         },
