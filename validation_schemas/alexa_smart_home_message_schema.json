@@ -3922,6 +3922,22 @@
                   "SCENE_TRIGGER",
                   "ACTIVITY_TRIGGER",
                   "SECURITY_PANEL",
+                  "COMPUTER",
+                  "EXTERIOR_BLIND",
+                  "FAN",
+                  "GAME_CONSOLE",
+                  "GARAGE_DOOR",
+                  "INTERIOR_BLIND",
+                  "LAPTOP",
+                  "MOBILE_PHONE",
+                  "MUSIC_SYSTEM",
+                  "NETWORK_HARDWARE",
+                  "OVEN",
+                  "PHONE",
+                  "SCREEN",
+                  "STREAMING_DEVICE",
+                  "TABLET",
+                  "WEARABLE",
                   "OTHER"
                 ]
               }
