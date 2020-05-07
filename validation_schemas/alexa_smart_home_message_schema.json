@@ -176,9 +176,7 @@
                                 "type": "string",
                                 "enum": [
                                     "ON",
-                                    "OFF",
-                                    "on",
-                                    "off"
+                                    "OFF"
                                 ]
                             },
                             "timeOfSample": {
@@ -2089,21 +2087,13 @@
                                         "type": "string"
                                     },
                                     "version": {
-                                        "oneOf": [
-                                            {
-                                                "type": "string"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
-                                        ]
+                                        "type": "string"
                                     },
                                     "properties": {
                                         "type": "object",
                                         "properties": {
                                             "supported": {
                                                 "type": "array",
-                                                "nullable": true,
                                                 "items": {
                                                     "type": "object",
                                                     "required": [
@@ -2120,43 +2110,12 @@
                                                 }
                                             },
                                             "proactivelyReported": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             },
                                             "retrievable": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             }
-                                        },
-                                        "nullable": true
+                                        }
                                     }
                                 }
                             },
@@ -2176,20 +2135,9 @@
                                         ]
                                     },
                                     "version": {
-                                        "oneOf": [
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "3"
-                                                ]
-                                            },
-                                            {
-                                                "type": "integer",
-                                                "format": "int32",
-                                                "enum": [
-                                                    3
-                                                ]
-                                            }
+                                        "type": "string",
+                                        "enum": [
+                                            "3"
                                         ]
                                     }
                                 }
@@ -3130,14 +3078,7 @@
                                         "type": "string"
                                     },
                                     "version": {
-                                        "oneOf": [
-                                            {
-                                                "type": "string"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
-                                        ]
+                                        "type": "string"
                                     },
                                     "properties": {
                                         "type": "object",
@@ -3160,40 +3101,10 @@
                                                 }
                                             },
                                             "proactivelyReported": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             },
                                             "retrievable": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             }
                                         }
                                     }
@@ -3215,20 +3126,9 @@
                                         ]
                                     },
                                     "version": {
-                                        "oneOf": [
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "3"
-                                                ]
-                                            },
-                                            {
-                                                "type": "integer",
-                                                "format": "int32",
-                                                "enum": [
-                                                    3
-                                                ]
-                                            }
+                                        "type": "string",
+                                        "enum": [
+                                            "3"
                                         ]
                                     }
                                 }
@@ -5323,32 +5223,13 @@
                                         "type": "string"
                                     },
                                     "version": {
-                                        "oneOf": [
-                                            {
-                                                "type": "string"
-                                            },
-                                            {
-                                                "type": "number"
-                                            }
-                                        ]
+                                        "type": "string"
                                     },
                                     "properties": {
                                         "type": "object",
                                         "properties": {
                                             "supported": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "object",
-                                                        "nullable": true
-                                                    },
-                                                    {
-                                                        "type": "array",
-                                                        "nullable": true,
-                                                        "items": {
-                                                            "type": "object"
-                                                        }
-                                                    }
-                                                ],
+                                                "type": "array",
                                                 "items": {
                                                     "type": "object",
                                                     "required": [
@@ -5365,59 +5246,12 @@
                                                 }
                                             },
                                             "proactivelyReported": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "integer",
-                                                        "format": "int32",
-                                                        "enum": [
-                                                            0,
-                                                            1
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             },
                                             "retrievable": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "integer",
-                                                        "format": "int32",
-                                                        "enum": [
-                                                            0,
-                                                            1
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             }
-                                        },
-                                        "nullable": true
+                                        }
                                     }
                                 }
                             },
@@ -5442,20 +5276,9 @@
                                         ]
                                     },
                                     "version": {
-                                        "oneOf": [
-                                            {
-                                                "type": "string",
-                                                "enum": [
-                                                    "3"
-                                                ]
-                                            },
-                                            {
-                                                "type": "integer",
-                                                "format": "int32",
-                                                "enum": [
-                                                    3
-                                                ]
-                                            }
+                                        "type": "string",
+                                        "enum": [
+                                            "3"
                                         ]
                                     },
                                     "instance": {
@@ -5553,82 +5376,13 @@
                                                 }
                                             },
                                             "proactivelyReported": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "integer",
-                                                        "format": "int32",
-                                                        "enum": [
-                                                            0,
-                                                            1
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             },
                                             "retrievable": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "integer",
-                                                        "format": "int32",
-                                                        "enum": [
-                                                            0,
-                                                            1
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             },
                                             "nonControllable": {
-                                                "oneOf": [
-                                                    {
-                                                        "type": "boolean"
-                                                    },
-                                                    {
-                                                        "type": "string",
-                                                        "enum": [
-                                                            "true",
-                                                            "false",
-                                                            "True",
-                                                            "False",
-                                                            "TRUE",
-                                                            "FALSE"
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "integer",
-                                                        "format": "int32",
-                                                        "enum": [
-                                                            0,
-                                                            1
-                                                        ]
-                                                    }
-                                                ]
+                                                "type": "boolean"
                                             }
                                         },
                                         "additionalProperties": false
@@ -5648,34 +5402,13 @@
                                                 "type": "object",
                                                 "properties": {
                                                     "minimumValue": {
-                                                        "oneOf": [
-                                                            {
-                                                                "type": "number"
-                                                            },
-                                                            {
-                                                                "type": "string"
-                                                            }
-                                                        ]
+                                                        "type": "number"
                                                     },
                                                     "maximumValue": {
-                                                        "oneOf": [
-                                                            {
-                                                                "type": "number"
-                                                            },
-                                                            {
-                                                                "type": "string"
-                                                            }
-                                                        ]
+                                                        "type": "number"
                                                     },
                                                     "precision": {
-                                                        "oneOf": [
-                                                            {
-                                                                "type": "number"
-                                                            },
-                                                            {
-                                                                "type": "string"
-                                                            }
-                                                        ]
+                                                        "type": "number"
                                                     }
                                                 },
                                                 "additionalProperties": false
@@ -5690,14 +5423,7 @@
                                                     "type": "object",
                                                     "properties": {
                                                         "rangeValue": {
-                                                            "oneOf": [
-                                                                {
-                                                                    "type": "number"
-                                                                },
-                                                                {
-                                                                    "type": "string"
-                                                                }
-                                                            ]
+                                                            "type": "number"
                                                         },
                                                         "presetResources": {
                                                             "properties": {
@@ -5769,108 +5495,6 @@
                                             },
                                             "unitOfMeasure": {
                                                 "type": "string"
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    },
-                                    "semantics": {
-                                        "type": "object",
-                                        "properties": {
-                                            "actionMappings": {
-                                                "type": "array",
-                                                "items": {
-                                                    "required": [
-                                                        "@type",
-                                                        "actions",
-                                                        "directive"
-                                                    ],
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "@type": {
-                                                            "type": "string",
-                                                            "enum": [
-                                                                "ActionsToDirective"
-                                                            ]
-                                                        },
-                                                        "actions": {
-                                                            "type": "array",
-                                                            "items": {
-                                                                "type": "string"
-                                                            }
-                                                        },
-                                                        "directive": {
-                                                            "required": [
-                                                                "name"
-                                                            ],
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "name": {
-                                                                    "type": "string"
-                                                                },
-                                                                "payload": {
-                                                                    "type": "object"
-                                                                }
-                                                            },
-                                                            "additionalProperties": false
-                                                        }
-                                                    },
-                                                    "additionalProperties": false
-                                                }
-                                            },
-                                            "stateMappings": {
-                                                "type": "array",
-                                                "items": {
-                                                    "oneOf": [
-                                                        {
-                                                            "required": [
-                                                                "@type",
-                                                                "states"
-                                                            ],
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@type": {
-                                                                    "type": "string",
-                                                                    "enum": [
-                                                                        "StatesToValue"
-                                                                    ]
-                                                                },
-                                                                "states": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "string"
-                                                                    }
-                                                                },
-                                                                "value": {}
-                                                            },
-                                                            "additionalProperties": false
-                                                        },
-                                                        {
-                                                            "required": [
-                                                                "@type",
-                                                                "states"
-                                                            ],
-                                                            "type": "object",
-                                                            "properties": {
-                                                                "@type": {
-                                                                    "type": "string",
-                                                                    "enum": [
-                                                                        "StatesToRange"
-                                                                    ]
-                                                                },
-                                                                "states": {
-                                                                    "type": "array",
-                                                                    "items": {
-                                                                        "type": "string"
-                                                                    }
-                                                                },
-                                                                "range": {
-                                                                    "type": "object"
-                                                                }
-                                                            },
-                                                            "additionalProperties": false
-                                                        }
-                                                    ]
-                                                }
                                             }
                                         },
                                         "additionalProperties": false
