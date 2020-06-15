@@ -678,6 +678,55 @@
                             }
                         }
                     ]
+                },
+                {
+                    "endpointId": "endpoint-010",
+                    "manufacturerName": "Sample Manufacturer",
+                    "friendlyName": "Computer",
+                    "description": "010 Computer that need Wake On LAN to turn on",
+                    "displayCategories": [
+                        "COMPUTER"
+                    ],
+                    "connections": [
+                        {
+                          "type": "TCP_IP",
+                          "macAddress": "00:11:22:AA:BB:33"
+                        }
+                    ],
+                    "cookie": {
+                        "detail1": "For simplicity, this is computer have only",
+                        "detail2": "information to make possible wake on lan."
+                    },
+                    "capabilities": [
+                        {
+                            "type": "AlexaInterface",
+                            "interface": "Alexa",
+                            "version": "3"
+                        },
+                        {
+                            "type": "AlexaInterface",
+                            "interface": "Alexa.WakeOnLANController",
+                            "version": "3",
+                            "properties": {},
+                            "configuration": {
+                                "MACAddresses": ["00:11:22:AA:BB:33"]
+                            }
+                        },
+                        {
+                            "type": "AlexaInterface",
+                            "interface": "Alexa.PowerController",
+                            "version": "3",
+                            "properties": {
+                                "supported": [
+                                    {
+                                        "name": "powerState"
+                                    }
+                                ],
+                                "proactivelyReported": true,
+                                "retrievable": true
+                            }
+                        }
+                    ]
                 }
             ]
         }

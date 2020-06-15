@@ -1,0 +1,35 @@
+POST /v3/events HTTP/1.1
+Host: api.amazonalexa.com
+Authorization: Bearer access-token-from-Amazon
+Content-Type: application/json
+
+{
+  "event": {
+    "header": {
+      "namespace": "Alexa.WakeOnLANController",
+      "name": "WakeUp",
+      "messageId": "3e1b246e-10f3-3ff3-7c99-32aa123f43c3",
+      "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==",
+      "payloadVersion": "3"
+    },
+    "endpoint": {
+      "scope": {
+        "type": "BearerToken",
+        "token": "access-token-from-Amazon"
+      },
+      "endpointId": "endpoint-010"
+    },
+    "payload": {}
+  },
+  "context": {
+    "properties": [
+      {
+        "namespace": "Alexa.PowerController",
+        "name": "powerState",
+        "value": "OFF",
+        "timeOfSample": "2020-06-15T01:50:50.52Z",
+        "uncertaintyInMilliseconds": 500
+      }
+    ]
+  }
+}

@@ -41,4 +41,5 @@ Alexa.Speaker
 Alexa.TemperatureSensor
 Alexa.ThermostatController
 Alexa.ToggleController
+Alexa.WakeOnLANController
 ```
