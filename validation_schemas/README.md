@@ -17,6 +17,9 @@ Alexa.ChannelController
 Alexa.ColorController
 Alexa.ColorTemperatureController
 Alexa.ContactSensor
+Alexa.Cooking
+Alexa.Cooking.PresetController
+Alexa.Cooking.TimeController
 Alexa.CustomIntent
 Alexa.Discovery
 Alexa.DoorbellEventSource
@@ -24,6 +27,7 @@ Alexa.EndpointHealth
 Alexa.EqualizerController
 Alexa.EventDetectionSensor
 Alexa.InputController
+Alexa.InventoryLevelSensor
 Alexa.LockController
 Alexa.MediaMetadata
 Alexa.ModeController
@@ -32,13 +36,18 @@ Alexa.Networking.AccessController
 Alexa.Networking.ConnectedDevice
 Alexa.Networking.HomeNetworkController
 Alexa.PercentageController
+Alexa.PlaybackController
 Alexa.PowerController
 Alexa.PowerLevelController
 Alexa.RTCSessionController
 Alexa.RangeController
 Alexa.SceneController
+Alexa.SecurityPanelController
 Alexa.Speaker
+Alexa.StepSpeaker
 Alexa.TemperatureSensor
 Alexa.ThermostatController
+Alexa.TimeHoldController
 Alexa.ToggleController
+Alexa.WakeOnLANController
 ```
