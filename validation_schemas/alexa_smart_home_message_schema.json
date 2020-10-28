@@ -918,7 +918,7 @@
                             },
                             "name": {
                                 "enum": [
-                                    "smokeAlarmDetectionState"
+                                    "animalPresenceDetectionState"
                                 ]
                             },
                             "instance": {
@@ -969,6 +969,252 @@
                                     }
                                 },
                                 "additionalProperties": false
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.EventDetectionSensor"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "babyCryDetectionState"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "required": [
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "type": "string",
+                                        "enum": [
+                                            "DETECTED",
+                                            "NOT_DETECTED"
+                                        ]
+                                    },
+                                    "detectionMethods": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "enum": [
+                                                "AUDIO",
+                                                "VIDEO"
+                                            ]
+                                        }
+                                    },
+                                    "media": {
+                                        "required": [
+                                            "id",
+                                            "type"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ALEXA.MEDIAMETADATA",
+                                                    "DATAMART"
+                                                ]
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.EventDetectionSensor"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "detectionModes"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "object",
+                                "additionalProperties": {
+                                    "type": "object",
+                                    "properties": {
+                                        "enablementMode": {
+                                            "type": "string",
+                                            "enum": [
+                                                "DISABLED",
+                                                "ENABLED"
+                                            ]
+                                        },
+                                        "cloudVerificationMode": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                }
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.EventDetectionSensor"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "dogBarkDetectionState"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "required": [
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "type": "string",
+                                        "enum": [
+                                            "DETECTED",
+                                            "NOT_DETECTED"
+                                        ]
+                                    },
+                                    "detectionMethods": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string",
+                                            "enum": [
+                                                "AUDIO",
+                                                "VIDEO"
+                                            ]
+                                        }
+                                    },
+                                    "media": {
+                                        "required": [
+                                            "id",
+                                            "type"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "ALEXA.MEDIAMETADATA",
+                                                    "DATAMART"
+                                                ]
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.EventDetectionSensor"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "enablementMode"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string",
+                                "enum": [
+                                    "DISABLED",
+                                    "ENABLED"
+                                ]
                             },
                             "timeOfSample": {
                                 "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
@@ -1152,7 +1398,7 @@
                             },
                             "name": {
                                 "enum": [
-                                    "babyCryDetectionState"
+                                    "smokeSirenDetectionState"
                                 ]
                             },
                             "instance": {
@@ -1203,252 +1449,6 @@
                                     }
                                 },
                                 "additionalProperties": false
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.EventDetectionSensor"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "dogBarkDetectionState"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "required": [
-                                    "value"
-                                ],
-                                "type": "object",
-                                "properties": {
-                                    "value": {
-                                        "type": "string",
-                                        "enum": [
-                                            "DETECTED",
-                                            "NOT_DETECTED"
-                                        ]
-                                    },
-                                    "detectionMethods": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string",
-                                            "enum": [
-                                                "AUDIO",
-                                                "VIDEO"
-                                            ]
-                                        }
-                                    },
-                                    "media": {
-                                        "required": [
-                                            "id",
-                                            "type"
-                                        ],
-                                        "type": "object",
-                                        "properties": {
-                                            "type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "ALEXA.MEDIAMETADATA",
-                                                    "DATAMART"
-                                                ]
-                                            },
-                                            "id": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    }
-                                },
-                                "additionalProperties": false
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.EventDetectionSensor"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "detectionModes"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "type": "object",
-                                "additionalProperties": {
-                                    "type": "object",
-                                    "properties": {
-                                        "enablementMode": {
-                                            "type": "string",
-                                            "enum": [
-                                                "DISABLED",
-                                                "ENABLED"
-                                            ]
-                                        },
-                                        "cloudVerificationMode": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "additionalProperties": false
-                                }
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.EventDetectionSensor"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "animalPresenceDetectionState"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "required": [
-                                    "value"
-                                ],
-                                "type": "object",
-                                "properties": {
-                                    "value": {
-                                        "type": "string",
-                                        "enum": [
-                                            "DETECTED",
-                                            "NOT_DETECTED"
-                                        ]
-                                    },
-                                    "detectionMethods": {
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string",
-                                            "enum": [
-                                                "AUDIO",
-                                                "VIDEO"
-                                            ]
-                                        }
-                                    },
-                                    "media": {
-                                        "required": [
-                                            "id",
-                                            "type"
-                                        ],
-                                        "type": "object",
-                                        "properties": {
-                                            "type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "ALEXA.MEDIAMETADATA",
-                                                    "DATAMART"
-                                                ]
-                                            },
-                                            "id": {
-                                                "type": "string"
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    }
-                                },
-                                "additionalProperties": false
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.EventDetectionSensor"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "enablementMode"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "type": "string",
-                                "enum": [
-                                    "DISABLED",
-                                    "ENABLED"
-                                ]
                             },
                             "timeOfSample": {
                                 "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
@@ -5146,6 +5146,7 @@
                                         "properties": {
                                             "supported": {
                                                 "type": "array",
+                                                "nullable": true,
                                                 "items": {
                                                     "type": "object",
                                                     "required": [
@@ -5155,14 +5156,14 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "smokeAlarmDetectionState",
+                                                                "animalPresenceDetectionState",
+                                                                "babyCryDetectionState",
+                                                                "detectionModes",
+                                                                "dogBarkDetectionState",
+                                                                "enablementMode",
                                                                 "glassBreakDetectionState",
                                                                 "humanPresenceDetectionState",
-                                                                "babyCryDetectionState",
-                                                                "dogBarkDetectionState",
-                                                                "detectionModes",
-                                                                "animalPresenceDetectionState",
-                                                                "enablementMode",
+                                                                "smokeSirenDetectionState",
                                                                 "vehiclePresenceDetectionState"
                                                             ]
                                                         }
@@ -5175,7 +5176,8 @@
                                             "retrievable": {
                                                 "type": "boolean"
                                             }
-                                        }
+                                        },
+                                        "nullable": true
                                     }
                                 }
                             },
