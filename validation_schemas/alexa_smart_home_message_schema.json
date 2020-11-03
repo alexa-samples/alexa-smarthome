@@ -205,121 +205,64 @@
                             },
                             "name": {
                                 "enum": [
-                                    "targetSetpoint"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "required": [
-                                    "scale"
-                                ],
-                                "type": "object",
-                                "properties": {
-                                    "value": {
-                                        "maximum": 100,
-                                        "exclusiveMaximum": false,
-                                        "minimum": -100,
-                                        "exclusiveMinimum": false,
-                                        "type": "number",
-                                        "format": "double"
-                                    },
-                                    "scale": {
-                                        "type": "string",
-                                        "enum": [
-                                            "FAHRENHEIT",
-                                            "CELSIUS",
-                                            "KELVIN"
-                                        ]
-                                    }
-                                },
-                                "additionalProperties": false
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.ThermostatController"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "upperSetpoint"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "required": [
-                                    "scale"
-                                ],
-                                "type": "object",
-                                "properties": {
-                                    "value": {
-                                        "maximum": 100,
-                                        "exclusiveMaximum": false,
-                                        "minimum": -100,
-                                        "exclusiveMinimum": false,
-                                        "type": "number",
-                                        "format": "double"
-                                    },
-                                    "scale": {
-                                        "type": "string",
-                                        "enum": [
-                                            "FAHRENHEIT",
-                                            "CELSIUS",
-                                            "KELVIN"
-                                        ]
-                                    }
-                                },
-                                "additionalProperties": false
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.ThermostatController"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
                                     "lowerSetpoint"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "required": [
+                                    "scale"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "maximum": 100,
+                                        "exclusiveMaximum": false,
+                                        "minimum": -100,
+                                        "exclusiveMinimum": false,
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "scale": {
+                                        "type": "string",
+                                        "enum": [
+                                            "FAHRENHEIT",
+                                            "CELSIUS",
+                                            "KELVIN"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.ThermostatController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "targetSetpoint"
                                 ]
                             },
                             "instance": {
@@ -391,6 +334,63 @@
                                     "ECO",
                                     "OFF"
                                 ]
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.ThermostatController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "upperSetpoint"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "required": [
+                                    "scale"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "value": {
+                                        "maximum": 100,
+                                        "exclusiveMaximum": false,
+                                        "minimum": -100,
+                                        "exclusiveMinimum": false,
+                                        "type": "number",
+                                        "format": "double"
+                                    },
+                                    "scale": {
+                                        "type": "string",
+                                        "enum": [
+                                            "FAHRENHEIT",
+                                            "CELSIUS",
+                                            "KELVIN"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": false
                             },
                             "timeOfSample": {
                                 "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
@@ -3291,10 +3291,10 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "targetSetpoint",
-                                                                "upperSetpoint",
                                                                 "lowerSetpoint",
-                                                                "thermostatMode"
+                                                                "targetSetpoint",
+                                                                "thermostatMode",
+                                                                "upperSetpoint"
                                                             ]
                                                         }
                                                     }
