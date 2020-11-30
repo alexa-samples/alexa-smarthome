@@ -425,24 +425,52 @@
                                 "type": "string"
                             },
                             "value": {
-                                "minProperties": 1,
-                                "type": "object",
-                                "properties": {
-                                    "number": {
-                                        "pattern": "^\\d+(\\.\\d+)?$",
-                                        "type": "string"
+                                "allOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "number": {
+                                                "pattern": "^\\d+(\\.\\d+)?$",
+                                                "type": "string"
+                                            },
+                                            "callSign": {
+                                                "type": "string"
+                                            },
+                                            "affiliateCallSign": {
+                                                "type": "string"
+                                            },
+                                            "uri": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "additionalProperties": false
                                     },
-                                    "callSign": {
-                                        "type": "string"
-                                    },
-                                    "affiliateCallSign": {
-                                        "type": "string"
-                                    },
-                                    "uri": {
-                                        "type": "string"
+                                    {
+                                        "type": "object",
+                                        "anyOf": [
+                                            {
+                                                "required": [
+                                                    "number"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "callSign"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "affiliateCallSign"
+                                                ]
+                                            },
+                                            {
+                                                "required": [
+                                                    "uri"
+                                                ]
+                                            }
+                                        ]
                                     }
-                                },
-                                "additionalProperties": false
+                                ]
                             },
                             "timeOfSample": {
                                 "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
@@ -1564,26 +1592,52 @@
                                 "uniqueItems": true,
                                 "type": "array",
                                 "items": {
-                                    "required": [
-                                        "name",
-                                        "value"
-                                    ],
-                                    "type": "object",
-                                    "properties": {
-                                        "name": {
-                                            "type": "string",
-                                            "enum": [
-                                                "BASS",
-                                                "MIDRANGE",
-                                                "TREBLE"
-                                            ]
+                                    "oneOf": [
+                                        {
+                                            "required": [
+                                                "name",
+                                                "value"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "BASS",
+                                                        "MIDRANGE",
+                                                        "TREBLE"
+                                                    ]
+                                                },
+                                                "value": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                }
+                                            },
+                                            "additionalProperties": false
                                         },
-                                        "value": {
-                                            "type": "integer",
-                                            "format": "int32"
+                                        {
+                                            "required": [
+                                                "level",
+                                                "name"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "name": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "BASS",
+                                                        "MIDRANGE",
+                                                        "TREBLE"
+                                                    ]
+                                                },
+                                                "level": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                }
+                                            },
+                                            "additionalProperties": false
                                         }
-                                    },
-                                    "additionalProperties": false
+                                    ]
                                 }
                             },
                             "timeOfSample": {
@@ -2006,6 +2060,109 @@
                                             "ALARM",
                                             "OK"
                                         ]
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.RecordController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "RecordingState"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string",
+                                "enum": [
+                                    "RECORDING",
+                                    "NOT_RECORDING"
+                                ]
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.Launcher"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "target"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "required": [
+                                    "identifier",
+                                    "name"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "experience": {
+                                        "anyOf": [
+                                            {
+                                                "type": "object",
+                                                "properties": {
+                                                    "mode": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "DEFAULT",
+                                                            "VOICE_OPTIMIZED"
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        ]
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "identifier": {
+                                        "type": "string"
                                     }
                                 },
                                 "additionalProperties": false
@@ -7417,6 +7574,296 @@
                                     "version": {
                                         "type": "string"
                                     },
+                                    "properties": {
+                                        "type": "object",
+                                        "properties": {
+                                            "supported": {
+                                                "type": "array",
+                                                "nullable": true,
+                                                "items": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "name"
+                                                    ],
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "RecordingState"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "proactivelyReported": {
+                                                "type": "boolean"
+                                            },
+                                            "retrievable": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "nullable": true
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "AlexaInterface"
+                                        ]
+                                    },
+                                    "interface": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Alexa.RecordController"
+                                        ]
+                                    },
+                                    "version": {
+                                        "type": "string",
+                                        "enum": [
+                                            "3"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "interface",
+                                    "type",
+                                    "version"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
+                                        "type": "string"
+                                    },
+                                    "interface": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "properties": {
+                                        "type": "object",
+                                        "properties": {
+                                            "supported": {
+                                                "type": "array",
+                                                "nullable": true,
+                                                "items": {
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "proactivelyReported": {
+                                                "type": "boolean"
+                                            },
+                                            "retrievable": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "nullable": true
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "AlexaInterface"
+                                        ]
+                                    },
+                                    "interface": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Alexa.RemoteVideoPlayer"
+                                        ]
+                                    },
+                                    "version": {
+                                        "type": "string",
+                                        "enum": [
+                                            "3"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "interface",
+                                    "type",
+                                    "version"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
+                                        "type": "string"
+                                    },
+                                    "interface": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "properties": {
+                                        "type": "object",
+                                        "properties": {
+                                            "supported": {
+                                                "type": "array",
+                                                "nullable": true,
+                                                "items": {
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "proactivelyReported": {
+                                                "type": "boolean"
+                                            },
+                                            "retrievable": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "nullable": true
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "AlexaInterface"
+                                        ]
+                                    },
+                                    "interface": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Alexa.SeekController"
+                                        ]
+                                    },
+                                    "version": {
+                                        "type": "string",
+                                        "enum": [
+                                            "3"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "interface",
+                                    "type",
+                                    "version"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
+                                        "type": "string"
+                                    },
+                                    "interface": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "properties": {
+                                        "type": "object",
+                                        "properties": {
+                                            "supported": {
+                                                "type": "array",
+                                                "nullable": true,
+                                                "items": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "name"
+                                                    ],
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "target"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "proactivelyReported": {
+                                                "type": "boolean"
+                                            },
+                                            "retrievable": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "nullable": true
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "AlexaInterface"
+                                        ]
+                                    },
+                                    "interface": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Alexa.Launcher"
+                                        ]
+                                    },
+                                    "version": {
+                                        "type": "string",
+                                        "enum": [
+                                            "3"
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "interface",
+                                    "type",
+                                    "version"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
+                                        "type": "string"
+                                    },
+                                    "interface": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
                                     "instance": {
                                         "type": "string"
                                     },
@@ -9008,6 +9455,102 @@
                                 },
                                 "payload": {
                                     "type": "object",
+                                    "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "description": "A Response message for Alexa.SeekController",
+                    "type": "object",
+                    "required": [
+                        "event"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "context": {
+                            "$ref": "#/definitions/common/model.Context"
+                        },
+                        "event": {
+                            "type": "object",
+                            "required": [
+                                "header",
+                                "payload"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "header": {
+                                    "type": "object",
+                                    "required": [
+                                        "namespace",
+                                        "name",
+                                        "payloadVersion",
+                                        "messageId"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "namespace": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Alexa.SeekController"
+                                            ]
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "enum": [
+                                                "StateReport"
+                                            ]
+                                        },
+                                        "payloadVersion": {
+                                            "$ref": "#/definitions/common/model.PayloadVersion"
+                                        },
+                                        "messageId": {
+                                            "$ref": "#/definitions/common/model.MessageId"
+                                        },
+                                        "correlationToken": {
+                                            "$ref": "#/definitions/common/model.CorrelationToken"
+                                        }
+                                    }
+                                },
+                                "endpoint": {
+                                    "$ref": "#/definitions/common/model.Endpoint"
+                                },
+                                "payload": {
+                                    "required": [
+                                        "properties"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "properties": {
+                                            "minItems": 1,
+                                            "type": "array",
+                                            "items": {
+                                                "required": [
+                                                    "name",
+                                                    "value"
+                                                ],
+                                                "type": "object",
+                                                "properties": {
+                                                    "name": {
+                                                        "type": "string",
+                                                        "enum": [
+                                                            "positionMilliseconds"
+                                                        ]
+                                                    },
+                                                    "value": {
+                                                        "maximum": 86400000,
+                                                        "exclusiveMaximum": false,
+                                                        "minimum": 0,
+                                                        "exclusiveMinimum": false,
+                                                        "type": "integer",
+                                                        "format": "int32"
+                                                    }
+                                                },
+                                                "additionalProperties": false
+                                            }
+                                        }
+                                    },
                                     "additionalProperties": false
                                 }
                             }

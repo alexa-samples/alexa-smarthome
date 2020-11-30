@@ -28,6 +28,7 @@ Alexa.EqualizerController
 Alexa.EventDetectionSensor
 Alexa.InputController
 Alexa.InventoryLevelSensor
+Alexa.Launcher
 Alexa.LockController
 Alexa.MediaMetadata
 Alexa.ModeController
@@ -41,8 +42,11 @@ Alexa.PowerController
 Alexa.PowerLevelController
 Alexa.RTCSessionController
 Alexa.RangeController
+Alexa.RecordController
+Alexa.RemoteVideoPlayer
 Alexa.SceneController
 Alexa.SecurityPanelController
+Alexa.SeekController
 Alexa.Speaker
 Alexa.StepSpeaker
 Alexa.TemperatureSensor
