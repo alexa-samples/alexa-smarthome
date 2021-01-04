@@ -2177,6 +2177,63 @@
                         "additionalProperties": false
                     },
                     {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.AutomationManagement"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "automationStatuses"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "array",
+                                "items": {
+                                    "required": [
+                                        "capability",
+                                        "status"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "string",
+                                            "enum": [
+                                                "AUTOMATED",
+                                                "NOT_AUTOMATED"
+                                            ]
+                                        },
+                                        "capability": {
+                                            "type": "string"
+                                        },
+                                        "instance": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
                         "oneOf": [
                             {
                                 "required": [
@@ -7864,6 +7921,92 @@
                                     "version": {
                                         "type": "string"
                                     },
+                                    "properties": {
+                                        "type": "object",
+                                        "properties": {
+                                            "supported": {
+                                                "type": "array",
+                                                "nullable": true,
+                                                "items": {
+                                                    "type": "object",
+                                                    "required": [
+                                                        "name"
+                                                    ],
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "name": {
+                                                            "enum": [
+                                                                "automationStatuses"
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "proactivelyReported": {
+                                                "type": "boolean"
+                                            },
+                                            "retrievable": {
+                                                "type": "boolean"
+                                            }
+                                        },
+                                        "nullable": true
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "AlexaInterface"
+                                        ]
+                                    },
+                                    "interface": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Alexa.AutomationManagement"
+                                        ]
+                                    },
+                                    "version": {
+                                        "oneOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "1.0"
+                                                ]
+                                            },
+                                            {
+                                                "type": "integer",
+                                                "format": "int32"
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "interface",
+                                    "type",
+                                    "version"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
+                                        "type": "string"
+                                    },
+                                    "interface": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
                                     "instance": {
                                         "type": "string"
                                     },
@@ -11402,6 +11545,90 @@
                                         }
                                     },
                                     "additionalProperties": false
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "description": "An proactive event message for Alexa.AutomationManagement",
+                    "type": "object",
+                    "required": [
+                        "event"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "context": {
+                            "type": "object"
+                        },
+                        "event": {
+                            "type": "object",
+                            "required": [
+                                "header",
+                                "payload"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "header": {
+                                    "type": "object",
+                                    "required": [
+                                        "namespace",
+                                        "name",
+                                        "payloadVersion",
+                                        "messageId"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "namespace": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Alexa.AutomationManagement"
+                                            ]
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "enum": [
+                                                "GetAlexaAutomationStatus"
+                                            ]
+                                        },
+                                        "payloadVersion": {
+                                            "$ref": "#/definitions/common/model.PayloadVersion"
+                                        },
+                                        "messageId": {
+                                            "$ref": "#/definitions/common/model.MessageId"
+                                        },
+                                        "correlationToken": {
+                                            "$ref": "#/definitions/common/model.CorrelationToken"
+                                        }
+                                    }
+                                },
+                                "endpoint": {
+                                    "$ref": "#/definitions/common/model.Endpoint"
+                                },
+                                "payload": {
+                                    "required": [
+                                        "capabilities"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "capabilities": {
+                                            "type": "array",
+                                            "items": {
+                                                "required": [
+                                                    "capability"
+                                                ],
+                                                "type": "object",
+                                                "properties": {
+                                                    "capability": {
+                                                        "type": "string"
+                                                    },
+                                                    "instance": {
+                                                        "type": "string"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
