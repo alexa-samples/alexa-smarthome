@@ -11,6 +11,7 @@ https://github.com/alexa/alexa-smarthome/wiki/Validation-Schemas
 ```
 Alexa
 Alexa.Authorization
+Alexa.AutomationManagement
 Alexa.BrightnessController
 Alexa.CameraStreamController
 Alexa.ChannelController
