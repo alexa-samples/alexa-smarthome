@@ -430,7 +430,6 @@
                                         "type": "object",
                                         "properties": {
                                             "number": {
-                                                "pattern": "^\\d+(\\.\\d+)?$",
                                                 "type": "string"
                                             },
                                             "callSign": {
@@ -871,19 +870,14 @@
                             },
                             "name": {
                                 "enum": [
-                                    "volume"
+                                    "muted"
                                 ]
                             },
                             "instance": {
                                 "type": "string"
                             },
                             "value": {
-                                "maximum": 100,
-                                "exclusiveMaximum": false,
-                                "minimum": 0,
-                                "exclusiveMinimum": false,
-                                "type": "integer",
-                                "format": "int32"
+                                "type": "boolean"
                             },
                             "timeOfSample": {
                                 "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
@@ -911,14 +905,19 @@
                             },
                             "name": {
                                 "enum": [
-                                    "muted"
+                                    "volume"
                                 ]
                             },
                             "instance": {
                                 "type": "string"
                             },
                             "value": {
-                                "type": "boolean"
+                                "maximum": 100,
+                                "exclusiveMaximum": false,
+                                "minimum": 0,
+                                "exclusiveMinimum": false,
+                                "type": "integer",
+                                "format": "int32"
                             },
                             "timeOfSample": {
                                 "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
@@ -5241,7 +5240,19 @@
                                         "type": "object",
                                         "properties": {
                                             "supported": {
-                                                "type": "array",
+                                                "oneOf": [
+                                                    {
+                                                        "type": "object",
+                                                        "nullable": true
+                                                    },
+                                                    {
+                                                        "type": "array",
+                                                        "nullable": true,
+                                                        "items": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                ],
                                                 "items": {
                                                     "type": "object",
                                                     "required": [
@@ -5251,8 +5262,8 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "volume",
-                                                                "muted"
+                                                                "muted",
+                                                                "volume"
                                                             ]
                                                         }
                                                     }
@@ -5272,6 +5283,14 @@
                                                             "False",
                                                             "TRUE",
                                                             "FALSE"
+                                                        ],
+                                                    },
+                                                    {
+                                                        "type": "integer",
+                                                        "format": "int32",
+                                                        "enum": [
+                                                            0,
+                                                            1
                                                         ]
                                                     }
                                                 ]
@@ -5291,10 +5310,19 @@
                                                             "TRUE",
                                                             "FALSE"
                                                         ]
+                                                    },
+                                                    {
+                                                        "type": "integer",
+                                                        "format": "int32",
+                                                        "enum": [
+                                                            0,
+                                                            1
+                                                        ]
                                                     }
                                                 ]
                                             }
-                                        }
+                                        },
+                                        "nullable": true
                                     }
                                 }
                             },
