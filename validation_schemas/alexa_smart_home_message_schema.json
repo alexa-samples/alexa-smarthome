@@ -10906,7 +10906,6 @@
                                             "properties": {
                                                 "type": {
                                                     "type": "string",
-                                                    "description": "* THERMOSTAT_IS_OFF - \"Setpoints are too close together.\"\n* UNSUPPORTED_THERMOSTAT_MODE - \"The thermostat doesn't support the specified mode.\"\n* DUAL_SETPOINTS_UNSUPPORTED - \"The thermostat doesn't support dual setpoints in the current mode.\n* TRIPLE_SETPOINTS_UNSUPPORTED - \"The thermostat doesn't support triple setpoints in the current mode.\"\n* UNWILLING_TO_SET_SCHEDULE - \"You cannot set the requested schedule.\"\n* UNWILLING_TO_SET_VALUE - \"You cannot set the value because it may cause damage to the device or appliance.\"\n",
                                                     "enum": [
                                                         "THERMOSTAT_IS_OFF",
                                                         "UNSUPPORTED_THERMOSTAT_MODE",
