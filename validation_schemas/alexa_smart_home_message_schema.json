@@ -5385,7 +5385,6 @@
                                                             "TRUE",
                                                             "FALSE"
                                                         ]
-
                                                     },
                                                     {
                                                         "type": "integer",
@@ -6597,9 +6596,7 @@
                                                                         "type": "string"
                                                                     }
                                                                 },
-                                                                "value": {
-
-                                                                }
+                                                                "value": {}
                                                             },
                                                             "additionalProperties": false
                                                         },
@@ -7159,9 +7156,7 @@
                                                                         "type": "string"
                                                                     }
                                                                 },
-                                                                "value": {
-
-                                                                }
+                                                                "value": {}
                                                             },
                                                             "additionalProperties": false
                                                         },
@@ -10281,9 +10276,7 @@
                                 "payload": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "properties": {
-
-                                    },
+                                    "properties": {},
                                     "maxProperties": 0
                                 }
                             }
