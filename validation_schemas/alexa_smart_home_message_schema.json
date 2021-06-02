@@ -2240,8 +2240,7 @@
                                     "namespace",
                                     "timeOfSample",
                                     "uncertaintyInMilliseconds",
-                                    "value",
-                                    "unit"
+                                    "value"
                                 ],
                                 "type": "object",
                                 "properties": {
@@ -2265,93 +2264,60 @@
                                         "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
                                     },
                                     "value": {
-                                        "type": "number",
-                                        "minimum": 0
-                                    },
-                                    "unit": {
-                                        "type": "string",
-                                        "enum": [
-                                            "LITER",
-                                            "MILLILITER",
-                                            "METRIC_CUP",
-                                            "METRIC_TEASPOON",
-                                            "UK_TABLESPOON",
-                                            "AU_TABLESPOON",
-                                            "CUBIC_CENTIMETER",
-                                            "CUBIC_METER",
-                                            "UK_GALLON",
-                                            "UK_QUART",
-                                            "UK_PINT",
-                                            "UK_CUP",
-                                            "UK_GILL",
-                                            "UK_FLUID_OUNCE",
-                                            "UK_FLUID_DRAM",
-                                            "CUBIC_INCH",
-                                            "CUBIC_FOOT",
-                                            "CUBIC_YARD",
-                                            "US_FLUID_GALLON",
-                                            "US_FLUID_QUART",
-                                            "US_FLUID_PINT",
-                                            "US_FLUID_CUP",
-                                            "US_FLUID_OUNCE",
-                                            "US_GILL",
-                                            "US_TABLESPOON",
-                                            "US_TEASPOON",
-                                            "US_DRAM",
-                                            "US_DRY_GALLON",
-                                            "US_DRY_QUART",
-                                            "US_DRY_PINT"
-                                        ]
-                                    }
-                                },
-                                "additionalProperties": false
-                            },
-                            {
-                                "required": [
-                                    "name",
-                                    "namespace",
-                                    "timeOfSample",
-                                    "uncertaintyInMilliseconds",
-                                    "value",
-                                    "unit"
-                                ],
-                                "type": "object",
-                                "properties": {
-                                    "namespace": {
-                                        "enum": [
-                                            "Alexa.InventoryLevelSensor"
-                                        ]
-                                    },
-                                    "name": {
-                                        "enum": [
-                                            "level"
-                                        ]
-                                    },
-                                    "instance": {
-                                        "type": "string"
-                                    },
-                                    "timeOfSample": {
-                                        "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                                    },
-                                    "uncertaintyInMilliseconds": {
-                                        "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                                    },
-                                    "value": {
-                                        "type": "number",
-                                        "minimum": 0
-                                    },
-                                    "unit": {
-                                        "type": "string",
-                                        "enum": [
-                                            "KILOGRAM",
-                                            "GRAM",
-                                            "MILLIGRAM",
-                                            "MICROGRAM",
-                                            "METRIC_POUND",
-                                            "POUND",
-                                            "OUNCE",
-                                            "DRAM"
-                                        ]
+                                        "required": [
+                                            "@type",
+                                            "value",
+                                            "unit"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Volume"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "minimum": 0
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "LITER",
+                                                    "MILLILITER",
+                                                    "METRIC_CUP",
+                                                    "METRIC_TEASPOON",
+                                                    "UK_TABLESPOON",
+                                                    "AU_TABLESPOON",
+                                                    "CUBIC_CENTIMETER",
+                                                    "CUBIC_METER",
+                                                    "UK_GALLON",
+                                                    "UK_QUART",
+                                                    "UK_PINT",
+                                                    "UK_CUP",
+                                                    "UK_GILL",
+                                                    "UK_FLUID_OUNCE",
+                                                    "UK_FLUID_DRAM",
+                                                    "CUBIC_INCH",
+                                                    "CUBIC_FOOT",
+                                                    "CUBIC_YARD",
+                                                    "US_FLUID_GALLON",
+                                                    "US_FLUID_QUART",
+                                                    "US_FLUID_PINT",
+                                                    "US_FLUID_CUP",
+                                                    "US_FLUID_OUNCE",
+                                                    "US_GILL",
+                                                    "US_TABLESPOON",
+                                                    "US_TEASPOON",
+                                                    "US_DRAM",
+                                                    "US_DRY_GALLON",
+                                                    "US_DRY_QUART",
+                                                    "US_DRY_PINT"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
                                     }
                                 },
                                 "additionalProperties": false
@@ -2386,8 +2352,143 @@
                                         "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
                                     },
                                     "value": {
-                                        "type": "number",
-                                        "minimum": 0
+                                        "required": [
+                                            "@type",
+                                            "value",
+                                            "unit"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Weight"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "minimum": 0
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "KILOGRAM",
+                                                    "GRAM",
+                                                    "MILLIGRAM",
+                                                    "MICROGRAM",
+                                                    "METRIC_POUND",
+                                                    "POUND",
+                                                    "OUNCE",
+                                                    "DRAM"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "required": [
+                                    "name",
+                                    "namespace",
+                                    "timeOfSample",
+                                    "uncertaintyInMilliseconds",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "namespace": {
+                                        "enum": [
+                                            "Alexa.InventoryLevelSensor"
+                                        ]
+                                    },
+                                    "name": {
+                                        "enum": [
+                                            "level"
+                                        ]
+                                    },
+                                    "instance": {
+                                        "type": "string"
+                                    },
+                                    "timeOfSample": {
+                                        "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                                    },
+                                    "uncertaintyInMilliseconds": {
+                                        "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                                    },
+                                    "value": {
+                                        "required": [
+                                            "@type",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Count"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "integer",
+                                                "minimum": 0
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            {
+                                "required": [
+                                    "name",
+                                    "namespace",
+                                    "timeOfSample",
+                                    "uncertaintyInMilliseconds",
+                                    "value"
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "namespace": {
+                                        "enum": [
+                                            "Alexa.InventoryLevelSensor"
+                                        ]
+                                    },
+                                    "name": {
+                                        "enum": [
+                                            "level"
+                                        ]
+                                    },
+                                    "instance": {
+                                        "type": "string"
+                                    },
+                                    "timeOfSample": {
+                                        "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                                    },
+                                    "uncertaintyInMilliseconds": {
+                                        "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                                    },
+                                    "value": {
+                                        "required": [
+                                            "@type",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Percentage"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "maximum": 100
+                                            }
+                                        },
+                                        "additionalProperties": false
                                     }
                                 },
                                 "additionalProperties": false
@@ -5283,7 +5384,8 @@
                                                             "False",
                                                             "TRUE",
                                                             "FALSE"
-                                                        ],
+                                                        ]
+
                                                     },
                                                     {
                                                         "type": "integer",
@@ -6495,7 +6597,9 @@
                                                                         "type": "string"
                                                                     }
                                                                 },
-                                                                "value": {}
+                                                                "value": {
+
+                                                                }
                                                             },
                                                             "additionalProperties": false
                                                         },
@@ -7055,7 +7159,9 @@
                                                                         "type": "string"
                                                                     }
                                                                 },
-                                                                "value": {}
+                                                                "value": {
+
+                                                                }
                                                             },
                                                             "additionalProperties": false
                                                         },
@@ -8021,7 +8127,10 @@
                                 "required": [
                                     "interface",
                                     "type",
-                                    "version"
+                                    "version",
+                                    "instance",
+                                    "capabilityResources",
+                                    "configuration"
                                 ],
                                 "type": "object",
                                 "properties": {
@@ -8094,12 +8203,20 @@
                                         }
                                     },
                                     "configuration": {
+                                        "required": [
+                                            "measurement",
+                                            "replenishment"
+                                        ],
                                         "type": "object",
                                         "properties": {
                                             "measurement": {
                                                 "type": "object",
                                                 "oneOf": [
                                                     {
+                                                        "required": [
+                                                            "@type",
+                                                            "unit"
+                                                        ],
                                                         "type": "object",
                                                         "properties": {
                                                             "@type": {
@@ -8147,6 +8264,10 @@
                                                         "additionalProperties": false
                                                     },
                                                     {
+                                                        "required": [
+                                                            "@type",
+                                                            "unit"
+                                                        ],
                                                         "type": "object",
                                                         "properties": {
                                                             "@type": {
@@ -8172,6 +8293,9 @@
                                                         "additionalProperties": false
                                                     },
                                                     {
+                                                        "required": [
+                                                            "@type"
+                                                        ],
                                                         "type": "object",
                                                         "properties": {
                                                             "@type": {
@@ -8184,6 +8308,9 @@
                                                         "additionalProperties": false
                                                     },
                                                     {
+                                                        "required": [
+                                                            "@type"
+                                                        ],
                                                         "type": "object",
                                                         "properties": {
                                                             "@type": {
@@ -10154,7 +10281,9 @@
                                 "payload": {
                                     "type": "object",
                                     "additionalProperties": false,
-                                    "properties": {},
+                                    "properties": {
+
+                                    },
                                     "maxProperties": 0
                                 }
                             }
