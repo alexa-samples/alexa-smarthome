@@ -3412,6 +3412,40 @@
                                             }
                                         },
                                         "nullable": true
+                                    },
+                                    "directiveConfigurations": {
+                                        "type": "array",
+                                        "nullable": true,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "directives": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "requestedAuthenticationConfidenceLevel": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "level": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "customPolicy": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "policyName": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -4480,6 +4514,40 @@
                                             }
                                         },
                                         "nullable": true
+                                    },
+                                    "directiveConfigurations": {
+                                        "type": "array",
+                                        "nullable": true,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "directives": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "requestedAuthenticationConfidenceLevel": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "level": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "customPolicy": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "policyName": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -6319,6 +6387,40 @@
                                             }
                                         },
                                         "nullable": true
+                                    },
+                                    "directiveConfigurations": {
+                                        "type": "array",
+                                        "nullable": true,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "directives": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "requestedAuthenticationConfidenceLevel": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "level": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "customPolicy": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "policyName": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -6733,6 +6835,40 @@
                                             }
                                         },
                                         "nullable": true
+                                    },
+                                    "directiveConfigurations": {
+                                        "type": "array",
+                                        "nullable": true,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "directives": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "requestedAuthenticationConfidenceLevel": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "level": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "customPolicy": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "policyName": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -7308,6 +7444,40 @@
                                             }
                                         },
                                         "nullable": true
+                                    },
+                                    "directiveConfigurations": {
+                                        "type": "array",
+                                        "nullable": true,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "directives": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "requestedAuthenticationConfidenceLevel": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "level": {
+                                                            "type": "integer",
+                                                            "format": "int32"
+                                                        },
+                                                        "customPolicy": {
+                                                            "type": "object",
+                                                            "properties": {
+                                                                "policyName": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "nullable": true
+                                                        }
+                                                    },
+                                                    "nullable": true
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             },
