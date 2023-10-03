@@ -18,6 +18,6 @@ A basic skill sample implementing a switch exercising the discovery and directiv
 
 ## Support and Feedback
 
-For general support, please visit the [Alexa Smart Home API forums](https://forums.developer.amazon.com/spaces/33/index.html).
+For general support, please visit the [Alexa Smart Home API forums](https://amazon.developer.forums.answerhub.com/spaces/33/index.html).
 
 If you find an issue with the sample code, please open an issue against the relevant repository issue tracker.
