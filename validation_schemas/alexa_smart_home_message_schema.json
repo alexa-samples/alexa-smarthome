@@ -334,7 +334,8 @@
                                     "COOL",
                                     "HEAT",
                                     "ECO",
-                                    "OFF"
+                                    "OFF",
+                                    "EM_HEAT"
                                 ]
                             },
                             "timeOfSample": {
@@ -3737,7 +3738,8 @@
                                                         "COOL",
                                                         "HEAT",
                                                         "ECO",
-                                                        "OFF"
+                                                        "OFF",
+                                                        "EM_HEAT"
                                                     ]
                                                 }
                                             }
