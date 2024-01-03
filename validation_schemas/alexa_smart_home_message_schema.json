@@ -864,6 +864,7 @@
                             "uncertaintyInMilliseconds",
                             "value"
                         ],
+                        "dummy": "dummy",
                         "type": "object",
                         "properties": {
                             "namespace": {
