@@ -334,8 +334,7 @@
                                     "COOL",
                                     "HEAT",
                                     "ECO",
-                                    "OFF",
-                                    "EM_HEAT"
+                                    "OFF"
                                 ]
                             },
                             "timeOfSample": {
@@ -2247,6 +2246,416 @@
                         "properties": {
                             "namespace": {
                                 "enum": [
+                                    "Alexa.Cooking.TimeController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "requestedCookTime"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string"
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.Cooking.TimeController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "cookingPowerLevel"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "oneOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "EnumeratedPowerLevel"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "LOW",
+                                                    "MEDIUM",
+                                                    "HIGH"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "IntegralPowerLevel"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number"
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                ]
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.Cooking.PresetController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "presetName"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "string",
+                                "additionalProperties": false
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.Cooking.PresetController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "requestedFoodDoneness"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "oneOf": [
+                                    {
+                                        "type": "object",
+                                        "properties": {
+                                            "value": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "AL_DENTE",
+                                                    "CREAMY",
+                                                    "CRISPY",
+                                                    "DRY",
+                                                    "FIRM",
+                                                    "FLAKY",
+                                                    "HARD",
+                                                    "JUICY",
+                                                    "MEDIUM",
+                                                    "MEDIUM_RARE",
+                                                    "MEDIUM_WELL",
+                                                    "MOIST",
+                                                    "OPAQUE",
+                                                    "OVERCOOKED",
+                                                    "RARE",
+                                                    "RUNNY",
+                                                    "SMOOTH",
+                                                    "SOFT",
+                                                    "SPRINGY",
+                                                    "SUCCULENT",
+                                                    "TENDER",
+                                                    "UNDERCOOKED",
+                                                    "VELVETY",
+                                                    "WELL_DONE"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "type": "string",
+                                        "enum": [
+                                            "AL_DENTE",
+                                            "CREAMY",
+                                            "CRISPY",
+                                            "DRY",
+                                            "FIRM",
+                                            "FLAKY",
+                                            "HARD",
+                                            "JUICY",
+                                            "MEDIUM",
+                                            "MEDIUM_RARE",
+                                            "MEDIUM_WELL",
+                                            "MOIST",
+                                            "OPAQUE",
+                                            "OVERCOOKED",
+                                            "RARE",
+                                            "RUNNY",
+                                            "SMOOTH",
+                                            "SOFT",
+                                            "SPRINGY",
+                                            "SUCCULENT",
+                                            "TENDER",
+                                            "UNDERCOOKED",
+                                            "VELVETY",
+                                            "WELL_DONE"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
+                                    "Alexa.InventoryLevelSensor"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "level"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "type": "object",
+                                "oneOf": [
+                                    {
+                                        "required": [
+                                            "@type",
+                                            "value",
+                                            "unit"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Volume"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "minimum": 0
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "LITER",
+                                                    "MILLILITER",
+                                                    "METRIC_CUP",
+                                                    "METRIC_TEASPOON",
+                                                    "UK_TABLESPOON",
+                                                    "AU_TABLESPOON",
+                                                    "CUBIC_CENTIMETER",
+                                                    "CUBIC_METER",
+                                                    "UK_GALLON",
+                                                    "UK_QUART",
+                                                    "UK_PINT",
+                                                    "UK_CUP",
+                                                    "UK_GILL",
+                                                    "UK_FLUID_OUNCE",
+                                                    "UK_FLUID_DRAM",
+                                                    "CUBIC_INCH",
+                                                    "CUBIC_FOOT",
+                                                    "CUBIC_YARD",
+                                                    "US_FLUID_GALLON",
+                                                    "US_FLUID_QUART",
+                                                    "US_FLUID_PINT",
+                                                    "US_FLUID_CUP",
+                                                    "US_FLUID_OUNCE",
+                                                    "US_GILL",
+                                                    "US_TABLESPOON",
+                                                    "US_TEASPOON",
+                                                    "US_DRAM",
+                                                    "US_DRY_GALLON",
+                                                    "US_DRY_QUART",
+                                                    "US_DRY_PINT"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "required": [
+                                            "@type",
+                                            "value",
+                                            "unit"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Weight"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "minimum": 0
+                                            },
+                                            "unit": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "KILOGRAM",
+                                                    "GRAM",
+                                                    "MILLIGRAM",
+                                                    "MICROGRAM",
+                                                    "METRIC_POUND",
+                                                    "POUND",
+                                                    "OUNCE",
+                                                    "DRAM"
+                                                ]
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "required": [
+                                            "@type",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Percentage"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "number",
+                                                "minimum": 0,
+                                                "maximum": 100
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    },
+                                    {
+                                        "required": [
+                                            "@type",
+                                            "value"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "@type": {
+                                                "type": "string",
+                                                "enum": [
+                                                    "Count"
+                                                ]
+                                            },
+                                            "value": {
+                                                "type": "integer",
+                                                "minimum": 0
+                                            }
+                                        },
+                                        "additionalProperties": false
+                                    }
+                                ]
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
                                     "Alexa.Cooking"
                                 ]
                             },
@@ -2547,6 +2956,45 @@
                         "properties": {
                             "namespace": {
                                 "enum": [
+                                    "Alexa.Networking.AccessController"
+                                ]
+                            },
+                            "name": {
+                                "enum": [
+                                    "networkAccess"
+                                ]
+                            },
+                            "instance": {
+                                "type": "string"
+                            },
+                            "value": {
+                                "enum": [
+                                    "ALLOWED",
+                                    "BLOCKED"
+                                ],
+                                "type": "string"
+                            },
+                            "timeOfSample": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
+                            },
+                            "uncertaintyInMilliseconds": {
+                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    {
+                        "required": [
+                            "name",
+                            "namespace",
+                            "timeOfSample",
+                            "uncertaintyInMilliseconds",
+                            "value"
+                        ],
+                        "type": "object",
+                        "properties": {
+                            "namespace": {
+                                "enum": [
                                     "Alexa.TimeHoldController"
                                 ]
                             },
@@ -2596,457 +3044,7 @@
                             },
                             "value": {
                                 "pattern": "^(?:[1-9]\\d{3}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1\\d|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[1-9]\\d(?:0[48]|[2468][048]|[13579][26])|(?:[2468][048]|[13579][26])00)-02-29)T(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\dZ$",
-
                                 "type": "string"
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.InventoryLevelSensor"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "level"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "type": "object",
-                                "oneOf": [
-                                    {
-                                        "required": [
-                                            "@type",
-                                            "value",
-                                            "unit"
-                                        ],
-                                        "type": "object",
-                                        "properties": {
-                                            "@type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "Volume"
-                                                ]
-                                            },
-                                            "value": {
-                                                "type": "number",
-                                                "minimum": 0
-                                            },
-                                            "unit": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "LITER",
-                                                    "MILLILITER",
-                                                    "METRIC_CUP",
-                                                    "METRIC_TEASPOON",
-                                                    "UK_TABLESPOON",
-                                                    "AU_TABLESPOON",
-                                                    "CUBIC_CENTIMETER",
-                                                    "CUBIC_METER",
-                                                    "UK_GALLON",
-                                                    "UK_QUART",
-                                                    "UK_PINT",
-                                                    "UK_CUP",
-                                                    "UK_GILL",
-                                                    "UK_FLUID_OUNCE",
-                                                    "UK_FLUID_DRAM",
-                                                    "CUBIC_INCH",
-                                                    "CUBIC_FOOT",
-                                                    "CUBIC_YARD",
-                                                    "US_FLUID_GALLON",
-                                                    "US_FLUID_QUART",
-                                                    "US_FLUID_PINT",
-                                                    "US_FLUID_CUP",
-                                                    "US_FLUID_OUNCE",
-                                                    "US_GILL",
-                                                    "US_TABLESPOON",
-                                                    "US_TEASPOON",
-                                                    "US_DRAM",
-                                                    "US_DRY_GALLON",
-                                                    "US_DRY_QUART",
-                                                    "US_DRY_PINT"
-                                                ]
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    },
-                                    {
-                                        "required": [
-                                            "@type",
-                                            "value",
-                                            "unit"
-                                        ],
-                                        "type": "object",
-                                        "properties": {
-                                            "@type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "Weight"
-                                                ]
-                                            },
-                                            "value": {
-                                                "type": "number",
-                                                "minimum": 0
-                                            },
-                                            "unit": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "KILOGRAM",
-                                                    "GRAM",
-                                                    "MILLIGRAM",
-                                                    "MICROGRAM",
-                                                    "METRIC_POUND",
-                                                    "POUND",
-                                                    "OUNCE",
-                                                    "DRAM"
-                                                ]
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    },
-                                    {
-                                        "required": [
-                                            "@type",
-                                            "value"
-                                        ],
-                                        "type": "object",
-                                        "properties": {
-                                            "@type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "Percentage"
-                                                ]
-                                            },
-                                            "value": {
-                                                "type": "number",
-                                                "minimum": 0,
-                                                "maximum": 100
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    },
-                                    {
-                                        "required": [
-                                            "@type",
-                                            "value"
-                                        ],
-                                        "type": "object",
-                                        "properties": {
-                                            "@type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "Count"
-                                                ]
-                                            },
-                                            "value": {
-                                                "type": "integer",
-                                                "minimum": 0
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    }
-                                ]
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.Cooking.PresetController"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "presetName"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "type": "string",
-                                "additionalProperties": false
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.Cooking.PresetController"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "requestedFoodDoneness"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "oneOf": [
-                                    {
-                                        "type": "object",
-                                        "properties": {
-                                            "value": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "AL_DENTE",
-                                                    "CREAMY",
-                                                    "CRISPY",
-                                                    "DRY",
-                                                    "FIRM",
-                                                    "FLAKY",
-                                                    "HARD",
-                                                    "JUICY",
-                                                    "MEDIUM",
-                                                    "MEDIUM_RARE",
-                                                    "MEDIUM_WELL",
-                                                    "MOIST",
-                                                    "OPAQUE",
-                                                    "OVERCOOKED",
-                                                    "RARE",
-                                                    "RUNNY",
-                                                    "SMOOTH",
-                                                    "SOFT",
-                                                    "SPRINGY",
-                                                    "SUCCULENT",
-                                                    "TENDER",
-                                                    "UNDERCOOKED",
-                                                    "VELVETY",
-                                                    "WELL_DONE"
-                                                ]
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    },
-                                    {
-                                        "type": "string",
-                                        "enum": [
-                                            "AL_DENTE",
-                                            "CREAMY",
-                                            "CRISPY",
-                                            "DRY",
-                                            "FIRM",
-                                            "FLAKY",
-                                            "HARD",
-                                            "JUICY",
-                                            "MEDIUM",
-                                            "MEDIUM_RARE",
-                                            "MEDIUM_WELL",
-                                            "MOIST",
-                                            "OPAQUE",
-                                            "OVERCOOKED",
-                                            "RARE",
-                                            "RUNNY",
-                                            "SMOOTH",
-                                            "SOFT",
-                                            "SPRINGY",
-                                            "SUCCULENT",
-                                            "TENDER",
-                                            "UNDERCOOKED",
-                                            "VELVETY",
-                                            "WELL_DONE"
-                                        ]
-                                    }
-                                ]
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.Networking.AccessController"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "networkAccess"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "enum": [
-                                    "ALLOWED",
-                                    "BLOCKED"
-                                ],
-                                "type": "string"
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.Cooking.TimeController"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "requestedCookTime"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "type": "string"
-                            },
-                            "timeOfSample": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
-                            },
-                            "uncertaintyInMilliseconds": {
-                                "$ref": "#/definitions/common/model.StatePropertyBase.UncertaintyInMilliseconds"
-                            }
-                        },
-                        "additionalProperties": false
-                    },
-                    {
-                        "required": [
-                            "name",
-                            "namespace",
-                            "timeOfSample",
-                            "uncertaintyInMilliseconds",
-                            "value"
-                        ],
-                        "type": "object",
-                        "properties": {
-                            "namespace": {
-                                "enum": [
-                                    "Alexa.Cooking.TimeController"
-                                ]
-                            },
-                            "name": {
-                                "enum": [
-                                    "cookingPowerLevel"
-                                ]
-                            },
-                            "instance": {
-                                "type": "string"
-                            },
-                            "value": {
-                                "oneOf": [
-                                    {
-                                        "type": "object",
-                                        "properties": {
-                                            "@type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "EnumeratedPowerLevel"
-                                                ]
-                                            },
-                                            "value": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "LOW",
-                                                    "MEDIUM",
-                                                    "HIGH"
-                                                ]
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    },
-                                    {
-                                        "type": "object",
-                                        "properties": {
-                                            "@type": {
-                                                "type": "string",
-                                                "enum": [
-                                                    "IntegralPowerLevel"
-                                                ]
-                                            },
-                                            "value": {
-                                                "type": "number"
-                                            }
-                                        },
-                                        "additionalProperties": false
-                                    }
-                                ]
                             },
                             "timeOfSample": {
                                 "$ref": "#/definitions/common/model.StatePropertyBase.TimeOfSample"
@@ -3738,8 +3736,7 @@
                                                         "COOL",
                                                         "HEAT",
                                                         "ECO",
-                                                        "OFF",
-                                                        "EM_HEAT"
+                                                        "OFF"
                                                     ]
                                                 }
                                             }
@@ -8692,9 +8689,8 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "cookingTimeInterval",
-                                                                "cookingMode",
-                                                                "foodItem"
+                                                                "requestedCookTime",
+                                                                "cookingPowerLevel"
                                                             ]
                                                         }
                                                     }
@@ -8725,7 +8721,7 @@
                                 "properties": {
                                     "interface": {
                                         "enum": [
-                                            "Alexa.Cooking"
+                                            "Alexa.Cooking.TimeController"
                                         ],
                                         "type": "string"
                                     },
@@ -8802,8 +8798,8 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "holdStartTime",
-                                                                "holdEndTime"
+                                                                "presetName",
+                                                                "requestedFoodDoneness"
                                                             ]
                                                         }
                                                     }
@@ -8834,162 +8830,7 @@
                                 "properties": {
                                     "interface": {
                                         "enum": [
-                                            "Alexa.TimeHoldController"
-                                        ],
-                                        "type": "string"
-                                    },
-                                    "version": {
-                                        "enum": [
-                                            "3"
-                                        ],
-                                        "type": "string"
-                                    },
-                                    "type": {
-                                        "enum": [
-                                            "AlexaInterface"
-                                        ],
-                                        "type": "string"
-                                    }
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "type": "object",
-                        "allOf": [
-                            {
-                                "type": "object",
-                                "required": [
-                                    "type",
-                                    "interface",
-                                    "version",
-                                    "cameraStreamConfigurations"
-                                ],
-                                "properties": {
-                                    "instance": {
-                                        "type": "string"
-                                    },
-                                    "interface": {
-                                        "type": "string"
-                                    },
-                                    "type": {
-                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
-                                        "type": "string"
-                                    },
-                                    "version": {
-                                        "type": "string"
-                                    },
-                                    "cameraStreamConfigurations": {
-                                        "uniqueItems": true,
-                                        "items": {
-                                            "type": "object",
-                                            "required": [
-                                                "protocols",
-                                                "resolutions",
-                                                "authorizationTypes",
-                                                "videoCodecs",
-                                                "audioCodecs"
-                                            ],
-                                            "properties": {
-                                                "authorizationTypes": {
-                                                    "uniqueItems": true,
-                                                    "items": {
-                                                        "enum": [
-                                                            "BASIC",
-                                                            "DIGEST",
-                                                            "NONE"
-                                                        ]
-                                                    },
-                                                    "type": "array"
-                                                },
-                                                "resolutions": {
-                                                    "uniqueItems": true,
-                                                    "items": {
-                                                        "type": "object",
-                                                        "required": [
-                                                            "width",
-                                                            "height"
-                                                        ],
-                                                        "additionalProperties": false,
-                                                        "properties": {
-                                                            "width": {
-                                                                "minimum": 1,
-                                                                "type": "integer",
-                                                                "format": "int32"
-                                                            },
-                                                            "height": {
-                                                                "minimum": 1,
-                                                                "type": "integer",
-                                                                "format": "int32"
-                                                            }
-                                                        }
-                                                    },
-                                                    "type": "array"
-                                                },
-                                                "videoCodecs": {
-                                                    "uniqueItems": true,
-                                                    "items": {
-                                                        "enum": [
-                                                            "H264",
-                                                            "MPEG2",
-                                                            "MJPEG",
-                                                            "JPG"
-                                                        ]
-                                                    },
-                                                    "type": "array"
-                                                },
-                                                "audioCodecs": {
-                                                    "uniqueItems": true,
-                                                    "items": {
-                                                        "enum": [
-                                                            "G711",
-                                                            "AAC",
-                                                            "NONE"
-                                                        ]
-                                                    },
-                                                    "type": "array"
-                                                },
-                                                "protocols": {
-                                                    "uniqueItems": true,
-                                                    "items": {
-                                                        "enum": [
-                                                            "RTSP",
-                                                            "WEBRTC"
-                                                        ]
-                                                    },
-                                                    "type": "array"
-                                                }
-                                            }
-                                        },
-                                        "type": "array"
-                                    },
-                                    "capabilityResources": {
-                                        "required": [
-                                            "friendlyNames"
-                                        ],
-                                        "type": "object",
-                                        "properties": {
-                                            "friendlyNames": {
-                                                "items": {
-                                                    "type": "object",
-                                                    "properties": {
-                                                        "value": {
-                                                            "type": "object"
-                                                        }
-                                                    }
-                                                },
-                                                "type": "array"
-                                            }
-                                        }
-                                    }
-                                }
-                            },
-                            {
-                                "type": "object",
-                                "properties": {
-                                    "interface": {
-                                        "enum": [
-                                            "Alexa.CameraStreamController"
+                                            "Alexa.Cooking.PresetController"
                                         ],
                                         "type": "string"
                                     },
@@ -9313,8 +9154,9 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "presetName",
-                                                                "requestedFoodDoneness"
+                                                                "cookingTimeInterval",
+                                                                "cookingMode",
+                                                                "foodItem"
                                                             ]
                                                         }
                                                     }
@@ -9345,7 +9187,7 @@
                                 "properties": {
                                     "interface": {
                                         "enum": [
-                                            "Alexa.Cooking.PresetController"
+                                            "Alexa.Cooking"
                                         ],
                                         "type": "string"
                                     },
@@ -9369,22 +9211,129 @@
                         "type": "object",
                         "allOf": [
                             {
-                                "required": [
-                                    "interface",
-                                    "type",
-                                    "version"
-                                ],
                                 "type": "object",
+                                "required": [
+                                    "type",
+                                    "interface",
+                                    "version",
+                                    "cameraStreamConfigurations"
+                                ],
                                 "properties": {
-                                    "interface": {
+                                    "instance": {
                                         "type": "string"
                                     },
-                                    "version": {
+                                    "interface": {
                                         "type": "string"
                                     },
                                     "type": {
                                         "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
                                         "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "cameraStreamConfigurations": {
+                                        "uniqueItems": true,
+                                        "items": {
+                                            "type": "object",
+                                            "required": [
+                                                "protocols",
+                                                "resolutions",
+                                                "authorizationTypes",
+                                                "videoCodecs",
+                                                "audioCodecs"
+                                            ],
+                                            "properties": {
+                                                "authorizationTypes": {
+                                                    "uniqueItems": true,
+                                                    "items": {
+                                                        "enum": [
+                                                            "BASIC",
+                                                            "DIGEST",
+                                                            "NONE"
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "resolutions": {
+                                                    "uniqueItems": true,
+                                                    "items": {
+                                                        "type": "object",
+                                                        "required": [
+                                                            "width",
+                                                            "height"
+                                                        ],
+                                                        "additionalProperties": false,
+                                                        "properties": {
+                                                            "width": {
+                                                                "minimum": 1,
+                                                                "type": "integer",
+                                                                "format": "int32"
+                                                            },
+                                                            "height": {
+                                                                "minimum": 1,
+                                                                "type": "integer",
+                                                                "format": "int32"
+                                                            }
+                                                        }
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "videoCodecs": {
+                                                    "uniqueItems": true,
+                                                    "items": {
+                                                        "enum": [
+                                                            "H264",
+                                                            "MPEG2",
+                                                            "MJPEG",
+                                                            "JPG"
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "audioCodecs": {
+                                                    "uniqueItems": true,
+                                                    "items": {
+                                                        "enum": [
+                                                            "G711",
+                                                            "AAC",
+                                                            "NONE"
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                },
+                                                "protocols": {
+                                                    "uniqueItems": true,
+                                                    "items": {
+                                                        "enum": [
+                                                            "RTSP",
+                                                            "WEBRTC"
+                                                        ]
+                                                    },
+                                                    "type": "array"
+                                                }
+                                            }
+                                        },
+                                        "type": "array"
+                                    },
+                                    "capabilityResources": {
+                                        "required": [
+                                            "friendlyNames"
+                                        ],
+                                        "type": "object",
+                                        "properties": {
+                                            "friendlyNames": {
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "value": {
+                                                            "type": "object"
+                                                        }
+                                                    }
+                                                },
+                                                "type": "array"
+                                            }
+                                        }
                                     }
                                 }
                             },
@@ -9393,7 +9342,7 @@
                                 "properties": {
                                     "interface": {
                                         "enum": [
-                                            "Alexa.MediaMetadata"
+                                            "Alexa.CameraStreamController"
                                         ],
                                         "type": "string"
                                     },
@@ -9533,6 +9482,54 @@
                                 ],
                                 "type": "object",
                                 "properties": {
+                                    "interface": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
+                                        "type": "string"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "interface": {
+                                        "enum": [
+                                            "Alexa.MediaMetadata"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "enum": [
+                                            "3"
+                                        ],
+                                        "type": "string"
+                                    },
+                                    "type": {
+                                        "enum": [
+                                            "AlexaInterface"
+                                        ],
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "interface",
+                                    "type",
+                                    "version"
+                                ],
+                                "type": "object",
+                                "properties": {
                                     "type": {
                                         "type": "string"
                                     },
@@ -9579,8 +9576,8 @@
                                                     "properties": {
                                                         "name": {
                                                             "enum": [
-                                                                "requestedCookTime",
-                                                                "cookingPowerLevel"
+                                                                "holdStartTime",
+                                                                "holdEndTime"
                                                             ]
                                                         }
                                                     }
@@ -9611,7 +9608,7 @@
                                 "properties": {
                                     "interface": {
                                         "enum": [
-                                            "Alexa.Cooking.TimeController"
+                                            "Alexa.TimeHoldController"
                                         ],
                                         "type": "string"
                                     },
@@ -10373,71 +10370,6 @@
                     }
                 },
                 {
-                    "description": "A Response message for Alexa.Authorization",
-                    "type": "object",
-                    "required": [
-                        "event"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                        "context": {
-                            "$ref": "#/definitions/common/model.Context"
-                        },
-                        "event": {
-                            "type": "object",
-                            "required": [
-                                "header",
-                                "payload"
-                            ],
-                            "additionalProperties": false,
-                            "properties": {
-                                "header": {
-                                    "type": "object",
-                                    "required": [
-                                        "namespace",
-                                        "name",
-                                        "payloadVersion",
-                                        "messageId"
-                                    ],
-                                    "additionalProperties": false,
-                                    "properties": {
-                                        "namespace": {
-                                            "type": "string",
-                                            "enum": [
-                                                "Alexa.Authorization"
-                                            ]
-                                        },
-                                        "name": {
-                                            "type": "string",
-                                            "enum": [
-                                                "AcceptGrant.Response"
-                                            ]
-                                        },
-                                        "payloadVersion": {
-                                            "$ref": "#/definitions/common/model.PayloadVersion"
-                                        },
-                                        "messageId": {
-                                            "$ref": "#/definitions/common/model.MessageId"
-                                        },
-                                        "correlationToken": {
-                                            "$ref": "#/definitions/common/model.CorrelationToken"
-                                        }
-                                    }
-                                },
-                                "endpoint": {
-                                    "$ref": "#/definitions/common/model.Endpoint"
-                                },
-                                "payload": {
-                                    "type": "object",
-                                    "additionalProperties": false,
-                                    "properties": {},
-                                    "maxProperties": 0
-                                }
-                            }
-                        }
-                    }
-                },
-                {
                     "description": "A Response message for Alexa.CameraStreamController",
                     "type": "object",
                     "required": [
@@ -10588,6 +10520,71 @@
                                             "maxLength": 2147483647
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "description": "A Response message for Alexa.Authorization",
+                    "type": "object",
+                    "required": [
+                        "event"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "context": {
+                            "$ref": "#/definitions/common/model.Context"
+                        },
+                        "event": {
+                            "type": "object",
+                            "required": [
+                                "header",
+                                "payload"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "header": {
+                                    "type": "object",
+                                    "required": [
+                                        "namespace",
+                                        "name",
+                                        "payloadVersion",
+                                        "messageId"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "namespace": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Alexa.Authorization"
+                                            ]
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "enum": [
+                                                "AcceptGrant.Response"
+                                            ]
+                                        },
+                                        "payloadVersion": {
+                                            "$ref": "#/definitions/common/model.PayloadVersion"
+                                        },
+                                        "messageId": {
+                                            "$ref": "#/definitions/common/model.MessageId"
+                                        },
+                                        "correlationToken": {
+                                            "$ref": "#/definitions/common/model.CorrelationToken"
+                                        }
+                                    }
+                                },
+                                "endpoint": {
+                                    "$ref": "#/definitions/common/model.Endpoint"
+                                },
+                                "payload": {
+                                    "type": "object",
+                                    "additionalProperties": false,
+                                    "properties": {},
+                                    "maxProperties": 0
                                 }
                             }
                         }
@@ -11436,6 +11433,63 @@
                                                 }
                                             },
                                             "additionalProperties": false
+                                        },
+                                        {
+                                            "required": [
+                                                "message",
+                                                "type"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "PARTNER_OUTAGE"
+                                                    ]
+                                                },
+                                                "message": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        {
+                                            "required": [
+                                                "message",
+                                                "type"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "HDMI_CEC_NOT_PRESENT"
+                                                    ]
+                                                },
+                                                "message": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false
+                                        },
+                                        {
+                                            "required": [
+                                                "message",
+                                                "type"
+                                            ],
+                                            "type": "object",
+                                            "properties": {
+                                                "type": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "HDMI_CEC_DISABLED_ON_DEVICE"
+                                                    ]
+                                                },
+                                                "message": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "additionalProperties": false
                                         }
                                     ]
                                 }
@@ -11777,81 +11831,6 @@
                     }
                 },
                 {
-                    "description": "An ErrorResponse message for Alexa.Authorization",
-                    "type": "object",
-                    "required": [
-                        "event"
-                    ],
-                    "additionalProperties": false,
-                    "properties": {
-                        "event": {
-                            "type": "object",
-                            "required": [
-                                "header",
-                                "payload"
-                            ],
-                            "additionalProperties": false,
-                            "properties": {
-                                "header": {
-                                    "type": "object",
-                                    "required": [
-                                        "namespace",
-                                        "name",
-                                        "payloadVersion",
-                                        "messageId"
-                                    ],
-                                    "additionalProperties": false,
-                                    "properties": {
-                                        "namespace": {
-                                            "type": "string",
-                                            "enum": [
-                                                "Alexa.Authorization"
-                                            ]
-                                        },
-                                        "name": {
-                                            "type": "string",
-                                            "enum": [
-                                                "ErrorResponse"
-                                            ]
-                                        },
-                                        "payloadVersion": {
-                                            "$ref": "#/definitions/common/model.PayloadVersion"
-                                        },
-                                        "messageId": {
-                                            "$ref": "#/definitions/common/model.MessageId"
-                                        },
-                                        "correlationToken": {
-                                            "$ref": "#/definitions/common/model.CorrelationToken"
-                                        }
-                                    }
-                                },
-                                "endpoint": {
-                                    "$ref": "#/definitions/common/model.Endpoint"
-                                },
-                                "payload": {
-                                    "additionalProperties": false,
-                                    "required": [
-                                        "message",
-                                        "type"
-                                    ],
-                                    "type": "object",
-                                    "properties": {
-                                        "message": {
-                                            "type": "string"
-                                        },
-                                        "type": {
-                                            "enum": [
-                                                "ACCEPT_GRANT_FAILED"
-                                            ],
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                },
-                {
                     "description": "An ErrorResponse message for Alexa.Cooking",
                     "type": "object",
                     "required": [
@@ -11956,6 +11935,81 @@
                                         }
                                     ],
                                     "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                {
+                    "description": "An ErrorResponse message for Alexa.Authorization",
+                    "type": "object",
+                    "required": [
+                        "event"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "event": {
+                            "type": "object",
+                            "required": [
+                                "header",
+                                "payload"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "header": {
+                                    "type": "object",
+                                    "required": [
+                                        "namespace",
+                                        "name",
+                                        "payloadVersion",
+                                        "messageId"
+                                    ],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "namespace": {
+                                            "type": "string",
+                                            "enum": [
+                                                "Alexa.Authorization"
+                                            ]
+                                        },
+                                        "name": {
+                                            "type": "string",
+                                            "enum": [
+                                                "ErrorResponse"
+                                            ]
+                                        },
+                                        "payloadVersion": {
+                                            "$ref": "#/definitions/common/model.PayloadVersion"
+                                        },
+                                        "messageId": {
+                                            "$ref": "#/definitions/common/model.MessageId"
+                                        },
+                                        "correlationToken": {
+                                            "$ref": "#/definitions/common/model.CorrelationToken"
+                                        }
+                                    }
+                                },
+                                "endpoint": {
+                                    "$ref": "#/definitions/common/model.Endpoint"
+                                },
+                                "payload": {
+                                    "additionalProperties": false,
+                                    "required": [
+                                        "message",
+                                        "type"
+                                    ],
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "type": {
+                                            "enum": [
+                                                "ACCEPT_GRANT_FAILED"
+                                            ],
+                                            "type": "string"
+                                        }
+                                    }
                                 }
                             }
                         }
