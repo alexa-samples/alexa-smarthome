@@ -1,0 +1,35 @@
+POST /v3/events HTTP/1.1
+Host: api.amazonalexa.com
+Authorization: Bearer access-token-from-Amazon
+Content-Type: application/json
+
+{
+  "event": {
+    "header": {
+      "namespace": "Alexa",
+      "name": "Response",
+      "messageId": "2e2c312f-20c3-44ff-cc91-23bb133e5553",
+      "correlationToken": "dFMb0z+PgpgdDmluhJ1LddFvSqZ/jCc8ptlAKulUj90jSqg==",
+      "payloadVersion": "3"
+    },
+    "endpoint": {
+      "scope": {
+        "type": "BearerToken",
+        "token": "access-token-from-Amazon"
+      },
+      "endpointId": "endpoint-010"
+    },
+    "payload": {}
+  },
+  "context": {
+    "properties": [
+      {
+        "namespace": "Alexa.PowerController",
+        "name": "powerState",
+        "value": "ON",
+        "timeOfSample": "2020-06-15T01:59:50.52Z",
+        "uncertaintyInMilliseconds": 500
+      }
+    ]
+  }
+}
