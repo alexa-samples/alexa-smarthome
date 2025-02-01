@@ -639,7 +639,6 @@ def get_capabilities_from_v2_appliance(appliance):
                 "interface": "Alexa.SceneController",
                 "version": "3",
                 "supportsDeactivation": False,
-                "proactivelyReported": True
             }
         ]
     elif model_name == "Smart Activity":
@@ -649,7 +648,6 @@ def get_capabilities_from_v2_appliance(appliance):
                 "interface": "Alexa.SceneController",
                 "version": "3",
                 "supportsDeactivation": True,
-                "proactivelyReported": True
             }
         ]
     elif model_name == "Smart Camera":
