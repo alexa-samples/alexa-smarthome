@@ -3492,6 +3492,95 @@
                                 "required": [
                                     "interface",
                                     "type",
+                                    "version",
+                                    "configuration",
+                                ],
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "pattern": "^[ a-zA-Z0-9_\\-=#;:?@&]+$",
+                                        "type": "string"
+                                    },
+                                    "interface": {
+                                        "type": "string"
+                                    },
+                                    "version": {
+                                        "oneOf": [
+                                            {
+                                                "type": "string"
+                                            },
+                                            {
+                                                "type": "number"
+                                            }
+                                        ]
+                                    },
+                                    "configuration": {
+                                        "type": "object",
+                                        "required": [
+                                           "MACAddresses",
+                                        ],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "MACAddresses": {
+                                                "type": "array",
+                                                "minItems": 1,
+                                                "uniqueItems": true,
+                                                "items": {
+                                                    "pattern": "^[0-9A-Fa-f:]+$",
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "properties": {
+                                        "type": "object",
+                                        "additionalProperties": false
+                                    }
+                                }
+                            },
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "enum": [
+                                            "AlexaInterface"
+                                        ]
+                                    },
+                                    "interface": {
+                                        "type": "string",
+                                        "enum": [
+                                            "Alexa.WakeOnLANController"
+                                        ]
+                                    },
+                                    "version": {
+                                        "oneOf": [
+                                            {
+                                                "type": "string",
+                                                "enum": [
+                                                    "3"
+                                                ]
+                                            },
+                                            {
+                                                "type": "integer",
+                                                "format": "int32",
+                                                "enum": [
+                                                    3
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "object",
+                        "allOf": [
+                            {
+                                "required": [
+                                    "interface",
+                                    "type",
                                     "version"
                                 ],
                                 "type": "object",
@@ -12113,6 +12202,86 @@
                                     },
                                     "additionalProperties": false
                                 }
+                            },
+                            "additionalProperties": false
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "description": "A WakeUp event for Alexa event gateway",
+            "type": "object",
+            "required": [
+                "event"
+            ],
+            "additionalProperties": false,
+            "properties": {
+                "context": {
+                    "$ref": "#/definitions/common/model.Context"
+                },
+                "event": {
+                    "type": "object",
+                    "required": [
+                        "header",
+                        "endpoint",
+                        "payload"
+                    ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "header": {
+                            "type": "object",
+                            "required": [
+                                "namespace",
+                                "name",
+                                "payloadVersion",
+                                "messageId",
+                                "correlationalToken"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "namespace": {
+                                    "type": "string",
+                                    "enum": [
+                                        "Alexa.WakeOnLANController"
+                                    ]
+                                },
+                                "name": {
+                                    "type": "string",
+                                    "enum": [
+                                        "WakeUp"
+                                    ]
+                                },
+                                "payloadVersion": {
+                                    "$ref": "#/definitions/common/model.PayloadVersion"
+                                },
+                                "messageId": {
+                                    "$ref": "#/definitions/common/model.MessageId"
+                                },
+                                "correlationToken": {
+                                    "$ref": "#/definitions/common/model.CorrelationToken"
+                                }
+                            }
+                        },
+                        "endpoint": {
+                            "type": "object",
+                            "required": [
+                                "scope",
+                                "endpointId"
+                            ],
+                            "additionalProperties": false,
+                            "properties": {
+                                "scope": {
+                                    "$ref": "#/definitions/common/model.Scope"
+                                },
+                                "endpointId": {
+                                    "$ref": "#/definitions/common/model.EndpointId"
+                                }
+                            }
+                        },
+                        "payload": {
+                            "type": "object",
+                            "properties": {
                             },
                             "additionalProperties": false
                         }
